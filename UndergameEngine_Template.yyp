@@ -863,7 +863,6 @@
     {"id":{"name":"battle_soul_yellow_aqua","path":"objects/battle_soul_yellow_aqua/battle_soul_yellow_aqua.yy",},},
     {"id":{"name":"input_profile_get_array","path":"scripts/input_profile_get_array/input_profile_get_array.yy",},},
     {"id":{"name":"Item_SetArmor","path":"scripts/Item_SetArmor/Item_SetArmor.yy",},},
-    {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},},
     {"id":{"name":"input_binding_remove","path":"scripts/input_binding_remove/input_binding_remove.yy",},},
     {"id":{"name":"Item_GetWeapon","path":"scripts/Item_GetWeapon/Item_GetWeapon.yy",},},
     {"id":{"name":"Player_HurtKR","path":"scripts/Player_HurtKR/Player_HurtKR.yy",},},

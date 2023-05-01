@@ -743,7 +743,6 @@
     {"name":"battle_soul_yellow_aqua","order":1,"path":"objects/battle_soul_yellow_aqua/battle_soul_yellow_aqua.yy",},
     {"name":"input_profile_get_array","order":5,"path":"scripts/input_profile_get_array/input_profile_get_array.yy",},
     {"name":"Item_SetArmor","order":14,"path":"scripts/Item_SetArmor/Item_SetArmor.yy",},
-    {"name":"Note1","order":15,"path":"notes/Note1/Note1.yy",},
     {"name":"input_binding_remove","order":8,"path":"scripts/input_binding_remove/input_binding_remove.yy",},
     {"name":"Item_GetWeapon","order":15,"path":"scripts/Item_GetWeapon/Item_GetWeapon.yy",},
     {"name":"Player_HurtKR","order":36,"path":"scripts/Player_HurtKR/Player_HurtKR.yy",},

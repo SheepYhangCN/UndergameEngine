@@ -1,2 +1,0 @@
-等Scribble支援font_add();
-我一定把字体全部外置（恼
