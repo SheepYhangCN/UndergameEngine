@@ -1,5 +1,6 @@
 fader.alpha=0
 temp=0
+audio_stop_sound(bgm_sansdate)
 audio_play_sound(bgm_sansdate,0,1)
 global.passed[BATTLE.SANS_CORE]=true
 ini_open(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")

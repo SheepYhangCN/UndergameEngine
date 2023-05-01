@@ -13,6 +13,6 @@ typer.text+="{scale 4}Warmtale&{scale 3}Warma Fight Phase 1&{scale 2}Made By She
 typer1=instance_create_depth(180,440,0,text_typer)
 typer1.text="{scale 2}{instant true}{color `gray`}[Press Z or Enter]"}
 if(IsChs()){
-typer.text+="{scale 3}温暖传说Warmtale&{scale 3}沃玛战 第1阶段&{scale 2}By 憨憨羊の宇航鸽鸽&AU By TH-跳、夏诺叶、--地狱拖拉机-&文本By TH-跳、憨憨羊の宇航鸽鸽&沃玛贴图By --地狱拖拉机-&战斗用曲 By 洛白Loris"
+typer.text+="{scale 4}Warmtale&{scale 3}沃玛战 第1阶段&{scale 2}By 憨憨羊の宇航鸽鸽&AU By TH-跳、夏诺叶、--地狱拖拉机-&文本By TH-跳、憨憨羊の宇航鸽鸽&沃玛贴图By --地狱拖拉机-&战斗用曲 By 洛白Loris"
 typer1=instance_create_depth(200,440,0,text_typer)
 typer1.text="{font 0}{scale 2}{instant true}{color `gray`}[按下 Z 或 Enter]"}
