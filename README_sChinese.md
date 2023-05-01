@@ -6,7 +6,7 @@
 # UndergameEngine
 当前分支：**主分支（main）**
 <br>
-你可以切换至**模板分支（template）**来获取此开源模板
+你可以切换至**模板分支（template）** 来获取此开源模板
 <br><br>
 一个我的自制Undertale同人游戏的合集
 <br>
