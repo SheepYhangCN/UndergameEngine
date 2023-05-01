@@ -1,3 +1,2 @@
-if(IsEng()){Battle_SetMenuDialog("* How long...did we gone.")}
-if(IsChs()){Battle_SetMenuDialog("* 我们...究竟走了多远。")}
+Battle_SetMenuDialog("* ...")
 event_inherited();
