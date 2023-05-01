@@ -1,0 +1,42 @@
+switch(Battle_GetMenuChoiceButton()){
+	case 1:
+		switch(Battle_GetMenuChoiceAction()){
+			case 0:
+			if(Battle_GetTurnNumber()=16){
+			if(IsEng()){
+			Dialog_Add("* Warma{sleep 15}&* An angel which facing world&  with honest and kindness.");}
+			if(IsChs()){
+			Dialog_Add("* 沃玛{sleep 15}&* 以真心和善良面对着世界的天使");}
+			}else if(Battle_GetTurnNumber()>=13){
+			if(IsEng()){
+			Dialog_Add("* Warma - ATK 20 DEF 20{sleep 15}&* Angel with tears,&  hoping redeem demon.");}
+			if(IsChs()){
+			Dialog_Add("* 沃玛 - 攻击 20 防御 20{sleep 15}&* 落着泪的天使, 渴望救赎恶魔。");}
+			}else{
+			if(IsEng()){
+			Dialog_Add("* Warma - ATK 20 DEF 20{pause}{clear}* With the warm of whole world, {sleep 15}&  Vow to let everyone come back&  safely.");}
+			if(IsChs()){
+			Dialog_Add("* 沃玛 - 攻击 20 防御 20{pause}{clear}* 带着整个世界的温暖, {sleep 15}&  誓要让所有人平安的回来。");}
+			}
+			break;
+			case 1:
+			if(Battle_GetTurnNumber()>=12){
+			Dialog_Add("* ...")
+			}else{
+			var inst=instance_create_depth(420,120,0,battle_dialog_enemy)
+			Battle_SetEnemyActionNumber(_enemy_slot,1);
+			Battle_SetEnemyActionName(_enemy_slot,1,"")
+			Battle_SetEnemyActionInfo(_enemy_slot,1,"")
+			Battle_SetEnemyActionName(_enemy_slot,2,"")
+			Battle_SetEnemyActionInfo(_enemy_slot,2,"")
+			if(IsEng()){
+			inst.text="{skippable false}{sleep 30}?{audio_play `snd_hurt`}{black_cut 10}{alarm `battle_enemy_warma` 3 10}"
+			Dialog_Add("* You laughed at Warma is flat-chested.{sleep 15}&* She didn't respond.")}
+			if(IsChs()){
+			inst.text="{skippable false}{sleep 30}6{audio_play `snd_hurt`}{black_cut 10}{alarm `battle_enemy_warma` 3 10}"
+			Dialog_Add("* 你嘲笑沃玛是平胸。{sleep 15}&* 她没鸟你。")}}
+			break
+			case 2:
+			Player_Heal(999999999)
+			break
+}}

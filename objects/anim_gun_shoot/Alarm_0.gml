@@ -1,0 +1,1 @@
+alarm[1]=(wait<=15 ? 1 : wait-15)

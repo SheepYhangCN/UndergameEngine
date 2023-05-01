@@ -1,0 +1,15 @@
+var gap=random_range(-20,5)
+var a=Battle_MakeBoneTop(320-125,40-gap,0,0,0,0,1)
+Anim_Create(a,"x",0,0,320-125,20,20)
+Anim_Create(a,"hspeed",0,0,2,2,1,90)
+var a=Battle_MakeBoneTop(320+125,40-gap,0,0,0,0,1)
+Anim_Create(a,"x",0,0,320+125,-20,20)
+Anim_Create(a,"hspeed",0,0,-2,-2,1,90)
+
+var a=Battle_MakeBoneBottom(320-125,40+gap,0,0,0,0,1)
+Anim_Create(a,"x",0,0,320-125,20,20)
+Anim_Create(a,"hspeed",0,0,2,2,1,90)
+var a=Battle_MakeBoneBottom(320+125,40+gap,0,0,0,0,1)
+Anim_Create(a,"x",0,0,320+125,-20,20)
+Anim_Create(a,"hspeed",0,0,-2,-2,1,90)
+alarm[2]=90

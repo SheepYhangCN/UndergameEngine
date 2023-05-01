@@ -1,0 +1,1 @@
+draw_sprite_ext(spr_miku,spr,room_width/2+random_range(-25,25),room_height/5*2+random_range(-25,25),0.5,0.5,0,c_white,1)

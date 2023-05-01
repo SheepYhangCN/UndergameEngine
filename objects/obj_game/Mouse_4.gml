@@ -1,0 +1,1 @@
+if(selected&&!(obj_game_selection.changing)){event_user(0)}

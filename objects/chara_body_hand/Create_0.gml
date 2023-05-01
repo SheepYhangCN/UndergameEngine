@@ -1,0 +1,13 @@
+x=battle_enemy_ulb_nmd_p1.charabodyx
+y=battle_enemy_ulb_nmd_p1.charabodyy
+image_alpha=battle_enemy_ulb_nmd_p1.charaalpha
+depth=battle_enemy_ulb_nmd_p1.depth-1
+image_xscale=2
+image_yscale=2
+image_speed=0
+battle_enemy_ulb_nmd_p1.chara_body=3
+wait=0
+draw=true
+sub=0
+count=0
+alarm[0]=1

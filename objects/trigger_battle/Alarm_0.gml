@@ -1,0 +1,1 @@
+Encounter_Start(target_battle,true,anim)

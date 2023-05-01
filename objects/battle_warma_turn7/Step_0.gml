@@ -1,0 +1,1 @@
+with(battle_board_cover){if(x<0||x>640){instance_destroy()}}

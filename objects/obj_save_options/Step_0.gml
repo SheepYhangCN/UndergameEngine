@@ -1,0 +1,69 @@
+if(Input_IsPressed(INPUT.UP)&&choice>1){
+ok=false
+choice-=1
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.DOWN)&&choice<5){
+ok=false
+choice+=1
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.LEFT)&&select>0&&(choice=2||choice=3)){
+ok=false
+select-=1
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.RIGHT)&&select<9&&(choice=2||choice=3)){
+ok=false
+select+=1
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.LEFT)&&Flag_GetSaveSlot()>0&&choice=1){
+ok=false
+Flag_SetSaveSlot(Flag_GetSaveSlot()-1)
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.RIGHT)&&Flag_GetSaveSlot()<9&&choice=1){
+ok=false
+Flag_SetSaveSlot(Flag_GetSaveSlot()+1)
+audio_play_sound(snd_menu_switch,0,0)
+}
+if(Input_IsPressed(INPUT.CANCEL)&&ok){ok=false}
+if(Input_IsPressed(INPUT.CONFIRM)){
+if(choice=5){room_goto(room_menu)}
+if!((choice=2&&Flag_GetSaveSlot()=select)||(choice=3&&Flag_GetSaveSlot()=select)||(choice=2&&!file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&!directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot())))||(choice=3&&!file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&!directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot())))||(choice=4&&!file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&!directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot())))){
+if((!file_exists(working_directory+"/file"+string(select)+".ini")&&!directory_exists(working_directory+"/flag/"+string(select)))||ok){
+if(choice=2||choice=3){
+	if(directory_exists(working_directory+"/flag/"+string(select))){directory_destroy(working_directory+"/flag/"+string(select))}
+	directory_create(working_directory+"/flag/"+string(select))
+	if(file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")){file_copy(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini",working_directory+"/file"+string(select)+".ini")}
+	if(file_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot())+"/info")){file_copy(working_directory+"/flag/"+string(Flag_GetSaveSlot())+"/info",working_directory+"/flag/"+string(select)+"/info")}
+	if(file_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot())+"/static")){file_copy(working_directory+"/flag/"+string(Flag_GetSaveSlot())+"/static",working_directory+"/flag/"+string(select)+"/static")}
+	}
+if(choice=3||choice=4){
+	if(file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")){file_delete(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")}
+	if(directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){directory_destroy(working_directory+"/flag/"+string(Flag_GetSaveSlot()))}
+	slot_previous=Flag_GetSaveSlot()
+	if(choice=3){
+	Flag_SetSaveSlot(select)}
+	}
+	if(choice=2||choice=3||choice=4){
+	audio_play_sound(snd_save,0,0)
+	finish=120
+	choice_previous=choice
+	select_previous=select
+	ok=false}
+	}else if(choice!=1){
+		audio_play_sound(snd_menu_confirm,0,0)
+		ok=true
+		}
+		}else{audio_play_sound(snd_menu_cancel,0,0)}
+}
+
+event_user(0)
+
+if(IsEng()){
+window_set_caption(GAME_NAME+" - Save Options")
+}else if(IsChs()){
+window_set_caption(GAME_NAME+" - 存档选项")
+}

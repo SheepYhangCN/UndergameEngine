@@ -1,0 +1,1 @@
+if(Input_IsPressed(INPUT.CONFIRM)){event_user(0)}

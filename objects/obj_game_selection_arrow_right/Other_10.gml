@@ -1,0 +1,24 @@
+with(obj_game_selection){
+if(choice+1<=choice_max){
+	if(!starting){
+	phase=0
+	choice+=1
+	audio_play_sound(snd_menu_confirm,0,0)
+	changing=true
+	gameobj_previous=gameobj
+	Anim_Create(gameobj_previous,"x",0,0,320,-280,15)
+	Anim_Create(gameobj_previous,"image_alpha",0,0,1,-1,15)
+	Anim_Create(gameobj_previous,"image_xscale",0,0,1,-1,15)
+	Anim_Create(gameobj_previous,"image_yscale",0,0,1,-1,15)
+	gameobj=instance_create_depth(40,200,depth,obj_game)
+	gameobj.image_alpha=0
+	Anim_Create(gameobj,"x",0,0,600,-280,15)
+	Anim_Create(gameobj,"image_alpha",0,0,0,1,15)
+	Anim_Create(gameobj,"image_xscale",0,0,0,1,15)
+	Anim_Create(gameobj,"image_yscale",0,0,0,1,15)
+	alarm[1]=-1
+	alarm[1]=16
+	}}else{
+	audio_play_sound(snd_hurt,0,0)
+	}
+}

@@ -1,0 +1,15 @@
+if(!(obj_game_selection.starting)&&image_alpha=1){
+if(obj_game_selection.enabled){
+selected=true
+obj_game_selection.starting=true
+audio_play_sound(snd_save,0,0)
+fader.color=c_black
+Fader_Fade(0,1,40)
+audio_sound_gain(bgm_sansdate,0,40/60*1000)
+camera.target=id
+Anim_Create(camera,"scale_x",ANIM_TWEEN.SINE,ANIM_EASE.OUT,1,1.25,30)
+Anim_Create(camera,"scale_y",ANIM_TWEEN.SINE,ANIM_EASE.OUT,1,1.25,30)
+obj_game_selection.alarm[0]=50
+}else{
+audio_play_sound(snd_hurt,0,0)
+}}

@@ -1,0 +1,1 @@
+if(draw){draw_sprite_ext(spr_nmdc_spin_knife,sub,x,y,2,2,0,c_white,image_alpha)}else{draw_self()}

@@ -1,0 +1,9 @@
+with(obj_game_selection){
+if(phase+1<=phases){
+	if(!starting){
+	phase+=1
+	audio_play_sound(snd_menu_confirm,0,0)
+	}}else{
+	audio_play_sound(snd_hurt,0,0)
+	}
+}
