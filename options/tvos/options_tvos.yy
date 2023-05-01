@@ -11,7 +11,7 @@
   "option_tvos_icon_400_2x": "${base_options_dir}/tvos/icons/400_2x.png",
   "option_tvos_interpolate_pixels": true,
   "option_tvos_min_version": "10.0",
-  "option_tvos_output_dir": "~/GameMakerStudio2/tvOS",
+  "option_tvos_output_dir": "~/UndergameEngine/tvOS",
   "option_tvos_podfile_lock_path": "${options_dir}\\tvos\\Podfile.lock",
   "option_tvos_podfile_path": "${options_dir}\\tvos\\Podfile",
   "option_tvos_scale": 0,
