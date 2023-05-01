@@ -1,0 +1,24 @@
+var STATUS=Battle_GetState();
+var MENU=Battle_GetMenu();
+if(STATUS==BATTLE_STATE.MENU && MENU!=BATTLE_MENU.FIGHT_AIM && MENU!=BATTLE_MENU.FIGHT_ANIM && MENU!=BATTLE_MENU.FIGHT_DAMAGE){
+	if(Battle_GetMenuChoiceButton()==_button_slot){
+		if(IsEng()){
+		image_index=1;
+		}else if(IsChs()){
+		image_index=3}
+		if(MENU==BATTLE_MENU.BUTTON){
+			battle_soul.x=x-38.5
+			battle_soul.y=y
+		}
+	}else{
+	if(IsEng()){
+	image_index=0;
+	}else if(IsChs()){
+	image_index=2}
+	}
+}else{
+	if(IsEng()){
+	image_index=0;
+	}else if(IsChs()){
+	image_index=2}
+}

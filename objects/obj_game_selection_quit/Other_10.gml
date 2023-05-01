@@ -1,0 +1,10 @@
+if(!(obj_game_selection.starting)&&image_alpha=1){
+selected=true
+obj_game_selection.starting=true
+obj_game_selection.quit=true
+audio_play_sound(snd_menu_confirm,0,0)
+fader.color=c_black
+Fader_Fade(0,1,40)
+audio_sound_gain(bgm_sansdate,0,40/60*1000)
+obj_game_selection.alarm[0]=50
+}

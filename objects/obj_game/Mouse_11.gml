@@ -1,0 +1,1 @@
+if(!(obj_game_selection.starting)&&!(obj_game_selection.changing)){selected=false}

@@ -1,0 +1,14 @@
+event_inherited();
+depth=DEPTH_BATTLE.BOARD-2
+type=0
+warning_time=60
+knife_time=10
+width=10
+/*if(global.mode=GAME_MODE.NORMAL){
+hit_damage=5}
+if(global.mode=GAME_MODE.EASY){
+hit_damage=4}
+if(global.mode=GAME_MODE.HARD){
+hit_damage=6}*/
+hit_damage=Battle_GetDamage()
+audio_play_sound(snd_dtknife_warning,0,0)

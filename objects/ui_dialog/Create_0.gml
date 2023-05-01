@@ -1,0 +1,24 @@
+//depth=DEPTH_UI.PANEL;
+depth=DEPTH_UI.FADER-1
+if(instance_exists(char_player)){
+	_top=(char_player.y-camera.y>130+char_player.sprite_height);
+	char_player._moveable_dialog=false;
+}else{
+	_top=false;
+}
+_inst=noone;
+_show_name=false
+_name=""
+_font=font_dialog
+_choice=0
+_choice1=""
+_choice2=""
+_choice3=""
+_choice4=""
+_choice5=""
+_choice_select=1
+temp=0
+length=0
+height=0
+souly=0
+scale=2
