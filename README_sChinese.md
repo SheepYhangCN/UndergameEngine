@@ -15,7 +15,8 @@
 <br>
 Gamejolt页面：
 https://gamejolt.com/games/Undergame-Engine/783903
-
+<br><br>
+修改项目内的宏LOCK_LANGUAGE为相应的语言可以把游戏语言锁定
 # Debug使用方法
 Insert 开关调试模式
 <br>

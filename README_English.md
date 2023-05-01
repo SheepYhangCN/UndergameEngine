@@ -15,7 +15,8 @@ Use the latest release version of GameMaker to open yyp file
 <br>
 Gamejolt page:
 https://gamejolt.com/games/Undergame-Engine/783903
-
+<br><br>
+Edit the macro LOCK_LANGUAGE in the project to corresponding language can lock the language
 # How 2 use Debug
 Insert Switch Debug
 <br>
