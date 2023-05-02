@@ -228,7 +228,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bgm_thinking.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bgm_ulb_nmd.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bgm_warma.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bgm_warma1.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bgm_yuhang.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"loop_rain.ogg","CopyToMask":-1,"filePath":"datafiles/Music",},
   ],

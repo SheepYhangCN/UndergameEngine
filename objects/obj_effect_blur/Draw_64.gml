@@ -1,3 +1,5 @@
+if(!surface_exists(surf)){surf = surface_create(surface_width, surface_height)}
+if(!surface_exists(final_surface)){final_surface = application_surface}
 surface_set_target(final_surface)
 shader_set(shd_gaussian_horizontal)
 shader_set_uniform_f(uni_resolution_hoz, var_resolution_x, var_resolution_y)
