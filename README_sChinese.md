@@ -137,7 +137,7 @@ GB炮生成脚本(Battle_MakeBlaster)By 憨憨羊の宇航鸽鸽 修改基于复
 # Bullet生成函数使用方法
 （obj=object=物体，spr=sprite=精灵图）
 <br>
-（斜体为可选参数）
+（带星号为可选参数）
 ## 板子
 Battle_MakePlatform(x,y,\*obj,\*粘性,\*宽度,\*角度,\*水平速度,\*纵向速度,\*遇到框边缘回弹,\*离开房间是否自动摧毁)
 ## 单骨头
