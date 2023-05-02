@@ -7,9 +7,4 @@ if(Input_IsPressed(INPUT.CONFIRM)){
 	room_goto(room_settings)
 }*/
 
-if(IsChs()){
-window_set_caption("温暖传说 - Warmtale")
-}
-if(IsEng()){
 window_set_caption("Warmtale")
-}
