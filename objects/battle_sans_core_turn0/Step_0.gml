@@ -241,6 +241,8 @@ case 7920:
 	Battle_SetSoul(battle_soul_red)
 	break
 case 8400:
+	roundboard=Battle_CreateBoardExtraRoundrect(320,320,128,0)
+	Battle_SetBoardSize(32,32,32,32,1)
 	alarm[0]=-1
 	alarm[1]=-1
 	alarm[6]=30
@@ -248,8 +250,6 @@ case 8400:
 	break
 case 8700:
 	alarm[6]=-1
-	roundboard=Battle_CreateBoardExtraRoundrect(320,320,128,0)
-	Battle_SetBoardSize(32,32,32,32,1)
 	Anim_Create(roundboard,"precision",0,0,0,64,20)
 	break
 case 8730:
