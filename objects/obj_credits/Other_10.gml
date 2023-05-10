@@ -42,7 +42,7 @@ dialog3=instance_create_depth(450,20,0,text_typer)
 dialog3.text="{scale 2}{instant true}<Page "+string(page+1)+"/4{color `gray`}>"
 }else if(IsChs()){
 dialog1=instance_create_depth(80,60,0,text_typer)
-dialog1.text="{font 1}{scale 2}{speed 1}{instant true}特别感谢&&Cxx_w&Obbligato_Mayse&拼图方块&LiarOnce&星云Official"
+dialog1.text="{font 1}{scale 2}{speed 1}{instant true}特别感谢&&Cxx_w&Obbligato_Mayse&拼图方块&LiarOnce&星云uwu"
 dialog3=instance_create_depth(480,20,0,text_typer)
 dialog3.text="{scale 2}{instant true}<第"+string(page+1)+"/4页{color `gray`}>"
 }}
