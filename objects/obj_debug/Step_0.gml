@@ -6,27 +6,28 @@ if(keyboard_check_pressed(vk_insert)){
 	}
 }
 
-if(global.debug = 1){
+if(global.debug){
 	show_debug_overlay(true);
 	if(!instance_exists(obj_console)){
 	instance_create_depth(0,0,depth-1,obj_console)}
 	if(keyboard_check_pressed(vk_end)){
+	outing=!outing}
+	if(outing){
 	if(instance_exists(char_player)){
 	with(block){
 	if(object_index=block||object_index=block_corner){
-	visible=!visible}}
+	visible=true}}
 	with(trigger){
-	visible=!visible}
+	visible=true}
 	with(hint_landmark){
-	visible=!visible}}
+	visible=true}}
 	if(Player_IsInBattle()){
 	with(battle_bullet){
 	if(variable_instance_exists(self,"out")){
-	out=!out}
+	out=true}
 	if(variable_instance_exists(self,"outside")){
-	outside=!outside}
-	}
-	}}
+	outside=true}
+	}}}
 	if(keyboard_check_pressed(vk_f12)){
 	if(global.mode=GAME_MODE.NORMAL){
 		global.mode=GAME_MODE.EASY;
