@@ -6,27 +6,28 @@ if(keyboard_check_pressed(vk_insert)){
 	}
 }
 
-if(global.debug = 1){
+if(global.debug){
 	show_debug_overlay(true);
 	if(!instance_exists(obj_console)){
 	instance_create_depth(0,0,depth-1,obj_console)}
 	if(keyboard_check_pressed(vk_end)){
+	outing=!outing}
+	if(outing){
 	if(instance_exists(char_player)){
 	with(block){
 	if(object_index=block||object_index=block_corner){
-	visible=!visible}}
+	visible=true}}
 	with(trigger){
-	visible=!visible}
+	visible=true}
 	with(hint_landmark){
-	visible=!visible}}
+	visible=true}}
 	if(Player_IsInBattle()){
 	with(battle_bullet){
 	if(variable_instance_exists(self,"out")){
-	out=!out}
+	out=true}
 	if(variable_instance_exists(self,"outside")){
-	outside=!outside}
-	}
-	}}
+	outside=true}
+	}}}
 	if(keyboard_check_pressed(vk_f12)){
 	if(global.mode=GAME_MODE.NORMAL){
 		global.mode=GAME_MODE.EASY;
@@ -115,16 +116,40 @@ if(keyboard_check_pressed(vk_space)){
 if(Player_IsInBattle()){
 	if(instance_exists(battle_soul_blue)||instance_exists(battle_soul_blue_aqua)){
 	if(keyboard_check_pressed(ord("W"))){
+		if(instance_exists(battle_enemy_ulb_nmd_p1)){
+			BlueSoulControl_ULBxNMD(DIR.UP)
+		}else if(instance_exists(battle_enemy_warma)){
+			BlueSoulControl_Warma(DIR.UP)
+		}else{
 			BlueSoulControl(DIR.UP)
+		}
 	}
 	if(keyboard_check_pressed(ord("A"))){
+		if(instance_exists(battle_enemy_ulb_nmd_p1)){
+			BlueSoulControl_ULBxNMD(DIR.LEFT)
+		}else if(instance_exists(battle_enemy_warma)){
+			BlueSoulControl_Warma(DIR.LEFT)
+		}else{
 			BlueSoulControl(DIR.LEFT)
+		}
 	}
 	if(keyboard_check_pressed(ord("S"))){
+		if(instance_exists(battle_enemy_ulb_nmd_p1)){
+			BlueSoulControl_ULBxNMD(DIR.DOWN)
+		}else if(instance_exists(battle_enemy_warma)){
+			BlueSoulControl_Warma(DIR.DOWN)
+		}else{
 			BlueSoulControl(DIR.DOWN)
+		}
 	}
 	if(keyboard_check_pressed(ord("D"))){
+		if(instance_exists(battle_enemy_ulb_nmd_p1)){
+			BlueSoulControl_ULBxNMD(DIR.RIGHT)
+		}else if(instance_exists(battle_enemy_warma)){
+			BlueSoulControl_Warma(DIR.RIGHT)
+		}else{
 			BlueSoulControl(DIR.RIGHT)
+		}
 	}}
 	if(keyboard_check_pressed(vk_delete)){
 		warp_battle_turn=get_integer("Battle_SetTurnNumber", Battle_GetTurnNumber())
