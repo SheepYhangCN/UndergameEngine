@@ -1,7 +1,6 @@
 ///@arg enabled
 function Border_SetEnabled() {
 	var ENABLED=argument[0];
-
 	if(ENABLED){
 		window_set_size(960,540);
 		border._enabled=true;
@@ -18,6 +17,7 @@ function Border_SetEnabled() {
 			border._sprite_previous=-1;
 		}
 	}
+	if(!window_get_fullscreen()){window_center();}
 	return true;
 
 
