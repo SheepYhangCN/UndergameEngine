@@ -11,7 +11,8 @@ shop_item[3] = noone;
 buy_before_text = noone;
 //buy_choice_text = noone;
 buy_after_text = noone;
-buy_false_text = noone;
+buy_false_text_0 = noone;
+buy_false_text_1 = noone;
 
 sold_available = false;
 sold_before_text = noone;
