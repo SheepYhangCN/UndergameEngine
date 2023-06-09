@@ -7,7 +7,4 @@ choice=0
 screen=0
 temp=0
 temp1=0
-if(IsEng()){
-inst.text=_prefix+"Return&Back to Menu&Quit Game"}
-if(IsChs()){
-inst.text=_prefix+"{font 0}返回&回到菜单&退出游戏"}
+inst.text=_prefix+GetString("str_ui_esc")

@@ -7,15 +7,8 @@ audio_play_sound(bgm_menu_spring_autumn,0,1)}
 if((current_month=12||current_month<=2)&&!audio_is_playing(bgm_menu_winter)){
 audio_play_sound(bgm_menu_winter,0,1)}
 page=0
-if(IsEng()){
 dialog=instance_create_depth(200,10,0,text_typer)
-dialog.text="{scale 3}{instant true}Credits"
-dialog2=instance_create_depth(120,415,0,text_typer)
-dialog2.text="{scale 2}{instant true}{color `gray`}{font 1}[Use arrow keys to swtich page]&[Press X or Shift to return]"
-}else if(IsChs()){
-dialog=instance_create_depth(200,10,0,text_typer)
-dialog.text="{scale 3}{instant true}鸣谢名单"
-dialog2=instance_create_depth(140,412,0,text_typer)
-dialog2.text="{scale 2}{instant true}{color `gray`}[使用方向键来翻页]&[按下 X 或 Shift 来返回]"
-}
+dialog.text=GetString("str_credits_title")
+dialog2=instance_create_depth(120+(IsChs() ? 20 : 0),415+(IsChs() ? -3 : 0),0,text_typer)
+dialog2.text=GetString("str_credits_hint")
 event_user(0)

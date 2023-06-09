@@ -5,12 +5,6 @@ a.image_yscale=1
 a.alarm[0]=-1
 a.alarm[1]=1
 
-if(IsEng()){
-window_set_caption(GAME_NAME+" - Credits")
-}else if(IsChs()){
-window_set_caption(GAME_NAME+" - 制作名单")
-}
-
 if(Input_IsPressed(INPUT.CANCEL)){
 room_goto(room_menu)}
 

@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Binding Creators",
-    "path": "folders/Input/Binding Creators.yy",
+    "name": "05  Binding Creators",
+    "path": "folders/Input/05  Binding Creators.yy",
   },
 }

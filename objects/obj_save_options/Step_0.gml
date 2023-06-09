@@ -61,9 +61,3 @@ if(choice=3||choice=4){
 }
 
 event_user(0)
-
-if(IsEng()){
-window_set_caption(GAME_NAME+" - Save Options")
-}else if(IsChs()){
-window_set_caption(GAME_NAME+" - 存档选项")
-}

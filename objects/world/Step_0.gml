@@ -36,8 +36,7 @@ if(keyboard_check_pressed(vk_f2)){
 }
 
 if(keyboard_check_pressed(vk_f1)){
-	if(IsEng()){window_set_caption("Restarting...")}
-	if(IsChs()){window_set_caption("重启中...")}
+	window_set_caption(GetString("str_restarting"))
 	game_restart();
 	//room_goto(room_restarting)
 }
@@ -68,11 +67,9 @@ if(keyboard_check_pressed(ord("E"))){
 	global.vape=!global.vape
 	audio_play_sound(snd_save,0,0)
 	if(global.vape){
-	if(IsEng()){CC_Add("Vape v114.514 Installed")}
-	if(IsChs()){CC_Add("Vape v114.514 已注入")}
+	CC_Add(GetString("str_vape_installed"))
 	}else{
-	if(IsEng()){CC_Add("Vape v114.514 Uninstalled")}
-	if(IsChs()){CC_Add("Vape v114.514 已卸载")}}
+	CC_Add(GetString("str_vape_uninstalled"))}
 }}}}
 if(global.vape){
 	global.debug=false
@@ -89,24 +86,21 @@ if(keyboard_check(vk_ralt)){
 room_speed+=1}
 }
 if(keyboard_check_pressed(vk_backspace)){
-if(IsEng()){CC_Add("{font 1}Tap back button(mobile) or backspace&key(desktop) to switch the&mobile controller.")}
-if(IsChs()){CC_Add("按下返回键(移动端)或退格键&(桌面端)来切换移动端控制。")}
+CC_Add(GetString("str_mobile_control_hint"))
 if(instance_exists(obj_left_analog)||instance_exists(obj_touch_buttons)){
 instance_destroy(obj_left_analog)
 instance_destroy(obj_touch_buttons)
 instance_create_depth(0,0,depth-1,mobile_control)
-if(IsEng()){CC_Add("{font 1}Current: Mobile Control By Crosu")}
-if(IsChs()){CC_Add("当前: 移动端控制By南省Crosu")}
+CC_Add(GetString("str_mobile_control_current_crosu"))
 }else if(instance_exists(mobile_control)){
 instance_destroy(mobile_control)
-if(IsEng()){CC_Add("{font 1}Current: Disabled")}
-if(IsChs()){CC_Add("当前: 已关闭")}
+CC_Add(GetString("str_mobile_control_current_off"))
 }else{
 instance_create_depth(0,0,depth-1,obj_left_analog)
 instance_create_depth(0,0,depth-1,obj_touch_buttons)
-if(IsEng()){CC_Add("{font 1}Current: Mobile Control By Darknslim")}
-if(IsChs()){CC_Add("当前: 移动端控制By Darknslim")}
-}}
+CC_Add(GetString("str_mobile_control_current_darknslim"))
+}
+}
 
 if(instance_exists(battle_soul_yellow)||instance_exists(battle_soul_yellow_aqua)||instance_exists(battle_soul_yellow_orange)||instance_exists(battle_soul_yellow_aqua_orange)){
 cursor_sprite=noone

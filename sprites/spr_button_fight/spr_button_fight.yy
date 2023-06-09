@@ -15,8 +15,6 @@
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d8d3cb4f-0859-4ca8-a09d-7e2df7c13b68",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6cae3d80-72a6-4273-be19-cc5c002d44a2",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"68ed255c-6dac-438e-932f-adf178ed5714",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"65061864-42cb-472f-a4d2-4291b8688a32",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -28,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Button",
-    "path": "folders/Sprites/Battle/Button.yy",
+    "name": "English",
+    "path": "folders/Sprites/Battle/Button/English.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -46,7 +44,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 4.0,
+    "length": 2.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -59,8 +57,6 @@
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d8d3cb4f-0859-4ca8-a09d-7e2df7c13b68","path":"sprites/spr_button_fight/spr_button_fight.yy",},},},"Disabled":false,"id":"9c0abb12-8826-4de4-b036-3cdab4d7ffaf","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6cae3d80-72a6-4273-be19-cc5c002d44a2","path":"sprites/spr_button_fight/spr_button_fight.yy",},},},"Disabled":false,"id":"b1c48c77-2d7a-42f1-9e56-c7a30b96bc83","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"68ed255c-6dac-438e-932f-adf178ed5714","path":"sprites/spr_button_fight/spr_button_fight.yy",},},},"Disabled":false,"id":"58190317-e1f8-48bc-8f72-559dcaf3a6ea","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"65061864-42cb-472f-a4d2-4291b8688a32","path":"sprites/spr_button_fight/spr_button_fight.yy",},},},"Disabled":false,"id":"06ff364c-092d-40d5-b444-f0e17844844b","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -1,5 +1,5 @@
 function Macro_Uge(){
-	#macro LOCK_LANGUAGE -1
+	#macro LOCK_LANGUAGE -1//LANGUAGE.ENGLISH
 	enum BULLET_TYPE{
 		WHITE,
 		BLUE,
@@ -13,7 +13,9 @@ function Macro_Uge(){
 	}
 	enum LANGUAGE{
 		ENGLISH,
-		SCHINESE
+		SCHINESE,
+		
+		MAX
 	}
 	enum BATTLE_BUTTON{
 		FIGHT,

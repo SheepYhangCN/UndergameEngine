@@ -2,6 +2,91 @@ function __input_validate_macros()
 {
     #region General
     
+    if (!is_bool(INPUT_PC_KEYBOARD))
+    {
+        __input_error("INPUT_PC_KEYBOARD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_PC_MOUSE))
+    {
+        __input_error("INPUT_PC_MOUSE must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_PC_GAMEPAD))
+    {
+        __input_error("INPUT_PC_GAMEPAD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_WINDOWS_TOUCH))
+    {
+        __input_error("INPUT_WINDOWS_TOUCH must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_WINDOWS_VIBRATION))
+    {
+        __input_error("INPUT_WINDOWS_VIBRATION must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_MOBILE_GAMEPAD))
+    {
+        __input_error("INPUT_MOBILE_GAMEPAD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_MOBILE_MOUSE))
+    {
+        __input_error("INPUT_MOBILE_MOUSE must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_MOBILE_WEB_KEYBOARD))
+    {
+        __input_error("INPUT_MOBILE_WEB_KEYBOARD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_ANDROID_KEYBOARD))
+    {
+        __input_error("INPUT_ANDROID_KEYBOARD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_SWITCH_KEYBOARD))
+    {
+        __input_error("INPUT_SWITCH_KEYBOARD must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_SWITCH_MOUSE))
+    {
+        __input_error("INPUT_SWITCH_MOUSE must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_SWITCH_TOUCH))
+    {
+        __input_error("INPUT_SWITCH_TOUCH must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_SWITCH_VIBRATION))
+    {
+        __input_error("INPUT_SWITCH_VIBRATION must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_PS_MOUSE))
+    {
+        __input_error("INPUT_PS_MOUSE must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_PS4_VIBRATION))
+    {
+        __input_error("INPUT_PS4_VIBRATION must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_PS5_VIBRATION))
+    {
+        __input_error("INPUT_PS5_VIBRATION must be either <true> or <false>");
+    }
+
+    if (!is_bool(INPUT_XBOX_VIBRATION))
+    {
+        __input_error("INPUT_XBOX_VIBRATION must be either <true> or <false>");
+    }
+    
     if (!is_bool(INPUT_ALLOW_OUT_OF_FOCUS))
     {
         __input_error("INPUT_ALLOW_OUT_OF_FOCUS must be either <true> or <false>");
@@ -171,11 +256,6 @@ function __input_validate_macros()
         __input_error("INPUT_HOTSWAP_ON_MOUSE_MOVEMENT must be either <true> or <false>");
     }
     
-    if (!is_method(INPUT_HOTSWAP_CALLBACK) && !(is_numeric(INPUT_HOTSWAP_CALLBACK) && script_exists(INPUT_HOTSWAP_CALLBACK)) && !is_undefined(INPUT_HOTSWAP_CALLBACK))
-    {
-        __input_error("INPUT_HOTSWAP_CALLBACK must be a function, a script, or <undefined>");
-    }
-    
     if (!is_bool(INPUT_HOTSWAP_AUTO_PROFILE))
     {
         __input_error("INPUT_HOTSWAP_AUTO_PROFILE must be either <true> or <false>");
@@ -190,16 +270,6 @@ function __input_validate_macros()
     if (!is_numeric(INPUT_MAX_PLAYERS) || (floor(INPUT_MAX_PLAYERS) != INPUT_MAX_PLAYERS) || (INPUT_MAX_PLAYERS < 1))
     {
         __input_error("INPUT_MAX_PLAYERS must be an integer that is greater than or equal to 1");
-    }
-    
-    if (!is_string(INPUT_MULTIPLAYER_LEAVE_VERB) && !is_undefined(INPUT_MULTIPLAYER_LEAVE_VERB))
-    {
-        __input_error("INPUT_MULTIPLAYER_LEAVE_VERB must be a string or <undefined>");
-    }
-    
-    if (!is_method(INPUT_MULTIPLAYER_ABORT_CALLBACK) && !(is_numeric(INPUT_MULTIPLAYER_ABORT_CALLBACK) && script_exists(INPUT_MULTIPLAYER_ABORT_CALLBACK)) && !is_undefined(INPUT_MULTIPLAYER_ABORT_CALLBACK))
-    {
-        __input_error("INPUT_MULTIPLAYER_ABORT_CALLBACK must be a function, a script, or <undefined>");
     }
     
     #endregion
@@ -293,11 +363,6 @@ function __input_validate_macros()
     
     #region Touch
     
-    if (!is_bool(INPUT_TOUCH_IS_MOUSE))
-    {
-        __input_error("INPUT_TOUCH_IS_MOUSE must be either <true> or <false>");
-    }
-    
     if (!is_numeric(INPUT_MAX_TOUCHPOINTS) || (floor(INPUT_MAX_TOUCHPOINTS) != INPUT_MAX_TOUCHPOINTS) || (INPUT_MAX_TOUCHPOINTS < 1))
     {
         __input_error("INPUT_MAX_TOUCHPOINTS must be an integer that is greater than or equal to 1");
@@ -307,12 +372,7 @@ function __input_validate_macros()
     {
         __input_error("INPUT_TOUCH_EDGE_DEADZONE must be a number that is greater than or equal to 0");
     }
-    
-    if (!is_bool(INPUT_TOUCH_POINTER_ALLOWED))
-    {
-        __input_error("INPUT_TOUCH_POINTER_ALLOWED must be either <true> or <false>");
-    }
-    
+        
     if (!is_numeric(INPUT_TOUCH_HISTORY_FRAMES) || (floor(INPUT_TOUCH_HISTORY_FRAMES) != INPUT_TOUCH_HISTORY_FRAMES) || (INPUT_TOUCH_HISTORY_FRAMES < 1))
     {
         __input_error("INPUT_TOUCH_HISTORY_FRAMES must be an integer that is greater than or equal to 1");
@@ -326,6 +386,19 @@ function __input_validate_macros()
     if (!is_numeric(INPUT_VIRTUAL_BUTTON_MAX_THRESHOLD) || (INPUT_VIRTUAL_BUTTON_MAX_THRESHOLD < 0) || (INPUT_VIRTUAL_BUTTON_MAX_THRESHOLD < INPUT_VIRTUAL_BUTTON_MIN_THRESHOLD))
     {
         __input_error("INPUT_VIRTUAL_BUTTON_MAX_THRESHOLD must be a number greater than or equal to 0, and greater than INPUT_VIRTUAL_BUTTON_MIN_THRESHOLD");
+    }
+    
+    if (!is_bool(INPUT_VIRTUAL_KEYBOARD_PREDICTIVE_TEXT_ENABLED))
+    {
+        __input_error("INPUT_VIRTUAL_KEYBOARD_PREDICTIVE_TEXT_ENABLED must be either <true> or <false>");
+    }
+    
+    if ((INPUT_VIRTUAL_KEYBOARD_AUTOCAPITALIZATION_TYPE != kbv_autocapitalize_none)
+    &&  (INPUT_VIRTUAL_KEYBOARD_AUTOCAPITALIZATION_TYPE != kbv_autocapitalize_words)
+    &&  (INPUT_VIRTUAL_KEYBOARD_AUTOCAPITALIZATION_TYPE != kbv_autocapitalize_sentences)
+    &&  (INPUT_VIRTUAL_KEYBOARD_AUTOCAPITALIZATION_TYPE != kbv_autocapitalize_characters))
+    {
+    	__input_error("INPUT_VIRTUAL_KEYBOARD_AUTOCAPITALIZATION_TYPE must be a virtual keyboard autocapitalization type constant");
     }
     
     #endregion
@@ -353,6 +426,16 @@ function __input_validate_macros()
     {
         __input_error("INPUT_DEFAULT_TRIGGER_MAX_THRESHOLD must be a number less than or equal to 1, and greater than INPUT_DEFAULT_TRIGGER_MIN_THRESHOLD");
     }
+    
+    if (!is_bool(INPUT_SWITCH_SWAP_AB))
+    {
+        __input_error("INPUT_SWITCH_SWAP_AB must be either <true> or <false>");
+    }
+    
+    if (!is_bool(INPUT_PS_REGION_SWAP_CONFIRM))
+    {
+        __input_error("INPUT_PS_REGION_SWAP_CONFIRM must be either <true> or <false>");
+    }    
     
     if (!is_bool(INPUT_SWITCH_HORIZONTAL_HOLDTYPE))
     {
@@ -426,29 +509,14 @@ function __input_validate_macros()
     
     #region Vibration
     
-    if (!is_bool(INPUT_VIBRATION_ALLOWED))
-    {
-        __input_error("INPUT_VIBRATION_ALLOWED must be either <true> or <false>");
-    }
-    
-    if (!is_bool(INPUT_PS5_USE_LEGACY_VIBRATION))
-    {
-        __input_error("INPUT_PS5_USE_LEGACY_VIBRATION must be either <true> or <false>");
-    }
-    
-    if (!is_bool(INPUT_SWITCH_USE_LEGACY_VIBRATION))
-    {
-        __input_error("INPUT_SWITCH_USE_LEGACY_VIBRATION must be either <true> or <false>");
-    }
-    
     if (!is_numeric(INPUT_VIBRATION_DEFAULT_STRENGTH) || (INPUT_VIBRATION_DEFAULT_STRENGTH < 0) || (INPUT_VIBRATION_DEFAULT_STRENGTH > 1.0))
     {
         __input_error("INPUT_VIBRATION_DEFAULT_STRENGTH must be a number between 0.0 and 1.0 (inclusive)");
     }
     
-    if (!is_numeric(INPUT_VIBRATION_SWITCH_OS_STRENGTH) || (INPUT_VIBRATION_SWITCH_OS_STRENGTH < 0) || (INPUT_VIBRATION_SWITCH_OS_STRENGTH > 1.0))
+    if (!is_numeric(INPUT_VIBRATION_JOYCON_STRENGTH) || (INPUT_VIBRATION_JOYCON_STRENGTH < 0) || (INPUT_VIBRATION_JOYCON_STRENGTH > 1.0))
     {
-        __input_error("INPUT_VIBRATION_SWITCH_OS_STRENGTH must be a number between 0.0 and 1.0 (inclusive)");
+        __input_error("INPUT_VIBRATION_JOYCON_STRENGTH must be a number between 0.0 and 1.0 (inclusive)");
     }
     
     if (!is_numeric(INPUT_TRIGGER_EFFECT_DEFAULT_STRENGTH) || (INPUT_TRIGGER_EFFECT_DEFAULT_STRENGTH < 0) || (INPUT_TRIGGER_EFFECT_DEFAULT_STRENGTH > 1.0))

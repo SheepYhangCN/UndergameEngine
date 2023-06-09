@@ -5,11 +5,6 @@ b.image_yscale=1
 b.alarm[0]=-1
 b.alarm[1]=1
 
-if(IsEng()){
-window_set_caption(GAME_NAME+" - Settings")
-}else if(IsChs()){
-window_set_caption(GAME_NAME+" - 设置")
-}
 var border_=Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)
 if(border_=0&&Border_IsEnabled()=true){
 Border_SetEnabled(false)}
@@ -66,68 +61,35 @@ window_size_text="< 1.5x >"}
 if(window_size=2){
 window_size_text="< 2x {color `gray`}>"}
 
-if(IsEng()){
 //全屏
 if(fullscreen=1){
 if(choice=3){
-fullscreen_text="{color `gray`}<{color `yellow`} Off >"}else{
-fullscreen_text="{color `gray`}<{color `white`} Off >"}}
+fullscreen_text="{color `gray`}<{color `yellow`} "+GetString("str_settings_off")+" >"}else{
+fullscreen_text="{color `gray`}<{color `white`} "+GetString("str_settings_off")+" >"}}
 if(fullscreen=2){
-fullscreen_text="< On {color `gray`}>"}
+fullscreen_text="< "+GetString("str_settings_on")+" {color `gray`}>"}
 //边框
 if(border_var=0){
 if(choice=6){
-border_text="{color `gray`}<{color `yellow`} None >"}else{
-border_text="{color `gray`}<{color `white`} None >"}}
+border_text="{color `gray`}<{color `yellow`} "+GetString("str_settings_none")+" >"}else{
+border_text="{color `gray`}<{color `white`} "+GetString("str_settings_none")+" >"}}
 if(border_var=1){
-border_text="< Simple >"}
+border_text="< "+GetString("str_border_simple")+" >"}
 if(border_var=2){
-border_text="< Sepia >"}
+border_text="< "+GetString("str_border_sepia")+" >"}
 if(border_var=3){
-border_text="< Rad >"}
+border_text="< "+GetString("str_border_rad")+" >"}
 if(border_var=4){
-border_text="< Dog {color `gray`}>"}
+border_text="< "+GetString("str_border_dog")+" {color `gray`}>"}
 //模式
 if(mode_val=1){
 if(choice=4){
-modetext="{color `gray`}< {color `lime`}Easy {color `yellow`}>"}else{
-modetext="{color `gray`}< {color `lime`}Easy {color `white`}>"}}
+modetext="{color `gray`}< "+GetString("str_settings_mode_easy")+" {color `yellow`}>"}else{
+modetext="{color `gray`}< "+GetString("str_settings_mode_easy")+" {color `white`}>"}}
 if(mode_val=0){
-modetext="< Normal >"}
+modetext="< "+GetString("str_settings_mode_normal")+" >"}
 if(mode_val=2){
-modetext="< {color `red`}Hard {color `gray`}>"}
-}
-if(IsChs()){
-//全屏
-if(fullscreen=1){
-if(choice=3){
-fullscreen_text="{color `gray`}<{color `yellow`} 关 >"}else{
-fullscreen_text="{color `gray`}<{color `white`} 关 >"}}
-if(fullscreen=2){
-fullscreen_text="< 开 {color `gray`}>"}
-//边框
-if(border_var=0){
-if(choice=6){
-border_text="{color `gray`}<{color `yellow`} 无 >"}else{
-border_text="{color `gray`}<{color `white`} 无 >"}}
-if(border_var=1){
-border_text="< 简单 >"}
-if(border_var=2){
-border_text="< 简约 >"}
-if(border_var=3){
-border_text="< 精彩 >"}
-if(border_var=4){
-border_text="< 狗 {color `gray`}>"}
-//模式
-if(mode_val=1){
-if(choice=4){
-modetext="{color `gray`}< {color `lime`}简单 {color `yellow`}>"}else{
-modetext="{color `gray`}< {color `lime`}简单 {color `white`}>"}}
-if(mode_val=0){
-modetext="< 普通 >"}
-if(mode_val=2){
-modetext="< {color `red`}困难 {color `gray`}>"}
-}
+modetext="< "+GetString("str_settings_mode_hard")+" {color `gray`}>"}
 
 if(Input_IsPressed(INPUT.DOWN)){
 if(choice<7){
@@ -140,11 +102,9 @@ audio_play_sound(snd_menu_switch,0,0)
 choice-=1}
 }
 if(Input_IsPressed(INPUT.LEFT)){
-if(choice=1&&LOCK_LANGUAGE=-1&&IsChs()){
-if(IsChs()){
-audio_play_sound(snd_menu_confirm,0,0)}
-Language_Set(LANGUAGE.ENGLISH)
-choice=1}
+if(choice=1&&LOCK_LANGUAGE=-1&&global.language>0){
+audio_play_sound(snd_menu_confirm,0,0)
+Language_Set(global.language-1)}
 if(choice=2&&!(os_type=os_android||os_type=os_ios||os_type=os_winphone)&&fullscreen!=2){
 if(window_size>1){
 audio_play_sound(snd_menu_confirm,0,0)
@@ -176,11 +136,9 @@ Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)
 }
 
 if(Input_IsPressed(INPUT.RIGHT)){
-if(choice=1&&LOCK_LANGUAGE=-1&&IsEng()){
-if(IsEng()){
-audio_play_sound(snd_menu_confirm,0,0)}
-Language_Set(LANGUAGE.SCHINESE)
-choice=1}
+if(choice=1&&LOCK_LANGUAGE=-1&&global.language<LANGUAGE.MAX-1){
+audio_play_sound(snd_menu_confirm,0,0)
+Language_Set(global.language+1)}
 
 if(choice=2&&!(os_type=os_android||os_type=os_ios||os_type=os_winphone)&&fullscreen!=2&&Border_IsEnabled()=false){
 if(window_size<2){
@@ -214,9 +172,9 @@ Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)
 }
 
 if(global.language<0){
-Language_Set(LANGUAGE.ENGLISH)}
-if(global.language>1){
-Language_Set(LANGUAGE.SCHINESE)}
+Language_Set(0)}
+if(global.language>=LANGUAGE.MAX){
+Language_Set(LANGUAGE.MAX-1)}
 
 
 if(choice=5&&Input_IsHeld(INPUT.LEFT)){

@@ -6,12 +6,8 @@ if(_state==0||_state==1){
 	draw_sprite_ext(spr_pixel,0,108+6-80,118+6,80-6,174-6*2,0,c_black,1);
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_top)
-	if(IsEng()){
-	draw_set_font(font_menu)
-	draw_text_transformed_color(108-80+43,118+7,"Slot",2,2,0,color,color,color,color,1)}
-	if(IsChs()){
-	draw_set_font(font_chs)
-	draw_text_transformed_color(108-80+43,118+8,"槽位",2,2,0,color,color,color,color,1)}
+	draw_set_font(GetFont("font_menu"))
+	draw_text_transformed_color(108-80+43,118+7+IsChs(),GetString("str_ui_save_slot"),2,2,0,color,color,color,color,1)
 	draw_set_font(font_dialog)
 	draw_text_transformed_color(108-80+25,118+95,"<     >",2,2,90,color,color,color,color,1)
 	draw_text_transformed_color(108-80+43,118+75,string(_slot)+"/9",2,2,0,color,color,color,color,1)

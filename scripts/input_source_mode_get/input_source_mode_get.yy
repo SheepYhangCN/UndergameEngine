@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Sources",
-    "path": "folders/Input/Sources.yy",
+    "name": "17  Source Modes",
+    "path": "folders/Input/17  Source Modes.yy",
   },
 }

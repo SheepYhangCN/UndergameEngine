@@ -25,11 +25,7 @@ var second=time mod 60;
 _inst_time.text=_prefix+string(minute)+":"+(second<10 ? "0" : "")+string(second);
 _inst_room=instance_create_depth(150,56,0,text_typer);
 _inst_room.text=_prefix+"["+string(Flag_GetSaveSlot())+"] "+Player_GetRoomName(Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.ROOM,-1));
-if(IsEng()){
-_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,"EMPTY");
-}else if(IsChs()){
-_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,"空");
-}
+_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,GetString("str_menu_empty"));
 
 inst_slot=instance_create_depth(80,50,0,text_typer)
 inst_copy=instance_create_depth(70,120,0,text_typer)
@@ -65,56 +61,28 @@ if(choice=3&&select=0){inst_move_index.text=_prefix+"{color `gray`}< {color `yel
 if(choice=3&&select=9){inst_move_index.text=_prefix+"{color `yellow`}< "+string(select)+"/9{color `gray`} >"}
 }
 
-if(IsEng()){
 if(choice=2){
-if(ok){inst_copy.text=_prefix+"{color `red`}(Are you sure? It will overwrite your old save!)"
-}else{inst_copy.text=_prefix+"{color `yellow`}Copy to"}
+if(ok){inst_copy.text=_prefix+GetString("str_save_options_warning_overwrite")
+}else{inst_copy.text=_prefix+"{color `yellow`}"+GetString("str_save_options_copy_to")}
 }else{
 if(Flag_GetSaveSlot()!=select&&file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_copy.text=_prefix+"Copy to"}else{inst_copy.text=_prefix+"{color `gray`}Copy to"}
+	inst_copy.text=_prefix+GetString("str_save_options_copy_to")}else{inst_copy.text=_prefix+"{color `gray`}"+GetString("str_save_options_copy_to")}
 	}
 if(choice=3){
-if(ok){inst_move.text=_prefix+"{color `red`}(Are you sure? It will overwrite your old save!)"
-}else{inst_move.text=_prefix+"{color `yellow`}Move to"}
+if(ok){inst_move.text=_prefix+GetString("str_save_options_warning_overwrite")
+}else{inst_move.text=_prefix+"{color `yellow`}"+GetString("str_save_options_move_to")}
 }else{
 if(Flag_GetSaveSlot()!=select&&file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_move.text=_prefix+"Move to"}else{inst_move.text=_prefix+"{color `gray`}Move to"}
+	inst_move.text=_prefix+GetString("str_save_options_move_to")}else{inst_move.text=_prefix+"{color `gray`}"+GetString("str_save_options_move_to")}
 	}
 
 if(choice=4){
-if(ok){inst_delete.text=_prefix+"{color `red`}(Are you sure? It will delete your save forever!)"
-}else{inst_delete.text=_prefix+"{color `yellow`}Delete"}
+if(ok){inst_delete.text=_prefix+GetString("str_save_options_warning_delete")
+}else{inst_delete.text=_prefix+"{color `yellow`}"+GetString("str_save_options_delete")}
 }else{
 if(file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_delete.text=_prefix+"Delete"}else{inst_delete.text=_prefix+"{color `gray`}Delete"}
+	inst_delete.text=_prefix+GetString("str_save_options_delete")}else{inst_delete.text=_prefix+"{color `gray`}"+GetString("str_save_options_delete")}
 	}
 if(choice=5){
-inst_back.text=_prefix+"{color `yellow`}Confirm \\& Back"
-}else{inst_back.text=_prefix+"Confirm \\& Back"}
-}
-if(IsChs()){
-if(choice=2){
-if(ok){inst_copy.text=_prefix+"{color `red`}(你确定吗? 这将会覆盖你的旧存档!)"
-}else{inst_copy.text=_prefix+"{color `yellow`}复制至"}
-}else{
-if(Flag_GetSaveSlot()!=select&&file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_copy.text=_prefix+"复制至"}else{inst_copy.text=_prefix+"{color `gray`}复制至"}
-	}
-if(choice=3){
-if(ok){inst_move.text=_prefix+"{color `red`}(你确定吗? 这将会覆盖你的旧存档!)"
-}else{inst_move.text=_prefix+"{color `yellow`}移动至"}
-}else{
-if(Flag_GetSaveSlot()!=select&&file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_move.text=_prefix+"移动至"}else{inst_move.text=_prefix+"{color `gray`}移动至"}
-	}
-if(choice=4){
-if(ok){inst_delete.text=_prefix+"{color `red`}(你确定吗? 这将会永久删除你的存档!)"
-}else{inst_delete.text=_prefix+"{color `yellow`}删除"}
-}else{
-if(file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
-	inst_delete.text=_prefix+"删除"}else{inst_delete.text=_prefix+"{color `gray`}删除"}
-	}
-if(choice=5){
-inst_back.text=_prefix+"{color `yellow`}确定并返回"
-}else{inst_back.text=_prefix+"确定并返回"}
-}
+inst_back.text=_prefix+"{color `yellow`}"+GetString("str_save_options_confirm_back")
+}else{inst_back.text=_prefix+GetString("str_save_options_confirm_back")}

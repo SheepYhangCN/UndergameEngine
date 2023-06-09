@@ -406,33 +406,13 @@ if(_state!=BATTLE_STATE.RESULT && Battle_GetEnemyNumber()==0){
 	Battle_SetNextState(BATTLE_STATE.RESULT);
 	BGM_Stop(5);
 	var text="{define `EXP` "+string(Battle_GetRewardExp())+"}{define `GOLD` "+string(Battle_GetRewardGold())+"}";
-	switch(global.language){
-		case 0:
-		text+="{font 0}* You WON!&* You earned {insert EXP} EXP and {insert GOLD} GOLD."
-		break
-		case 1:
-		text+="{font 0}* 你赢了!&* 你获得了 {insert EXP} EXP 和 {insert GOLD} 金钱。"
-		break
-		}
+	text+=GetString("str_battle_won")
 	Player_SetExp(Player_GetExp()+Battle_GetRewardExp());
 	Player_SetGold(Player_GetGold()+Battle_GetRewardGold());
 	if(Player_UpdateLv()){
-		switch(global.language){
-		case 0:
-		text+="&"+"{font 0}* Your LOVE increased."
-		break
-		case 1:
-		text+="&"+"{font 0}* 你的 LOVE 增加了。"
-		break
-		}
+		text+=GetString("str_battle_won_lv")
 		audio_play_sound(snd_level_up,0,false);
 	}
 	text+="{pause}{end}";
 	Battle_SetDialog(text);
 }
-
-//if(IsEng()){
-//window_set_caption("YH!Undertale Games - Battle")
-//}else if(IsChs()){
-//window_set_caption("YH!Undertale Games - 战斗")
-//}

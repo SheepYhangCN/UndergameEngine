@@ -2,22 +2,13 @@
 function Battle_SetMenuChoiceItemSecondary(){
 	var SLOT = argument[0];
 	var TXT = []
-	if(IsEng()){
 	TXT[0] = ""
 	TXT[1] = ""
-	TXT[2] = "Use"
-	TXT[3] = "Info"
-	TXT[4] = "Drop"
+	TXT[2] = GetString("str_battle_secondary_use")
+	TXT[3] = GetString("str_battle_secondary_info")
+	TXT[4] = GetString("str_battle_secondary_drop")
 	TXT[5] = ""
-	TXT[6] = ""}
-	if(IsChs()){
-	TXT[0] = ""
-	TXT[1] = ""
-	TXT[2] = "使用"
-	TXT[3] = "说明"
-	TXT[4] = "丢弃"
-	TXT[5] = ""
-	TXT[6] = ""}
+	TXT[6] = ""
 	if(SLOT<3&&Item_IsValid(Item_Get(battle._menu_choice_item))){
 		battle._menu_choice_item_secondary=SLOT;
 		//更新文字

@@ -1,9 +1,3 @@
-if(IsEng()){
-window_set_caption(GAME_NAME+" - Controller Detected")
-}else if(IsChs()){
-window_set_caption(GAME_NAME+" - 已检测到控制器")
-}
-
 if(temp!=1){
 instance_destroy(keyboard)
 instance_destroy(controller_n)
@@ -29,32 +23,18 @@ if(Input_IsPressed(INPUT.DOWN)||input_check("down")){
 	audio_play_sound(snd_menu_switch,0,0)
 	choice=1}
 }
-if(IsEng()){
 if(choice=0){
-keyboard.text=prefix+"{color `yellow`}Keyboard"
-controller_n.text=prefix+"Controller (Nintendo Standard)"
-controller_x.text=prefix+"Controller (Xbox Standard)"}
+keyboard.text=prefix+"{color `yellow`}"+GetString("str_controller_keyboard")
+controller_n.text=prefix+GetString("str_controller_n")
+controller_x.text=prefix+GetString("str_controller_x")}
 if(choice=1){
-keyboard.text=prefix+"Keyboard"
-controller_n.text=prefix+"{color `yellow`}Controller (Nintendo Standard)"
-controller_x.text=prefix+"Controller (Xbox Standard)"}
+keyboard.text=prefix+GetString("str_controller_keyboard")
+controller_n.text=prefix+"{color `yellow`}"+GetString("str_controller_n")
+controller_x.text=prefix+GetString("str_controller_x")}
 if(choice=2){
-keyboard.text=prefix+"Keyboard"
-controller_n.text=prefix+"Controller (Nintendo Standard)"
-controller_x.text=prefix+"{color `yellow`}Controller (Xbox Standard)"}}
-if(IsChs()){
-if(choice=0){
-keyboard.text=prefix+"{color `yellow`}键盘"
-controller_n.text=prefix+"手柄 (Nintendo标准)"
-controller_x.text=prefix+"手柄 (Xbox标准)"}
-if(choice=1){
-keyboard.text=prefix+"键盘"
-controller_n.text=prefix+"{color `yellow`}手柄 (Nintendo标准)"
-controller_x.text=prefix+"手柄 (Xbox标准)"}
-if(choice=2){
-keyboard.text=prefix+"键盘"
-controller_n.text=prefix+"手柄 (Nintendo标准)"
-controller_x.text=prefix+"{color `yellow`}手柄 (Xbox标准)"}}}
+keyboard.text=prefix+GetString("str_controller_keyboard")
+controller_n.text=prefix+GetString("str_controller_n")
+controller_x.text=prefix+"{color `yellow`}"+GetString("str_controller_x")}}
 
 if((Input_IsPressed(INPUT.CONFIRM)||(choice=2&&input_check("confirm"))||(choice=1&&input_check("cancel")))&&temp!=1){
 	instance_destroy(title)

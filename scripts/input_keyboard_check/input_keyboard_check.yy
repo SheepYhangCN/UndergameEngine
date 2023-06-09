@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Keyboard (Direct)",
-    "path": "folders/Input/Keyboard (Direct).yy",
+    "name": "26  Keyboard (Direct)",
+    "path": "folders/Input/26  Keyboard (Direct).yy",
   },
 }

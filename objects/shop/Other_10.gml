@@ -8,10 +8,7 @@ switch(_state)
 		if(_typer_left_refresh)
 			_typer_left.text = _pre + _host.menu_text;
 		if(_typer_right_refresh){
-			if(IsEng()){
-			_typer_right.text = _pre_inst + "  Buy&  Sell&  Talk&  Exit";}
-			if(IsChs()){
-			_typer_right.text = _pre_inst + "  购买&  售卖&  聊天&  退出";}
+			_typer_right.text = _pre_inst + GetString("str_shop_menu");
 		}
 		//_typer_state.text = _pre_inst + string(Flag_Get(FLAG_TYPE.STATIC,FLAG_STATIC.GOLD))+"G   "+string(Item_GetNumber())+"/8";
 		if(_typer_state_refresh)
@@ -51,10 +48,7 @@ switch(_state)
 				}
 				_typer_left.text+=string(ITEM._price_buy)+"G - "+ITEM._name+"&{font 1}";
 			}
-			if(IsEng()){
-			_typer_left.text+="Exit";}
-			if(IsChs()){
-			_typer_left.text+="退出";}
+			_typer_left.text+=GetString("str_shop_exit");
 		}
 		
 		if(_typer_right_refresh)
@@ -66,10 +60,7 @@ switch(_state)
 					_typer_right.text = _pre + _host.buy_before_text;
 					break;
 				case 1:
-					if(IsEng()){
-					_typer_right.text = _pre_inst_3 + "Buy it for&" + string(_item[_index]._price_buy)+"G?& Yes& No";}
-					if(IsChs()){
-					_typer_right.text = _pre_inst_3 + "用" + string(_item[_index]._price_buy)+"G来&购买吗?& 是& 否";}
+					_typer_right.text = _pre_inst_3 + GetString("str_shop_buying_0") + string(_item[_index]._price_buy)+GetString("str_shop_buying_0");
 					break;
 				case 2:
 					_typer_right.text = _pre + _host.buy_after_text;
@@ -123,10 +114,7 @@ switch(_state)
 						}
 						_typer_left.text+="&{font 1}";
 					}
-					if(IsEng()){
-					_typer_left.text+="Exit";}
-					if(IsChs()){
-					_typer_left.text+="退出";}
+					_typer_left.text+=GetString("str_shop_exit");
 				}
 				if(_typer_right_refresh)
 				{
@@ -154,12 +142,8 @@ switch(_state)
 				if(_typer_left_refresh)
 				{
 					_typer_left.text = _pre_inst;
-					if(IsEng()){
-					_typer_left.text += "Sell it for "+string(Item_GetSellGold(Item_Get(_index)))+"G?&&";
-					_typer_left.text += "  Yes                  No";}
-					if(IsChs()){
-					_typer_left.text += "用"+string(Item_GetSellGold(Item_Get(_index)))+"G来卖出吗?&&";
-					_typer_left.text += "  是                   否";}
+					_typer_left.text += GetString("str_shop_selling_0");
+					_typer_left.text += GetString("str_shop_selling_1");
 				}
 			}
 			if(_typer_state_refresh)
@@ -178,10 +162,7 @@ switch(_state)
 				//_typer_left.text += _host.dialog_title[i]+"&";
 				_typer_left.text += Shop_GetDialogTitle(i) + "&";
 			}
-			if(IsEng()){
-			_typer_left.text += "{color `white`}Exit";}
-			if(IsChs()){
-			_typer_left.text += "{color `white`}退出";}
+			_typer_left.text += "{color `white`}"+GetString("str_shop_exit");
 		}
 		if(_typer_right_refresh)
 			_typer_right.text = _pre + _host.dialog_before_text;

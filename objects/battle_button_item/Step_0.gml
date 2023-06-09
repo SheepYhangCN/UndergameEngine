@@ -1,3 +1,3 @@
 event_inherited();
 
-sprite_index=(Item_GetNumber()>0) ? spr_button_item : spr_button_item_empty;
+sprite_index=(Item_GetNumber()>0) ? GetSprite("spr_button_item") : GetSprite("spr_button_item_empty");

@@ -23,14 +23,11 @@ if(NUMBER>1){
 draw_set_halign(fa_right)
 draw_set_valign(fa_middle)
 if(obj_game_selection.choice=-1){
-	if(IsEng()){draw_text_scribble(620,y+22,"[font_menu][scale,2](Shop)")}
-	if(IsChs()){draw_text_scribble(620,y+22,"[font_dialog][scale,2]([font_chs]商店[font_dialog])")}
+	draw_text_scribble(620,y+22,GetString("str_game_selection_hint_shop"))
 }else if(obj_game_selection.choice>=obj_game_selection.choice_mg){
-	if(IsEng()){draw_text_scribble(620,y+22,"[font_menu][scale,2](Minigames "+string(obj_game_selection.choice-(obj_game_selection.choice_mg-1))+"/"+string(obj_game_selection.choice_max-obj_game_selection.choice_mg+1)+")")}
-	if(IsChs()){draw_text_scribble(620,y+22,"[font_menu][scale,2]([font_chs]小游戏[font_menu] "+string(obj_game_selection.choice-(obj_game_selection.choice_mg-1))+"/"+string(obj_game_selection.choice_max-obj_game_selection.choice_mg+1)+")")}
+	draw_text_scribble(620,y+22,GetString("str_game_selection_hint_minigames"))
 }else{
-	if(IsEng()){draw_text_scribble(620,y+22,"[font_menu][scale,2](Battles "+string(obj_game_selection.choice+1)+"/"+string(obj_game_selection.choice_mg)+")")}
-	if(IsChs()){draw_text_scribble(620,y+22,"[font_menu][scale,2]([font_chs]战斗[font_menu] "+string(obj_game_selection.choice+1)+"/"+string(obj_game_selection.choice_mg)+")")}
+	draw_text_scribble(620,y+22,GetString("str_game_selection_hint_battles"))
 }
 draw_set_color(c_white)
 draw_set_valign(fa_top)

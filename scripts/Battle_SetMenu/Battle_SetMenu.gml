@@ -103,19 +103,12 @@ function Battle_SetMenu() {
 				}
 				proc+=1;
 			}
-			if(IsEng()){
-			text+="* Spare"
-			}else if(IsChs()){
-			text+="* {font 0}饶恕"
-			}
+			text+=GetString("str_battle_spare")
 		
 			//逃跑是否可用
 			if(Battle_IsMenuMercyFleeEnabled()){
 				text+="&{color `white`}";
-			if(IsEng()){
-			text+="* Flee"
-			}else if(IsChs()){
-			text+="* 逃跑"}
+			text+=GetString("str_battle_flee")
 			}
 		}else{
 			if(Battle_GetMenuChoiceMercy()>=Battle_GetMenuChoiceMercyOverrideNumber()){

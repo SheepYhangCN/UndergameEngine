@@ -2,10 +2,12 @@
 
 function __input_gamepad_set_mapping()
 {
+    __INPUT_GLOBAL_STATIC_LOCAL  //Set static _global
+    
     #region Console
     
     //Switch requires some extra setup
-    if (os_type == os_switch)
+    if (__INPUT_ON_SWITCH)
     {
         //Disallow dpad input from single Joy-Cons. This happens when moving the thumbstick around in horizontal mode
         if ((raw_type != "SwitchJoyConLeft") && (raw_type != "SwitchJoyConRight"))
@@ -70,13 +72,9 @@ function __input_gamepad_set_mapping()
         set_mapping(gp_padl,   gp_padl,   __INPUT_MAPPING.BUTTON, "dpleft");
         set_mapping(gp_padr,   gp_padr,   __INPUT_MAPPING.BUTTON, "dpright");
         set_mapping(gp_start,  gp_start,  __INPUT_MAPPING.BUTTON, "start");
-        set_mapping(gp_select, gp_select, __INPUT_MAPPING.BUTTON, "back");
         
         set_mapping(gp_shoulderl,  gp_shoulderl,  __INPUT_MAPPING.BUTTON, "leftshoulder");
         set_mapping(gp_shoulderr,  gp_shoulderr,  __INPUT_MAPPING.BUTTON, "rightshoulder");
-        
-        set_mapping(gp_shoulderlb, (__INPUT_ON_PS? 4 : gp_shoulderlb), __INPUT_MAPPING.AXIS, "lefttrigger");
-        set_mapping(gp_shoulderrb, (__INPUT_ON_PS? 5 : gp_shoulderrb), __INPUT_MAPPING.AXIS, "righttrigger");
         
         set_mapping(gp_face1, gp_face1, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, gp_face2, __INPUT_MAPPING.BUTTON, "b");
@@ -90,6 +88,22 @@ function __input_gamepad_set_mapping()
         set_mapping(gp_axisrv, gp_axisrv, __INPUT_MAPPING.AXIS,   "righty");
         set_mapping(gp_stickr, gp_stickr, __INPUT_MAPPING.BUTTON, "rightstick");
         
+        //PlayStation only
+        if (__INPUT_ON_PS)
+        {
+            set_mapping(gp_shoulderlb, 4, __INPUT_MAPPING.AXIS, "lefttrigger");
+            set_mapping(gp_shoulderrb, 5, __INPUT_MAPPING.AXIS, "righttrigger");
+            
+            if (!INPUT_PS_TOUCHPAD_ALLOWED) set_mapping(gp_select, gp_select, __INPUT_MAPPING.BUTTON, "touchpad");
+            
+            return;
+        }
+        
+        //Xbox only
+        set_mapping(gp_shoulderlb, gp_shoulderlb, __INPUT_MAPPING.AXIS,   "lefttrigger");
+        set_mapping(gp_shoulderrb, gp_shoulderrb, __INPUT_MAPPING.AXIS,   "righttrigger");
+        set_mapping(gp_select,     gp_select,     __INPUT_MAPPING.BUTTON, "back");
+        
         return;
     }
     
@@ -100,11 +114,11 @@ function __input_gamepad_set_mapping()
     if (blacklisted)
     {
         //Apply a blank mapping
-        var _a = variable_struct_get_names(global.__input_sdl2_look_up_table);
+        var _a = variable_struct_get_names(_global.__sdl2_look_up_table);
         var _i = 0;
         repeat(array_length(_a))
         {
-            set_mapping(global.__input_sdl2_look_up_table[$ _a[_i]], 0, undefined, _a[_i]);
+            set_mapping(_global.__sdl2_look_up_table[$ _a[_i]], 0, undefined, _a[_i]);
             _i++;
         }
 
@@ -145,7 +159,7 @@ function __input_gamepad_set_mapping()
         return;
     }
     
-    if (__INPUT_ON_WEB)
+    if (INPUT_ON_WEB)
     {
         set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
@@ -261,13 +275,13 @@ function __input_gamepad_set_mapping()
     
     #region Windows Xbox One Wireless BT (New firmware)
 
-    if ((os_type == os_windows) && (vendor == "5e04")                  //Windows (DirectInput) Microsoft's VID
+    if (__INPUT_ON_WINDOWS  && (vendor  == "5e04")                     //Windows (DirectInput) Microsoft's VID
     && ((product == "e002") || (product == "fd02"))                    //XbOne Wireless Rev. 1 or 2 PID for BT
     && (button_count == 17)                                            //Probably new firmware based on button
     && (gamepad_axis_value(index, 1) == gamepad_axis_value(index, 2))  //On new firmware axes 1 and 2 are same
     && (gamepad_axis_value(index, 4) == gamepad_axis_value(index, 5))) //On new firmware axes 4 and 5 are same
     {
-        __input_trace("Setting Xbox One Wireless controller to alternate mapping. Trigger data unavailable.");
+        if (!__INPUT_SILENT) __input_trace("Setting Xbox One Wireless controller to alternate mapping. Trigger data unavailable.");
         
         set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
@@ -306,10 +320,10 @@ function __input_gamepad_set_mapping()
     
     #region Stadia Controller on Windows
     
-    if ((raw_type == "CommunityStadia") && (os_type == os_windows))
+    if ((raw_type == "CommunityStadia") && __INPUT_ON_WINDOWS)
     {
         //Analogue triggers and right stick mapping depends on Windows Registry setting
-        __input_trace("Setting default Stadia controller mapping");
+        if (!__INPUT_SILENT) __input_trace("Setting default Stadia controller mapping");
         
         set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
@@ -356,10 +370,10 @@ function __input_gamepad_set_mapping()
     
     #region Unofficial Windows driver for official Wii U GCN USB
     
-    if ((raw_type == "CommunityGameCube") && (vendor == "3412") && (product == "adbe") && (os_type == os_windows))
+    if ((raw_type == "CommunityGameCube") && (vendor == "3412") && (product == "adbe") && __INPUT_ON_WINDOWS)
     {
         //Userland vJoy device feeder for WUP-028
-        __input_trace("Setting GameCube adapter slot to alternate mapping");
+        if (!__INPUT_SILENT) __input_trace("Setting GameCube adapter slot to alternate mapping");
         
         set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face3, 1, __INPUT_MAPPING.BUTTON, "x");
@@ -396,10 +410,10 @@ function __input_gamepad_set_mapping()
     
     #region MFi controller on Windows
 
-    if ((raw_type == "AppleController") && (guessed_type == false) && (os_type == os_windows))
+    if ((raw_type == "AppleController") && (guessed_type == false) && __INPUT_ON_WINDOWS)
     {
         //MFi controllers have unreliable VID+PID, type is set on other indicators
-        __input_trace("Setting MFi controller mapping");
+        if (!__INPUT_SILENT) __input_trace("Setting MFi controller mapping");
         
         set_mapping(gp_padl, 0, __INPUT_MAPPING.BUTTON, "dpleft");
         set_mapping(gp_padd, 1, __INPUT_MAPPING.BUTTON, "dpdown");
@@ -439,10 +453,10 @@ function __input_gamepad_set_mapping()
     #region Missing mapping on MacOS
     
     if ((button_count == 22) && (axis_count ==  6) && (hat_count == 0) 
-    && (gamepad_get_mapping(index) == "no mapping") && (os_type == os_macosx))
+    && (gamepad_get_mapping(index) == "no mapping") && __INPUT_ON_MACOS)
     {
         //Based on features this is a misconfigured Apple-supported gamepad
-        __input_trace("Overriding from \"no mapping\" on Mac");
+        if (!__INPUT_SILENT) __input_trace("Overriding from \"no mapping\" on Mac");
         
         set_mapping(gp_face1, 17, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 18, __INPUT_MAPPING.BUTTON, "b");
@@ -482,11 +496,11 @@ function __input_gamepad_set_mapping()
     #region Third party Joy-Cons on Windows and MacOS
 
     if ((vendor = "7e05") && (product = "0920")
-    && (((os_type == os_windows) && (button_count == 16) && (axis_count ==  4) && (hat_count == 1))
-     || ((os_type == os_macosx)  && (button_count == 24) && (axis_count == 10) && (hat_count == 1))))
+    && ((__INPUT_ON_WINDOWS && (button_count == 16) && (axis_count ==  4) && (hat_count == 1))
+     || (__INPUT_ON_MACOS   && (button_count == 24) && (axis_count == 10) && (hat_count == 1))))
     {
         //Based on features this is a Joy-Con spoofing the Pro Controller VID+PID
-        __input_trace("Overriding mapping from Switch Pro to Joy-Con");
+        if (!__INPUT_SILENT) __input_trace("Overriding mapping from Switch Pro to Joy-Con");
         
         //This is a bit weird as we cannot differentiate left Joy-Con from right
         //since we cannot see past the names provided by the internal mapping DB
@@ -533,10 +547,10 @@ function __input_gamepad_set_mapping()
     
     #region Ouya Controller on MacOS
     
-    if ((raw_type == "CommunityOuya") && (os_type == os_macosx))
+    if ((raw_type == "CommunityOuya") && __INPUT_ON_MACOS)
     {
         //Ouya controller doesn't work at all in SDL on Mac, but buttons do in GM
-        __input_trace("Setting Ouya controller mapping");
+        if (!__INPUT_SILENT) __input_trace("Setting Ouya controller mapping");
         
         set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 6, __INPUT_MAPPING.BUTTON, "b");
@@ -573,9 +587,9 @@ function __input_gamepad_set_mapping()
     
     #region Mayflash N64 Adapter on MacOS
     
-    if ((vendor == "8f0e") && (product == "1330") && (raw_type == "CommunityN64") && (guessed_type = false) && (os_type == os_macosx))
+    if ((vendor == "8f0e") && (product == "1330") && (raw_type == "CommunityN64") && (guessed_type = false) && __INPUT_ON_MACOS)
     {
-        __input_trace("Overriding mapping to N64");        
+        if (!__INPUT_SILENT) __input_trace("Overriding mapping to N64");        
        
         set_mapping(gp_face1, 3, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 5, __INPUT_MAPPING.BUTTON, "b");
@@ -605,9 +619,9 @@ function __input_gamepad_set_mapping()
     
     #region NeoGeo Mini on Windows and Linux
 
-    if ((raw_type == "CommunityNeoGeoMini") && (guessed_type == false) && ((os_type == os_windows) || (os_type == os_linux)))
+    if ((raw_type == "CommunityNeoGeoMini") && (guessed_type == false) && (__INPUT_ON_LINUX || __INPUT_ON_WINDOWS))
     {
-        __input_trace("Overriding mapping to NeoGeo Mini");
+        if (!__INPUT_SILENT) __input_trace("Overriding mapping to NeoGeo Mini");
 
         set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");
@@ -629,9 +643,9 @@ function __input_gamepad_set_mapping()
     
     #region retro-bit Tribute 64 on Windows and Linux
 
-    if ((vendor == "6325") && (product == "7505") && (raw_type == "CommunityN64") && (guessed_type == false) && ((os_type == os_windows) || (os_type == os_linux)))
+    if ((vendor == "6325") && (product == "7505") && (raw_type == "CommunityN64") && (guessed_type == false) && (__INPUT_ON_LINUX || __INPUT_ON_WINDOWS))
     {
-        __input_trace("Overriding mapping to N64");
+        if (!__INPUT_SILENT) __input_trace("Overriding mapping to N64");
 
         set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
         set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");
@@ -648,8 +662,8 @@ function __input_gamepad_set_mapping()
         set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
         set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
 
-        set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx").limited_range = (os_type == os_linux);
-        set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty").limited_range = (os_type == os_linux);
+        set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx").limited_range = __INPUT_ON_LINUX;
+        set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty").limited_range = __INPUT_ON_LINUX;
 
         var _mapping = set_mapping(gp_axisrh, undefined, __INPUT_MAPPING.BUTTON_TO_AXIS, "rightx");
         _mapping.raw_negative = 3;
@@ -666,11 +680,11 @@ function __input_gamepad_set_mapping()
     
     #region Nintendo Switch Online Controllers on Linux
 
-    if ((vendor == "7e05") && (product == "1720") && (raw_type == "CommunitySaturn") && (guessed_type == false) && (os_type == os_linux))
+    if ((vendor == "7e05") && (product == "1720") && (raw_type == "CommunitySaturn") && (guessed_type == false) && __INPUT_ON_LINUX)
     {
         if (__input_string_contains(description, "Genesis 3btn"))
         {
-            __input_trace("Overriding mapping to Mega Drive 3b");
+            if (!__INPUT_SILENT) __input_trace("Overriding mapping to Mega Drive 3b");
             
             set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
             set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");
@@ -691,7 +705,7 @@ function __input_gamepad_set_mapping()
         }
         else if (__input_string_contains(description, "Genesis 6btn"))
         {
-            __input_trace("Overriding mapping to Mega Drive 6b");
+            if (!__INPUT_SILENT) __input_trace("Overriding mapping to Mega Drive 6b");
             
             set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
             set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");      
@@ -719,12 +733,12 @@ function __input_gamepad_set_mapping()
     
     #region Non-normative HID mappings for Linux
     
-    if (os_type == os_linux)
+    if (__INPUT_ON_LINUX)
     {
-        switch (raw_type)
+        switch(raw_type)
         {            
             case "HIDJoyConLeft":
-                __input_trace("Overriding mapping to Joy-Con Left");
+                if (!__INPUT_SILENT) __input_trace("Overriding mapping to Joy-Con Left");
 
                 set_mapping(gp_face1,  9, __INPUT_MAPPING.BUTTON, "a");
                 set_mapping(gp_face2,  8, __INPUT_MAPPING.BUTTON, "b");
@@ -749,7 +763,7 @@ function __input_gamepad_set_mapping()
             break;
             
             case "HIDJoyConRight":
-                __input_trace("Overriding mapping to Joy-Con Right");
+                if (!__INPUT_SILENT) __input_trace("Overriding mapping to Joy-Con Right");
 
                 set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
                 set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");
@@ -774,7 +788,7 @@ function __input_gamepad_set_mapping()
             break;
             
             case "HIDAtariVCSClassic":
-                __input_trace("Overriding mapping to Atari VCS Classic");
+                if (!__INPUT_SILENT) __input_trace("Overriding mapping to Atari VCS Classic");
         
                 set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
                 set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");        
@@ -793,7 +807,7 @@ function __input_gamepad_set_mapping()
             break;
             
             case "HIDWiiRemote":
-                __input_trace("Overriding mapping to Wii Remote");
+                if (!__INPUT_SILENT) __input_trace("Overriding mapping to Wii Remote");
                 
                 set_mapping(gp_padl, 5, __INPUT_MAPPING.BUTTON, "dpleft");
                 set_mapping(gp_padd, 6, __INPUT_MAPPING.BUTTON, "dpdown");
@@ -815,7 +829,7 @@ function __input_gamepad_set_mapping()
             break;
             
             case "HIDWiiClassic":            
-                __input_trace("Overriding mapping to Wii Classic");
+                if (!__INPUT_SILENT) __input_trace("Overriding mapping to Wii Classic");
                 
                 set_mapping(gp_padu, 11, __INPUT_MAPPING.BUTTON, "dpup");
                 set_mapping(gp_padl, 12, __INPUT_MAPPING.BUTTON, "dpleft");
@@ -845,118 +859,164 @@ function __input_gamepad_set_mapping()
     
     #endregion
     
-    #region Nintendo Controllers on Android (hid-nintendo, Mayflash)
+    #region Conflicting Android GUIDS
 
-    if (os_type == os_android)
+    if (__INPUT_ON_ANDROID)
     {
-        if (guid == "4e696e74656e646f2053776974636820") //"Nintendo Switch "
+        switch(guid)
         {
-            if (description == "Nintendo Switch Pro Controller")
-            {
-                set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
-                set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
-                set_mapping(gp_face3, 2, __INPUT_MAPPING.BUTTON, "x");
-                set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
+            //hid-nintendo
+            case "4e696e74656e646f2053776974636820": //"Nintendo Switch "
+                if (description == "Nintendo Switch Pro Controller")
+                {
+                    set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
+                    set_mapping(gp_face3, 2, __INPUT_MAPPING.BUTTON, "x");
+                    set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
 
-                set_mapping(gp_shoulderl,   9, __INPUT_MAPPING.BUTTON, "leftshoulder");
-                set_mapping(gp_shoulderr,  10, __INPUT_MAPPING.BUTTON, "rightshoulder");
-                set_mapping(gp_shoulderlb, 17, __INPUT_MAPPING.BUTTON, "lefttrigger");
-                set_mapping(gp_shoulderrb, 18, __INPUT_MAPPING.BUTTON, "righttrigger");
+                    set_mapping(gp_shoulderl,   9, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                    set_mapping(gp_shoulderr,  10, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                    set_mapping(gp_shoulderlb, 17, __INPUT_MAPPING.BUTTON, "lefttrigger");
+                    set_mapping(gp_shoulderrb, 18, __INPUT_MAPPING.BUTTON, "righttrigger");
 
-                set_mapping(gp_stickl, 7, __INPUT_MAPPING.BUTTON, "leftstick");
-                set_mapping(gp_stickr, 8, __INPUT_MAPPING.BUTTON, "rightstick");
+                    set_mapping(gp_stickl, 7, __INPUT_MAPPING.BUTTON, "leftstick");
+                    set_mapping(gp_stickr, 8, __INPUT_MAPPING.BUTTON, "rightstick");
 
-                set_mapping(gp_select, 14, __INPUT_MAPPING.BUTTON, "back");
-                set_mapping(gp_start,   6, __INPUT_MAPPING.BUTTON, "start");
+                    set_mapping(gp_select, 14, __INPUT_MAPPING.BUTTON, "back");
+                    set_mapping(gp_start,   6, __INPUT_MAPPING.BUTTON, "start");
 
-                set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
-                set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
-                set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
-                set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
+                    set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
+                    set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
+                    set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
+                    set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
 
-                set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
-                set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
-                set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
-                set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
+                    set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
+                    set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
+                    set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
+                    set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
 
-                if (INPUT_SDL2_ALLOW_EXTENDED) set_mapping(gp_misc1, 5, __INPUT_MAPPING.BUTTON, "misc1");
+                    if (INPUT_SDL2_ALLOW_EXTENDED) set_mapping(gp_misc1, 5, __INPUT_MAPPING.BUTTON, "misc1");
 
-                return;
-            }
+                    return;
+                }
 
-            if (description == "Nintendo Switch Right Joy-Con")
-            {
-                set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
-                set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");
-                set_mapping(gp_face3, 0, __INPUT_MAPPING.BUTTON, "x");
-                set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
+                if (description == "Nintendo Switch Right Joy-Con")
+                {
+                    set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");
+                    set_mapping(gp_face3, 0, __INPUT_MAPPING.BUTTON, "x");
+                    set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
 
+                    set_mapping(gp_shoulderl,  9, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                    set_mapping(gp_shoulderr, 17, __INPUT_MAPPING.BUTTON, "rightshoulder");
+
+                    set_mapping(gp_select, 5, __INPUT_MAPPING.BUTTON, "back");
+                    set_mapping(gp_start,  6, __INPUT_MAPPING.BUTTON, "start");
+
+                    set_mapping(gp_stickl, 8, __INPUT_MAPPING.BUTTON, "leftstick");
+
+                    set_mapping(gp_axislh, 1, __INPUT_MAPPING.AXIS, "leftx").reverse = true;
+                    set_mapping(gp_axislv, 0, __INPUT_MAPPING.AXIS, "lefty");
+
+                    return;
+                }
+            break;
+            
+            //Mayflash Wii Adapters
+            case "484a5a204d6179666c61736820576969": //"HJZ Mayflash Wii"
+                if (description == "HJZ Mayflash WiiU Pro Game Controller Adapter")
+                {
+                    if (!__INPUT_SILENT) __input_trace("Setting WiiU Pro Adapter mapping");
+
+                    set_mapping(gp_face3, 21, __INPUT_MAPPING.BUTTON, "x");
+                    set_mapping(gp_face1, 22, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face2, 23, __INPUT_MAPPING.BUTTON, "b");
+                    set_mapping(gp_face4, 24, __INPUT_MAPPING.BUTTON, "y");
+
+                    set_mapping(gp_shoulderl,  25, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                    set_mapping(gp_shoulderr,  26, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                    set_mapping(gp_shoulderlb, 27, __INPUT_MAPPING.BUTTON, "lefttrigger");
+                    set_mapping(gp_shoulderrb, 28, __INPUT_MAPPING.BUTTON, "righttrigger");
+
+                    set_mapping(gp_select, 29, __INPUT_MAPPING.BUTTON, "back");
+                    set_mapping(gp_start,  30, __INPUT_MAPPING.BUTTON, "start");
+
+                    set_mapping(gp_stickl, 31, __INPUT_MAPPING.BUTTON, "leftstick");
+                    set_mapping(gp_stickr,  0, __INPUT_MAPPING.BUTTON, "rightstick");
+
+                    set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
+                    set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
+                    set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
+                    set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
+
+                    set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
+                    set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
+                    set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
+                    set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
+                
+                    return;
+                }
+            
+                if (description == "HJZ Mayflash Wiimote PC Adapter")
+                {
+                    if (!__INPUT_SILENT) __input_trace("Setting DolphinBar mapping");
+
+                    set_mapping(gp_face3, 21, __INPUT_MAPPING.BUTTON, "x");
+                    set_mapping(gp_face4, 22, __INPUT_MAPPING.BUTTON, "y");
+                    set_mapping(gp_face1, 23, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face2, 24, __INPUT_MAPPING.BUTTON, "b");
+
+                    set_mapping(gp_shoulderl,  25, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                    set_mapping(gp_shoulderr,  26, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                    set_mapping(gp_shoulderlb, 27, __INPUT_MAPPING.BUTTON, "lefttrigger");
+                    set_mapping(gp_shoulderrb, 28, __INPUT_MAPPING.BUTTON, "righttrigger");
+
+                    set_mapping(gp_select, 29, __INPUT_MAPPING.BUTTON, "back");
+                    set_mapping(gp_start,  30, __INPUT_MAPPING.BUTTON, "start");
+
+                    set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
+                    set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
+                    set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
+                    set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
+
+                    set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
+                    set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
+                    set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
+                    set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
+
+                    if (INPUT_SDL2_ALLOW_EXTENDED) set_mapping(gp_guide, 0, __INPUT_MAPPING.BUTTON, "guide");
+                
+                    return;
+                }
+            break;
+
+            //Retroid Pocket virtual gamepads
+            case "64633735616665613536653363336132":
+                if (description == "Retroid Pocket Controller")
+                {
+                    if (!__INPUT_SILENT) __input_trace("Setting Retroid Pocket \"Retro mode\" mapping");
+
+                    set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");
+                    set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face4, 2, __INPUT_MAPPING.BUTTON, "y");
+                    set_mapping(gp_face3, 3, __INPUT_MAPPING.BUTTON, "x");
+                }
+                else
+                {
+                    if (!__INPUT_SILENT) __input_trace("Setting Retroid Pocket \"Xbox mode\" mapping");
+
+                    set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
+                    set_mapping(gp_face2, 1, __INPUT_MAPPING.BUTTON, "b");
+                    set_mapping(gp_face3, 2, __INPUT_MAPPING.BUTTON, "x");
+                    set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
+                }
+
+                set_mapping(gp_start,      6, __INPUT_MAPPING.BUTTON, "start");
+                set_mapping(gp_stickl,     7, __INPUT_MAPPING.BUTTON, "leftstick");
+                set_mapping(gp_stickr,     8, __INPUT_MAPPING.BUTTON, "rightstick");
                 set_mapping(gp_shoulderl,  9, __INPUT_MAPPING.BUTTON, "leftshoulder");
-                set_mapping(gp_shoulderr, 17, __INPUT_MAPPING.BUTTON, "rightshoulder");
-
-                set_mapping(gp_select, 5, __INPUT_MAPPING.BUTTON, "back");
-                set_mapping(gp_start,  6, __INPUT_MAPPING.BUTTON, "start");
-
-                set_mapping(gp_stickl, 8, __INPUT_MAPPING.BUTTON, "leftstick");
-
-                set_mapping(gp_axislh, 1, __INPUT_MAPPING.AXIS, "leftx").reverse = true;
-                set_mapping(gp_axislv, 0, __INPUT_MAPPING.AXIS, "lefty");
-
-                return;
-            }
-        }
-    
-        if (guid == "484a5a204d6179666c61736820576969") //"HJZ Mayflash Wii"
-        {
-            if (description == "HJZ Mayflash WiiU Pro Game Controller Adapter")
-            {
-                __input_trace("Setting WiiU Pro Adapter mapping");
-
-                set_mapping(gp_face3, 21, __INPUT_MAPPING.BUTTON, "x");
-                set_mapping(gp_face1, 22, __INPUT_MAPPING.BUTTON, "a");
-                set_mapping(gp_face2, 23, __INPUT_MAPPING.BUTTON, "b");
-                set_mapping(gp_face4, 24, __INPUT_MAPPING.BUTTON, "y");
-
-                set_mapping(gp_shoulderl,  25, __INPUT_MAPPING.BUTTON, "leftshoulder");
-                set_mapping(gp_shoulderr,  26, __INPUT_MAPPING.BUTTON, "rightshoulder");
-                set_mapping(gp_shoulderlb, 27, __INPUT_MAPPING.BUTTON, "lefttrigger");
-                set_mapping(gp_shoulderrb, 28, __INPUT_MAPPING.BUTTON, "righttrigger");
-
-                set_mapping(gp_select, 29, __INPUT_MAPPING.BUTTON, "back");
-                set_mapping(gp_start,  30, __INPUT_MAPPING.BUTTON, "start");
-
-                set_mapping(gp_stickl, 31, __INPUT_MAPPING.BUTTON, "leftstick");
-                set_mapping(gp_stickr,  0, __INPUT_MAPPING.BUTTON, "rightstick");
-
-                set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
-                set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
-                set_mapping(gp_padd, 0, __INPUT_MAPPING.HAT, "dpdown" ).hat_mask = 4;
-                set_mapping(gp_padl, 0, __INPUT_MAPPING.HAT, "dpleft" ).hat_mask = 8;
-
-                set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
-                set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
-                set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
-                set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
-                
-                return;
-            }
-
-            if (description == "HJZ Mayflash Wiimote PC Adapter")
-            {
-                __input_trace("Setting DolphinBar mapping");
-
-                set_mapping(gp_face3, 21, __INPUT_MAPPING.BUTTON, "x");
-                set_mapping(gp_face4, 22, __INPUT_MAPPING.BUTTON, "y");
-                set_mapping(gp_face1, 23, __INPUT_MAPPING.BUTTON, "a");
-                set_mapping(gp_face2, 24, __INPUT_MAPPING.BUTTON, "b");
-
-                set_mapping(gp_shoulderl,  25, __INPUT_MAPPING.BUTTON, "leftshoulder");
-                set_mapping(gp_shoulderr,  26, __INPUT_MAPPING.BUTTON, "rightshoulder");
-                set_mapping(gp_shoulderlb, 27, __INPUT_MAPPING.BUTTON, "lefttrigger");
-                set_mapping(gp_shoulderrb, 28, __INPUT_MAPPING.BUTTON, "righttrigger");
-
-                set_mapping(gp_select, 29, __INPUT_MAPPING.BUTTON, "back");
-                set_mapping(gp_start,  30, __INPUT_MAPPING.BUTTON, "start");
+                set_mapping(gp_shoulderr, 10, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                set_mapping(gp_select,    15, __INPUT_MAPPING.BUTTON, "back");
 
                 set_mapping(gp_padu, 0, __INPUT_MAPPING.HAT, "dpup"   ).hat_mask = 1;
                 set_mapping(gp_padr, 0, __INPUT_MAPPING.HAT, "dpright").hat_mask = 2;
@@ -968,10 +1028,17 @@ function __input_gamepad_set_mapping()
                 set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
                 set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
 
-                if (INPUT_SDL2_ALLOW_EXTENDED) set_mapping(gp_guide, 0, __INPUT_MAPPING.BUTTON, "guide");
-                
+                set_mapping(gp_shoulderlb, 4, __INPUT_MAPPING.AXIS,  "lefttrigger").extended_range = true;
+                set_mapping(gp_shoulderrb, 5, __INPUT_MAPPING.AXIS, "righttrigger").extended_range = true;
+            
+                if (INPUT_SDL2_ALLOW_EXTENDED)
+                {
+                    set_mapping(gp_paddle1, 19, __INPUT_MAPPING.BUTTON, "paddle1");
+                    set_mapping(gp_paddle2, 20, __INPUT_MAPPING.BUTTON, "paddle2");
+                }
+
                 return;
-            }
+            break;
         }
     }
 
@@ -979,59 +1046,66 @@ function __input_gamepad_set_mapping()
     
     #region Nintendo Switch Controllers on iOS
 
-    if ((os_type == os_ios) || (os_type == os_tvos))
+    if (__INPUT_ON_IOS)
     {
-        if ((raw_type == "SwitchJoyConPair") || (raw_type == "CommunityLikeSwitch"))
+        switch(raw_type)
         {
-            set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
-            set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");      
-            set_mapping(gp_face3, 3, __INPUT_MAPPING.BUTTON, "x");
-            set_mapping(gp_face4, 2, __INPUT_MAPPING.BUTTON, "y");
-            
-            set_mapping(gp_shoulderl,   4, __INPUT_MAPPING.BUTTON, "leftshoulder");
-            set_mapping(gp_shoulderr,   5, __INPUT_MAPPING.BUTTON, "rightshoulder");
-            set_mapping(gp_shoulderlb, 21, __INPUT_MAPPING.BUTTON, "lefttrigger");
-            set_mapping(gp_shoulderrb, 22, __INPUT_MAPPING.BUTTON, "righttrigger");
-            
-            set_mapping(gp_select, 25, __INPUT_MAPPING.BUTTON, "back");
-            set_mapping(gp_start,   6, __INPUT_MAPPING.BUTTON, "start");
-            
-            set_mapping(gp_stickl, 24, __INPUT_MAPPING.BUTTON, "leftstick");
-            set_mapping(gp_stickr, 23, __INPUT_MAPPING.BUTTON, "rightstick");
-            
-            set_mapping(gp_padu,  7, __INPUT_MAPPING.BUTTON, "dpup");
-            set_mapping(gp_padd,  8, __INPUT_MAPPING.BUTTON, "dpdown");
-            set_mapping(gp_padl,  9, __INPUT_MAPPING.BUTTON, "dpleft");
-            set_mapping(gp_padr, 10, __INPUT_MAPPING.BUTTON, "dpright");
-            
-            set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
-            set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
-            set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
-            set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
+            case "SwitchJoyConPair":
+            case "CommunityLikeSwitch":
+                set_mapping(gp_face1, 1, __INPUT_MAPPING.BUTTON, "a");
+                set_mapping(gp_face2, 0, __INPUT_MAPPING.BUTTON, "b");      
+                set_mapping(gp_face3, 3, __INPUT_MAPPING.BUTTON, "x");
+                set_mapping(gp_face4, 2, __INPUT_MAPPING.BUTTON, "y");
+                
+                set_mapping(gp_shoulderl,   4, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                set_mapping(gp_shoulderr,   5, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                set_mapping(gp_shoulderlb, 21, __INPUT_MAPPING.BUTTON, "lefttrigger");
+                set_mapping(gp_shoulderrb, 22, __INPUT_MAPPING.BUTTON, "righttrigger");
+                
+                set_mapping(gp_select, 25, __INPUT_MAPPING.BUTTON, "back");
+                set_mapping(gp_start,   6, __INPUT_MAPPING.BUTTON, "start");
+                
+                set_mapping(gp_stickl, 24, __INPUT_MAPPING.BUTTON, "leftstick");
+                set_mapping(gp_stickr, 23, __INPUT_MAPPING.BUTTON, "rightstick");
+                
+                set_mapping(gp_padu,  7, __INPUT_MAPPING.BUTTON, "dpup");
+                set_mapping(gp_padd,  8, __INPUT_MAPPING.BUTTON, "dpdown");
+                set_mapping(gp_padl,  9, __INPUT_MAPPING.BUTTON, "dpleft");
+                set_mapping(gp_padr, 10, __INPUT_MAPPING.BUTTON, "dpright");
+                
+                set_mapping(gp_axislh, 0, __INPUT_MAPPING.AXIS, "leftx");
+                set_mapping(gp_axislv, 1, __INPUT_MAPPING.AXIS, "lefty");
+                set_mapping(gp_axisrh, 2, __INPUT_MAPPING.AXIS, "rightx");
+                set_mapping(gp_axisrv, 3, __INPUT_MAPPING.AXIS, "righty");
+                
+                return;
+            break;
+
+            case "SwitchJoyConLeft":
+            case "SwitchJoyConRight":        
+                set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
+                set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");      
+                set_mapping(gp_face3, 1, __INPUT_MAPPING.BUTTON, "x");
+                set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
+                
+                set_mapping(gp_shoulderl, 4, __INPUT_MAPPING.BUTTON, "leftshoulder");
+                set_mapping(gp_shoulderr, 5, __INPUT_MAPPING.BUTTON, "rightshoulder");
+                
+                set_mapping(gp_select, 6, __INPUT_MAPPING.BUTTON, "back");
+                set_mapping(gp_start, 0, undefined, "start");
+                
+                var _mapping = set_mapping(gp_axislh, undefined, __INPUT_MAPPING.BUTTON_TO_AXIS, "leftx");
+                _mapping.raw_negative = 9;
+                _mapping.raw_positive = 10;
+                
+                _mapping = set_mapping(gp_axislv, undefined, __INPUT_MAPPING.BUTTON_TO_AXIS, "lefty");
+                _mapping.raw_negative = 7;
+                _mapping.raw_positive = 8;
+
+                return;
+            break;
         }
-        else if ((raw_type == "SwitchJoyConLeft") || (raw_type == "SwitchJoyConRight"))
-        {
-            set_mapping(gp_face1, 0, __INPUT_MAPPING.BUTTON, "a");
-            set_mapping(gp_face2, 2, __INPUT_MAPPING.BUTTON, "b");      
-            set_mapping(gp_face3, 1, __INPUT_MAPPING.BUTTON, "x");
-            set_mapping(gp_face4, 3, __INPUT_MAPPING.BUTTON, "y");
             
-            set_mapping(gp_shoulderl, 4, __INPUT_MAPPING.BUTTON, "leftshoulder");
-            set_mapping(gp_shoulderr, 5, __INPUT_MAPPING.BUTTON, "rightshoulder");
-            
-            set_mapping(gp_select, 6, __INPUT_MAPPING.BUTTON, "back");
-            set_mapping(gp_start, 0, undefined, "start");
-            
-            var _mapping = set_mapping(gp_axislh, undefined, __INPUT_MAPPING.BUTTON_TO_AXIS, "leftx");
-            _mapping.raw_negative = 9;
-            _mapping.raw_positive = 10;
-            
-            _mapping = set_mapping(gp_axislv, undefined, __INPUT_MAPPING.BUTTON_TO_AXIS, "lefty");
-            _mapping.raw_negative = 7;
-            _mapping.raw_positive = 8;
-        }
-            
-        return;
     }
     
     #endregion
@@ -1068,10 +1142,10 @@ function __input_gamepad_set_mapping()
                 }
             
                 //Find the GameMaker-native constant for this entry name e.g. gp_face1, gp_axislh
-                var _gm_constant = global.__input_sdl2_look_up_table[$ _entry_name];
+                var _gm_constant = _global.__sdl2_look_up_table[$ _entry_name];
                 if (_gm_constant == undefined)
                 {
-                    __input_trace("Warning! Entry name \"", _entry_name, "\" not recognised (full string was \"", _entry, "\")");
+                    if (!__INPUT_SILENT) __input_trace("Warning! Entry name \"", _entry_name, "\" not recognised (full string was \"", _entry, "\")");
                 }
                 else
                 {
@@ -1143,7 +1217,7 @@ function __input_gamepad_set_mapping()
                             break;
                         
                             default:
-                                __input_trace("Warning! Mapping entry could not be parsed (full string was \"", _entry, "\")");
+                                if (!__INPUT_SILENT) __input_trace("Warning! Mapping entry could not be parsed (full string was \"", _entry, "\")");
                             break;
                         }
                     }
@@ -1215,7 +1289,7 @@ function __input_gamepad_set_mapping()
                         }
                         else
                         {
-                            __input_trace("Warning! Mapping for \"", _entry, "\" is a redefinition of entry name \"", _entry_name, "\"");
+                            if (!__INPUT_SILENT) __input_trace("Warning! Mapping for \"", _entry, "\" is a redefinition of entry name \"", _entry_name, "\"");
                         }
                     
                         //If necessary, apply modifiers to the mapping input
@@ -1255,12 +1329,12 @@ function __input_gamepad_set_mapping()
                         var _is_directional = __input_axis_is_directional(_gm_constant);
                 
                         //Linux axis ranges affecting directional input are normalized after remapping
-                        if ((os_type == os_linux) && _is_directional)
+                        if (__INPUT_ON_LINUX && _is_directional)
                         {    
                             if (__INPUT_DEBUG) __input_trace("  (Limited axis range)");
                             _mapping.limited_range = true;
                         }
-                        else if ((os_type != os_linux) && !_is_directional && (gamepad_axis_count(index) >= _input_slot))
+                        else if (!__INPUT_ON_LINUX && !_is_directional && (gamepad_axis_count(index) >= _input_slot))
                         {
                             //Nondirectional axes (triggers) use full axis range (excepting Linux remappings and XInput)
                             if (__INPUT_DEBUG) __input_trace("  (Extended axis range)");
@@ -1273,7 +1347,7 @@ function __input_gamepad_set_mapping()
             }
             
             //Reset Android keymapped dpad if necessary
-            if ((os_type == os_android) && (hat_count > 0) && (vendor + product == ""))
+            if (__INPUT_ON_ANDROID && (hat_count > 0) && (vendor + product == ""))
             {
                 var _mapping = undefined;
                 var _dpad_array = [gp_padu, gp_padd, gp_padl, gp_padr];
@@ -1300,22 +1374,28 @@ function __input_gamepad_set_mapping()
         }
         else
         {
-            __input_trace("No SDL2 remapping available, falling back to GameMaker's mapping (", gamepad_get_mapping(index), ")");
+            if (!__INPUT_SILENT) __input_trace("No SDL2 remapping available, falling back to GameMaker's mapping (", gamepad_get_mapping(index), ")");
         }
+        
+        ////Add Atari VCS Classic twist mapping (semantically incorrect)
+        //if ((raw_type == "CommunityVCSClassic") || (raw_type == "HIDAtariVCSClassic"))
+        //{
+        //    set_mapping(gp_axisrh, 0, __INPUT_MAPPING.AXIS, "rightx").limited_range = (os_type == os_linux);
+        //}
         
         if (INPUT_SDL2_ALLOW_EXTENDED)
         {
             //Add mapping for touchpad button click on PS4 gamepads on platforms supporting it.
             //Since the `touchpad` field is a later addition and largely missing from SDL2 data
             //we're manually mapping it in cases where an otherwise-normal PS4 mapping is found
-            if (((os_type == os_windows) || (os_type == os_macosx))
+            if ((__INPUT_ON_MACOS || __INPUT_ON_WINDOWS)
             && (simple_type == "ps4") && (raw_type != "XInputPS4Controller")
             && (mapping_gm_to_raw[$ string(gp_touchpad)] == undefined))
             {                
                 var _matched = 0;
                 var _mapping = undefined;
                 var _button_array = [gp_face3, gp_face1, gp_face2, gp_face4];
-                var _offset = ((mac_cleared_mapping && (os_type == os_macosx)) ? 17 : 0);
+                var _offset = ((mac_cleared_mapping && __INPUT_ON_MACOS) ? 17 : 0);
 
                 repeat(array_length(_button_array))
                 {
@@ -1334,7 +1414,7 @@ function __input_gamepad_set_mapping()
             }
             
             //Change Ouya guide mapping
-            if ((raw_type == "CommunityOuya") && ((os_type == os_windows) || (os_type == os_linux)))
+            if ((raw_type == "CommunityOuya") && (__INPUT_ON_WINDOWS || __INPUT_ON_LINUX))
             {
                 //Guide button issues 2 reports: one a tick after release which is usually too fast for GM's
                 //interupt to catch, and another that's for long press that works after being held 1 second.

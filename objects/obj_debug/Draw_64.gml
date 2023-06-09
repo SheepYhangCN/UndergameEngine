@@ -16,14 +16,9 @@ if(global.debug=true){
 	rainbow+=1
 	draw_set_color(make_color_hsv((rainbow % 255), 255, 255))
 	draw_set_font(font_chs_enemy)
-	if(IsEng()){
-	language="English"
-	}else if(IsChs()){
-	language="简体中文"
-	}
 	draw_room="Current Room:"+string(room)+"("+room_get_name(room)+")"
 	draw_fps="Current FPS:"+string(fps)+"/"+string(room_speed)+"("+string(fps_real)+")"
-	draw_language="Current Language:"+string(language)
+	draw_language="Current Language:"+GetString("str_language_name")
 	draw_windowsize="Current Window Size:"+string(world._window_size)+"x("+string(window_get_width())+"x"+string(window_get_height())+")"
 	draw_instance_count="Instance Count:"+string(instance_count)
 	draw_mousexy="Mouse XY:["+string(mouse_x)+","+string(mouse_y)+"]"

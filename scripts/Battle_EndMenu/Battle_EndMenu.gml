@@ -62,18 +62,10 @@ function Battle_EndMenu(){
 				var GOLD=Battle_GetRewardGold();
 				var text="";
 				if(GOLD==0&&EXP==0){
-					if(IsEng()){
-					text+=choose("{font 0}* Escaped...","{font 0}* I'm outta here.","{font 0}* I've got better to do.","{font 0}* Don't slow me down.")
-					}else if(IsChs()){
-					text+=choose("{font 0}* {font 0}逃跑了...","{font 0}* {font 0}我要走了。","{font 0}* {font 0}我还有事要做。","{font 0}* {font 0}别拖我的后腿。")
-					}
+					text+=GetString("str_battle_ran")
 				}else{
 					text+="{define `EXP` "+string(EXP)+"}"+"{define `GOLD` "+string(GOLD)+"}";
-					if(IsEng()){
-					text+="{font 0}* Ran away with {insert EXP} EXP&  and {insert GOLD} GOLD."
-					}else if(IsChs()){
-					text+="{font 0}* {font 0}带着 {font 0}{insert EXP} EXP {font 0}和 {font 0}{insert GOLD} {font 0}金钱逃跑了。"
-					}
+					text+=GetString("str_battle_ran_with")
 					Player_SetExp(Player_GetExp()+Battle_GetRewardExp());
 					Player_SetGold(Player_GetGold()+Battle_GetRewardGold());
 					if(Player_UpdateLv()){

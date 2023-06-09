@@ -8,19 +8,11 @@ if(_menu==0){
 		//_inst_begin.text=_prefix+"Press Z or Enter to Begin";
 		_inst_settings=instance_create_depth(170,350,0,text_typer);
 		_inst_credits=instance_create_depth(170,385,0,text_typer)
-		if(IsEng()){
-		_inst_instruction=instance_create_depth(120,0,0,text_typer);
-		_inst_instruction.text=_prefix+"{color_text `gray_light`}{font 1} --- Keys ---{space_y -1}&{space_y 2}[F1] - Restart&[F2] - Restart Room&[F4] - Fullscreen&[X/Shift] - Run(Overworld)&[X/Shift] - Slow(In Battle)&[Insert] - DEBUG MODE&Tap the back button(backspace) to&switch the mobile controller."
-		_inst_begin.text=_prefix+"{font 0}Begin Game"
-		_inst_settings.text=_prefix+"{font 0}Settings"
-		_inst_credits.text=_prefix+"{font 0}Credits"
-		}else if(IsChs()){
-		_inst_instruction=instance_create_depth(150,0,0,text_typer);
-		_inst_instruction.text=_prefix+"{font 1}{color_text `gray_light`} --- 按键 ---{space_y -1}&{space_y 2}[F1] - 重启&[F2] - 重启房间&[F4] - 全屏&[X/Shift] - 奔跑(主世界)&[X/Shift] - 减速(战斗中)&[Insert] - 调试模式&按下返回键(退格)来开关&移动端控制器"
-		_inst_begin.text=_prefix+"{font 0}开始游戏"
-		_inst_settings.text=_prefix+"{font 0}游戏设置"
-		_inst_credits.text=_prefix+"{font 0}鸣谢名单"
-		}
+		_inst_instruction=instance_create_depth(120+(IsChs() ? 30 : 0),0,0,text_typer);
+		_inst_instruction.text=_prefix+GetString("str_menu_instruction")
+		_inst_begin.text=_prefix+GetString("str_menu_begin")
+		_inst_settings.text=_prefix+GetString("str_menu_settings")
+		_inst_credits.text=_prefix+GetString("str_menu_credits")
 		with(text_typer){
 			event_user(15);
 		}
@@ -36,7 +28,7 @@ if(_menu==0){
 		var second=time mod 60;
 		_inst_time.text=_prefix+string(minute)+":"+(second<10 ? "0" : "")+string(second);
 		_inst_room=instance_create_depth(140,160,0,text_typer);
-		_inst_room.text=_prefix+(global.language ? "" : "{font 1}")+Player_GetRoomName(Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.ROOM));
+		_inst_room.text=_prefix+(IsChs() ? "" : "{font 1}")+Player_GetRoomName(Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.ROOM));
 		_inst_continue=instance_create_depth(170,210,0,text_typer);
 		_inst_continue.override_color_text_enabled=true;
 		_inst_reset=instance_create_depth(390,210,0,text_typer);
@@ -47,27 +39,15 @@ if(_menu==0){
 		_inst_credits.override_color_text_enabled=true;
 		_inst_save_options=instance_create_depth(250,290,0,text_typer);
 		_inst_save_options.override_color_text_enabled=true;
-		if(IsEng()){
-		_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,"{font 0}EMPTY");
+		_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,GetString("str_menu_empty"));
 		_inst_continue.text=_prefix
 		if(!file_exists(Flag_GetSavePath(FLAG_TYPE.INFO))){
 		_inst_continue.text+="{color `gray`}"}
-		_inst_continue.text+="{font 1}Continue"
-		_inst_reset.text=_prefix+"{font 1}Reset"
-		_inst_settings.text=_prefix+"{font 1}Settings"
-		_inst_credits.text=_prefix+"{font 1}Credits"
-		_inst_save_options.text=_prefix+"{font 1}Save Options"
-		}else if(IsChs()){
-		_inst_name.text=_prefix+Flag_Get(FLAG_TYPE.INFO,FLAG_INFO.NAME,"{font 0}空");
-		_inst_continue.text=_prefix
-		if(!file_exists(Flag_GetSavePath(FLAG_TYPE.INFO))){
-		_inst_continue.text+="{color `gray`}"}
-		_inst_continue.text+="{font 0}继续"
-		_inst_reset.text=_prefix+"{font 0}重置"
-		_inst_settings.text=_prefix+"{font 0}设置"
-		_inst_credits.text=_prefix+"{font 0}鸣谢"
-		_inst_save_options.text=_prefix+"存档选项"
-		}
+		_inst_continue.text+=GetString("str_menu_continue")
+		_inst_reset.text=_prefix+GetString("str_menu_reset")
+		_inst_settings.text=_prefix+GetString("str_menu_settings")
+		_inst_credits.text=_prefix+GetString("str_menu_credits")
+		_inst_save_options.text=_prefix+GetString("str_menu_save_options")
 		event_user(2);
 		
 	}
@@ -114,19 +94,10 @@ if(_menu==1){
 	_inst_naming_quit=instance_create_depth(120,410,0,text_typer);
 	_inst_naming_backspace=instance_create_depth(240,410,0,text_typer);
 	_inst_naming_done=instance_create_depth(440,410,0,text_typer);
-	if(IsEng()){
-	_inst_naming_title.text=_prefix+"{font 1}Please input your name."
-	_inst_naming_quit.text=_prefix+"Quit"
-	_inst_naming_backspace.text=_prefix+"Backspace"
-	_inst_naming_done.text=_prefix+"Done"
-	//_inst_naming.text=_prefix+"{font 1}Press Enter to Done&Press Backspace to Backspace&Press Esc to Quit"
-	}else if(IsChs()){
-	_inst_naming_title.text=_prefix+"{font 0}请输入你的名字。"
-	_inst_naming_quit.text=_prefix+"{font 0}退出"
-	_inst_naming_backspace.text=_prefix+"{font 0}退格"
-	_inst_naming_done.text=_prefix+"{font 0}完成"
-	//_inst_naming.text=_prefix+"{font 0}按下 回车 完成&按下 退格键 退格&按下 {font 1}Esc{font 0} 退出"
-	}
+	_inst_naming_title.text=_prefix+GetString("str_menu_naming_title")
+	_inst_naming_quit.text=_prefix+GetString("str_menu_naming_quit")
+	_inst_naming_backspace.text=_prefix+GetString("str_menu_naming_backspace")
+	_inst_naming_done.text=_prefix+GetString("str_menu_naming_done")
 	with(text_typer){
 		event_user(15);
 	}
@@ -158,13 +129,8 @@ if(_menu==2){
 	_inst_confirm_title.text=_prefix+_confirm_title;
 	_inst_confirm_no=instance_create_depth(146,400,0,text_typer);
 	_inst_confirm_yes=instance_create_depth(460,400,0,text_typer);
-	if(IsEng()){
-	_inst_confirm_no.text=_prefix+"{font 1}No"
-	_inst_confirm_yes.text=_prefix+"{font 1}Yes"
-	}else if(IsChs()){
-	_inst_confirm_no.text=_prefix+"{font 0}否"
-	_inst_confirm_yes.text=_prefix+"{font 0}是"
-	}
+	_inst_confirm_no.text=_prefix+GetString("str_menu_naming_no")
+	_inst_confirm_yes.text=_prefix+GetString("str_menu_naming_yes")
 	_confirm_name_x=280;
 	_confirm_name_y=72;
 	_confirm_name_scale=2;

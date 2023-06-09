@@ -1,22 +1,9 @@
 ///@desc Drop
-var rand=irandom(18);
-var sub=0;
-if(rand>3){
-	sub=0;
-}else if(rand==0){
-	sub=1;
-}else if(rand==1){
-	sub=2;
-}else if(rand==2){
-	sub=3;
-}else if(rand==3){
-	sub=4;
-}
-//Dialog_Add("{define `ITEM` `"+_name+"`}"+Lang_GetString("item.drop."+string(sub)));
+Dialog_Clear()
+Dialog_Add(GetString("str_"+object_get_name(object_index)+"_drop"))
 Dialog_Start();
 
-audio_play_sound(snd_item_swallow,0,false);
-
 Item_Remove(_item_slot);
+audio_play_sound(snd_item_swallow,0,false);
 
 instance_destroy();

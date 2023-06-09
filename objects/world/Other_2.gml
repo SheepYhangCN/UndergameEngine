@@ -70,6 +70,8 @@ application_surface_draw_enable(false);
 
 show_debug_overlay(false);
 
+window_set_caption(GAME_NAME)
+
 Flag_Load(FLAG_TYPE.SETTINGS)
 var default_lang=0
 if(os_get_language()="zh"){default_lang=1}

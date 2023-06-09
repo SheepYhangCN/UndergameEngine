@@ -7,11 +7,11 @@ function GameSelectionGetInfo(){
 	var scale=1
 	var enabled=true
 	var phases=0
-	var phasetext0="[scale,2][font_menu]"
-	var phasetext1="[scale,2][font_menu]"
-	var phasetext2="[scale,2][font_menu]"
-	var phasetext3="[scale,2][font_menu]"
-	var phasetext4="[scale,2][font_menu]"
+	var phasetext0="[scale,2][font_menu]"+GetString("str_game_selection_corridor")//str_game_selection_intro
+	var phasetext1="[scale,2][font_menu]"+GetString("str_game_selection_phase1")
+	var phasetext2="[scale,2][font_menu]"+GetString("str_game_selection_phase2")
+	var phasetext3="[scale,2][font_menu]"+GetString("str_game_selection_phase3")
+	var phasetext4="[scale,2][font_menu]"+GetString("str_game_selection_phase4")//str_game_selection_phase5
 	var phaseenabled0=true
 	var phaseenabled1=true
 	var phaseenabled2=true
@@ -19,14 +19,12 @@ function GameSelectionGetInfo(){
 	var phaseenabled4=true
 	switch choice{
 	case -1:
-		if(IsEng()){text+="Shop"}
-		if(IsChs()){text+="[font_chs]商店"}
+		text+=GetString("str_game_selection_shop")
 		spr=spr_shopping_cart
 		enabled=false
 		break
 	case 0:
-		if(IsEng()){text+="Test"}
-		if(IsChs()){text+="[font_chs]测试"}
+		text+="Test"
 		spr=-1
 		enabled=true
 		break
@@ -38,11 +36,9 @@ function GameSelectionGetInfo(){
 	if(obj_game_selection.phase=3&&!phaseenabled3){enabled=false}
 	if(obj_game_selection.phase=4&&!phaseenabled4){enabled=false}
 	if(enabled){
-		if(IsEng()){text+="\n[[Z/Enter] or Click with cursor to Start"}
-		if(IsChs()){text+="\n[[Z/Enter][font_chs]或者使用光标点击来开始"}
+		text+=GetString("str_game_selection_start")
 	}else{
-		if(IsEng()){text+="\nNot available yet"}
-		if(IsChs()){text+="\n[font_chs]尚未开放"}
+		text+=GetString("str_game_selection_not_available")
 	}
 	return [text,spr,scale,enabled,phases,phasetext0,phasetext1,phasetext2,phasetext3,phasetext4,phaseenabled0,phaseenabled1,phaseenabled2,phaseenabled3,phaseenabled4]
 }

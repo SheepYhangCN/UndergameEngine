@@ -39,114 +39,64 @@ border_obj=instance_create_depth(70, 280, 0, text_typer)
 border_obj_index=instance_create_depth(450, 280, 0, text_typer)
 backtext=instance_create_depth(70, 320, 0, text_typer)
 
-if(IsEng()){
 title = instance_create_depth(260, 30, 0, text_typer)
-title.text = (prefix + "Settings")
-language.text = (prefix + "Language")
-language_index.text = (prefix + "{color `gray`}<{color `white`} English >")
-size.text = (prefix + "Window Size")
-fullscreen_obj.text = (prefix + "Fullscreen")
+title.text = (prefix + GetString("str_menu_settings"))
+language.text = (prefix + GetString("str_settings_language"))
+language_index.text = (prefix + "{color `"+(global.language>0 ? (choice=1 ? "yellow" : "white") : "gray")+"`}<{color `"+(choice=1 ? "yellow" : "white")+"`} "+GetString("str_language_name")+" {color `"+(global.language<LANGUAGE.MAX-1 ? (choice=1 ? "yellow" : "white") : "gray")+"`}>")
+size.text = (prefix + GetString("str_settings_window_size"))
+fullscreen_obj.text = (prefix + GetString("str_settings_fullscreen"))
 if(os_type=os_android||os_type=os_ios||os_type=os_winphone||os_browser=!browser_not_a_browser){
-fullscreen_obj_index.text = (prefix + "{color `red`}N/A")}else{
+fullscreen_obj_index.text = (prefix + GetString("str_settings_n/a"))}else{
 fullscreen_obj_index.text = (prefix + fullscreen_text)}
 if(os_type=os_android||os_type=os_ios||os_type=os_winphone||fullscreen=2||Border_IsEnabled()=true){
-size_index.text = (prefix + "{color `red`}N/A")}else{
+size_index.text = (prefix + GetString("str_settings_n/a"))}else{
 size_index.text = (prefix + window_size_text)}
-mode.text = (prefix + "Mode")
+mode.text = (prefix + GetString("str_settings_mode"))
 mode_index.text = (prefix + modetext)
-volume.text=(prefix + "Volume")
-border_obj.text = (prefix + "Border")
+volume.text=(prefix + GetString("str_settings_volume"))
+border_obj.text = (prefix + GetString("str_settings_border"))
 border_obj_index.text = (prefix + border_text)
-backtext.text = (prefix + "Save \\& Back")
+backtext.text = (prefix + GetString("str_settings_save_back"))
 
-}else if(IsChs()){
-title = instance_create_depth(275, 30, 0, text_typer)
-title.text = (prefix + "设置")
-language.text = (prefix + "语言")
-language_index.text = (prefix + "< 简体中文 {color `gray`}>")
-size.text = (prefix + "窗口大小")
-fullscreen_obj.text = (prefix + "全屏")
-if(os_type=os_android||os_type=os_ios||os_type=os_winphone||os_browser=!browser_not_a_browser){
-fullscreen_obj_index.text = (prefix + "{color `red`}不可用")}else{
-fullscreen_obj_index.text = (prefix + fullscreen_text)}
-if(os_type=os_android||os_type=os_ios||os_type=os_winphone||fullscreen=2||Border_IsEnabled()=true){
-size_index.text = (prefix + "{color `red`}不可用")}else{
-size_index.text = (prefix + window_size_text)}
-mode.text = (prefix + "模式")
-mode_index.text = (prefix + modetext)
-volume.text=(prefix + "音量")
-border_obj.text = (prefix + "边框")
-border_obj_index.text = (prefix + border_text)
-backtext.text = (prefix + "保存并返回")}
 if(choice=1){
-if(IsEng()){
-language.text = (prefix + "{color `yellow`}" + "Language")
-language_index.text = (prefix + "{color `gray`}<{color `yellow`} English >")
-}else if(IsChs()){
-language.text = (prefix + "{color `yellow`}" + "语言")
-language_index.text = (prefix + "{color `yellow`}< 简体中文 {color `gray`}>")}}
+language.text = (prefix + "{color `yellow`}" + GetString("str_settings_language"))
+language_index.text = (prefix + "{color `"+(global.language>0 ? (choice=1 ? "yellow" : "white") : "gray")+"`}<{color `"+(choice=1 ? "yellow" : "white")+"`} "+GetString("str_language_name")+" {color `"+(global.language<LANGUAGE.MAX-1 ? (choice=1 ? "yellow" : "white") : "gray")+"`}>")}
 
 if(choice=2){
-if(IsEng()){
-size.text = (prefix + "{color `yellow`}" + "Window Size")
-}else if(IsChs()){
-size.text = (prefix + "{color `yellow`}" + "窗口大小")}
+size.text = (prefix + "{color `yellow`}" + GetString("str_settings_window_size"))
 if(os_type=os_android||os_type=os_ios||os_type=os_winphone||fullscreen=2||Border_IsEnabled()=true){
-if(IsEng()){
-size_index.text = (prefix + "{color `red`}N/A")
-}else if(IsChs()){
-size_index.text = (prefix + "{color `red`}不可用")}
+size_index.text = (prefix + GetString("str_settings_n/a"))
 }else{
 size_index.text = (prefix + "{color `yellow`}" + window_size_text)}}
 
 if(choice=3){
-if(IsEng()){
-fullscreen_obj.text = (prefix + "{color `yellow`}" + "Fullscreen")
-}else if(IsChs()){
-fullscreen_obj.text = (prefix + "{color `yellow`}" + "全屏")}
+fullscreen_obj.text = (prefix + "{color `yellow`}" + GetString("str_settings_fullscreen"))
 if(os_type=os_android||os_type=os_ios||os_type=os_winphone){
-if(IsEng()){
-fullscreen_obj_index.text = (prefix + "{color `red`}N/A")
-}else if(IsChs()){
-fullscreen_obj_index.text = (prefix + "{color `red`}不可用")}
+fullscreen_obj_index.text = (prefix + GetString("str_settings_n/a"))
 }else{
 fullscreen_obj_index.text = (prefix + "{color `yellow`}" + fullscreen_text)}}
 
 if(choice=4){
-if(IsEng()){
-mode.text = (prefix + "{color `yellow`}Mode")
-}else if(IsChs()){
-mode.text = (prefix + "{color `yellow`}模式")}
+mode.text = (prefix + "{color `yellow`}"+GetString("str_settings_mode"))
 mode_index.text = (prefix + "{color `yellow`}" +modetext)}
 
 if(choice=5){
-if(IsEng()){
-volume.text = (prefix + "{color `yellow`}Volume")
-}else if(IsChs()){
-volume.text = (prefix + "{color `yellow`}音量")}}
+volume.text = (prefix + "{color `yellow`}"+GetString("str_settings_volume"))}
 
 if(choice=6){
-if(IsEng()){
-border_obj.text = (prefix + "{color `yellow`}Border")
-}else if(IsChs()){
-border_obj.text = (prefix + "{color `yellow`}边框")}
+border_obj.text = (prefix + "{color `yellow`}"+GetString("str_settings_border"))
 border_obj_index.text = (prefix + "{color `yellow`}" + border_text)}
 
 if(choice=7){
-if(IsEng()){
-backtext.text = (prefix + "{color `yellow`}Save \\& Back")
-}else if(IsChs()){
-backtext.text = (prefix + "{color `yellow`}保存并返回")}}
+backtext.text = (prefix + "{color `yellow`}"+GetString("str_settings_save_back"))}
 
 if(LOCK_LANGUAGE!=-1){
-if(instance_exists(language)){
-instance_destroy(language)}
-if(instance_exists(language_index)){
-instance_destroy(language_index)}
-language = instance_create_depth(70, 80, 0, text_typer)
-language_index = instance_create_depth(450, 80, 0, text_typer)
-if(LOCK_LANGUAGE=LANGUAGE.ENGLISH){language_index.text = (prefix + "{color `gray`}<{color `"+(choice=1 ? "yellow" : "white")+"`} English {color `gray`}>")}
-if(LOCK_LANGUAGE=LANGUAGE.ENGLISH){language.text = (prefix + "{color `"+(choice=1 ? "yellow" : "white")+"`}Language (Locked)")}
-if(LOCK_LANGUAGE=LANGUAGE.SCHINESE){language_index.text = (prefix + "{color `gray`}<{color `"+(choice=1 ? "yellow" : "white")+"`} 简体中文 {color `gray`}>")}
-if(LOCK_LANGUAGE=LANGUAGE.SCHINESE){language.text = (prefix + "{color `"+(choice=1 ? "yellow" : "white")+"`}语言 (已锁定)")}
+	if(instance_exists(language)){
+	instance_destroy(language)}
+	if(instance_exists(language_index)){
+	instance_destroy(language_index)}
+	language = instance_create_depth(70, 80, 0, text_typer)
+	language_index = instance_create_depth(450, 80, 0, text_typer)
+	language_index.text = (prefix + "{color `gray`}< {color `"+(choice=1 ? "yellow" : "white")+"`}"+GetString("str_language_name")+"{color `gray`} >")
+	language.text = (prefix + "{color `"+(choice=1 ? "yellow" : "white")+"`}"+GetString("str_settings_language_locked"))
 }

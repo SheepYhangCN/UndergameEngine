@@ -1,9 +1,5 @@
 if(keyboard_check_pressed(vk_insert)){
-	if(global.debug = 0){
-		global.debug = 1;
-	}else if(global.debug = 1){
-		global.debug = 0;
-	}
+	global.debug=!global.debug
 }
 
 if(global.debug){
@@ -40,12 +36,9 @@ if(global.debug){
 		room_restart()
 }
 	if(keyboard_check_pressed(vk_f5)){
-	if(IsEng()){
-	Language_Set(LANGUAGE.SCHINESE)
-	}else if(IsChs()){
-	Language_Set(LANGUAGE.ENGLISH)
+		if(global.language<LANGUAGE.MAX-1){Language_Set(global.language+1)}else
+		if(global.language>=LANGUAGE.MAX-1){Language_Set(0)}
 	}
-}
 if(keyboard_check_pressed(vk_tab)){
 	if(world._window_size=1){
 	//window_set_size(960,720)
@@ -116,40 +109,16 @@ if(keyboard_check_pressed(vk_space)){
 if(Player_IsInBattle()){
 	if(instance_exists(battle_soul_blue)||instance_exists(battle_soul_blue_aqua)){
 	if(keyboard_check_pressed(ord("W"))){
-		if(instance_exists(battle_enemy_ulb_nmd_p1)){
-			BlueSoulControl_ULBxNMD(DIR.UP)
-		}else if(instance_exists(battle_enemy_warma)){
-			BlueSoulControl_Warma(DIR.UP)
-		}else{
 			BlueSoulControl(DIR.UP)
-		}
 	}
 	if(keyboard_check_pressed(ord("A"))){
-		if(instance_exists(battle_enemy_ulb_nmd_p1)){
-			BlueSoulControl_ULBxNMD(DIR.LEFT)
-		}else if(instance_exists(battle_enemy_warma)){
-			BlueSoulControl_Warma(DIR.LEFT)
-		}else{
 			BlueSoulControl(DIR.LEFT)
-		}
 	}
 	if(keyboard_check_pressed(ord("S"))){
-		if(instance_exists(battle_enemy_ulb_nmd_p1)){
-			BlueSoulControl_ULBxNMD(DIR.DOWN)
-		}else if(instance_exists(battle_enemy_warma)){
-			BlueSoulControl_Warma(DIR.DOWN)
-		}else{
 			BlueSoulControl(DIR.DOWN)
-		}
 	}
 	if(keyboard_check_pressed(ord("D"))){
-		if(instance_exists(battle_enemy_ulb_nmd_p1)){
-			BlueSoulControl_ULBxNMD(DIR.RIGHT)
-		}else if(instance_exists(battle_enemy_warma)){
-			BlueSoulControl_Warma(DIR.RIGHT)
-		}else{
 			BlueSoulControl(DIR.RIGHT)
-		}
 	}}
 	if(keyboard_check_pressed(vk_delete)){
 		warp_battle_turn=get_integer("Battle_SetTurnNumber", Battle_GetTurnNumber())

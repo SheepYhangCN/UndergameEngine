@@ -266,9 +266,3 @@ if(_menu==2||_menu==3){
 
 if(string_lower(_naming_name)="gaster"){
 game_restart()}
-
-if(IsEng()){
-window_set_caption(GAME_NAME+" - Menu")
-}else if(IsChs()){
-window_set_caption(GAME_NAME+" - 菜单")
-}
