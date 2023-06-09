@@ -1,1 +1,0 @@
-room_goto(room_core_sans_end)
