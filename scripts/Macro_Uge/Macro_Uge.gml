@@ -14,6 +14,7 @@ function Macro_Uge(){
 	enum LANGUAGE{
 		ENGLISH,
 		SCHINESE,
+		TCHINESE,
 		
 		MAX
 	}

@@ -382,6 +382,7 @@
     {"name":"snd_vaporize","order":16,"path":"sounds/snd_vaporize/snd_vaporize.yy",},
     {"name":"battle_board_extra","order":2,"path":"objects/battle_board_extra/battle_board_extra.yy",},
     {"name":"snd_item_heal","order":12,"path":"sounds/snd_item_heal/snd_item_heal.yy",},
+    {"name":"GetString_tChinese","order":3,"path":"scripts/GetString_tChinese/GetString_tChinese.yy",},
     {"name":"snd_item_swallow","order":13,"path":"sounds/snd_item_swallow/snd_item_swallow.yy",},
     {"name":"spr_unbengable","order":1,"path":"sprites/spr_unbengable/spr_unbengable.yy",},
     {"name":"Battle_MakeBoneCube","order":12,"path":"scripts/Battle_MakeBoneCube/Battle_MakeBoneCube.yy",},

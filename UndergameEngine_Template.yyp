@@ -454,6 +454,7 @@
     {"id":{"name":"snd_vaporize","path":"sounds/snd_vaporize/snd_vaporize.yy",},},
     {"id":{"name":"battle_board_extra","path":"objects/battle_board_extra/battle_board_extra.yy",},},
     {"id":{"name":"snd_item_heal","path":"sounds/snd_item_heal/snd_item_heal.yy",},},
+    {"id":{"name":"GetString_tChinese","path":"scripts/GetString_tChinese/GetString_tChinese.yy",},},
     {"id":{"name":"snd_item_swallow","path":"sounds/snd_item_swallow/snd_item_swallow.yy",},},
     {"id":{"name":"spr_unbengable","path":"sprites/spr_unbengable/spr_unbengable.yy",},},
     {"id":{"name":"Battle_MakeBoneCube","path":"scripts/Battle_MakeBoneCube/Battle_MakeBoneCube.yy",},},
