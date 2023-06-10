@@ -545,7 +545,7 @@ function GetString_tChinese(){
 			result="清除業報"
 			break
 		case "str_battle_act_pray_menu_dialog":
-			result="* 你默唸出禱告詞。{sleep 20}&* 你的業報被清除!"
+			result="* 你默念出禱告詞。{sleep 20}&* 你的業報被清除!"
 			break
 		case "str_battle_act_heal":
 			result="治療"
