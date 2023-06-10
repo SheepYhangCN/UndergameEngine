@@ -3,7 +3,9 @@
 ![](https://img.shields.io/github/languages/top/SheepYhangCN/UndergameEngine.svg?style=flat-square ":no-zoom")
 
 # UndergameEngine
-当前分支：**主分支（main）**
+当前分支：**v1.0 Legacy分支**
+<br>
+v1.0版本不再维护，切换至**主分支（main）** 来获取v2.0源码
 <br>
 你可以切换至**模板分支（template）** 来获取此开源模板
 <br><br>

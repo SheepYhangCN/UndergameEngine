@@ -3,7 +3,9 @@
 ![](https://img.shields.io/github/languages/top/SheepYhangCN/UndergameEngine.svg?style=flat-square ":no-zoom")
 
 # Undergame Engine
-Current branch: **main**
+Current branch: **v1.0 Legacy**
+<br>
+v1.0 is no longer maintained, switch to **main** branch to get v2.0 source code
 <br>
 You can switch to **template** branch to get this open-source template
 <br><br>
