@@ -498,13 +498,13 @@ function GetString_tChinese(){
 		result="護甲"
 		break
 	case "str_item_shield_shop_desc":
-		result="盾&可以在戰鬥&中按住[空格]&來使用"
+		result="盾&可以在戰鬥&中按住[空白鍵]&來使用"
 		break
 	case "str_item_shield_use":
 		result="* 裝備了盾。"
 		break
 	case "str_item_shield_info":
-		result="* 盾{sleep 15}&* 在戰鬥中按住空格可以使用"
+		result="* 盾{sleep 15}&* 在戰鬥中按住空白鍵可以使用"
 		break
 	case "str_item_shield_drop":
 		result="* 你扔掉了盾。"
