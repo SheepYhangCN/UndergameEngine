@@ -60,7 +60,7 @@ switch(_state)
 					_typer_right.text = _pre + _host.buy_before_text;
 					break;
 				case 1:
-					_typer_right.text = _pre_inst_3 + GetString("str_shop_buying_0") + string(_item[_index]._price_buy)+GetString("str_shop_buying_0");
+					_typer_right.text = _pre_inst_3 + GetString("str_shop_buying_0") + string(_item[_index]._price_buy)+GetString("str_shop_buying_1");
 					break;
 				case 2:
 					_typer_right.text = _pre + _host.buy_after_text;
