@@ -47,7 +47,7 @@ if(_menu==0){
 		_inst_reset.text=_prefix+GetString("str_menu_reset")
 		_inst_settings.text=_prefix+GetString("str_menu_settings")
 		_inst_credits.text=_prefix+GetString("str_menu_credits")
-		_inst_save_options.text=_prefix+GetString("str_menu_save_options")
+		_inst_save_options.text=_prefix+GetString("str_menu_saveoptions")
 		event_user(2);
 		
 	}
