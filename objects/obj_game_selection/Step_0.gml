@@ -13,3 +13,9 @@ if(Input_IsPressed(INPUT.CANCEL)&&!starting){
 enabled=GameSelectionGetInfo()[3]
 phases=GameSelectionGetInfo()[4]
 if(!GameSelectionGetInfo()[10+phase]){enabled=false}
+
+rainbow+=0.5
+bgu.image_blend=make_color_hsv((rainbow % 255), 255, 255)
+bgd.image_blend=make_color_hsv((rainbow % 255), 255, 255)
+bgl.image_blend=make_color_hsv((rainbow % 255), 255, 255)
+bgr.image_blend=make_color_hsv((rainbow % 255), 255, 255)

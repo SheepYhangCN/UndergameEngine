@@ -1,8 +1,22 @@
 depth=DEPTH_UI.TEXT
-//instance_create_depth(0,0,depth+2,obj_background)
-if!(os_type=os_android||os_type=os_ios||os_type=os_winphone||os_browser=browser_ie_mobile||os_browser=browser_ie_mobile){
-instance_create_depth(0,0,depth+1,obj_effect_space)}
 window_mouse_set(device_mouse_x(0),device_mouse_y(0))
+
+bgu=instance_create_depth(0,0-24,depth+1,battle_bg)
+bgu.image_yscale=1
+bgu.alarm[2]=1
+bgd=instance_create_depth(640,480+24,depth+1,battle_bg)
+bgd.image_angle=180
+bgd.image_yscale=1
+bgd.alarm[2]=1
+bgl=instance_create_depth(0-24,480,depth+1,battle_bg)
+bgl.image_angle=90
+bgl.image_yscale=1
+bgl.alarm[2]=1
+bgr=instance_create_depth(640+24,0,depth+1,battle_bg)
+bgr.image_angle=-90
+bgr.image_yscale=1
+bgr.alarm[2]=1
+rainbow=0
 
 choice=-1
 choice_min=-1
