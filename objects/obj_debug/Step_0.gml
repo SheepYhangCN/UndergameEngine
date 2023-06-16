@@ -23,6 +23,21 @@ if(global.debug){
 	out=true}
 	if(variable_instance_exists(self,"outside")){
 	outside=true}
+	}}}else{
+	if(instance_exists(char_player)){
+	with(block){
+	if(object_index=block||object_index=block_corner){
+	visible=false}}
+	with(trigger){
+	visible=false}
+	with(hint_landmark){
+	visible=false}}
+	if(Player_IsInBattle()){
+	with(battle_bullet){
+	if(variable_instance_exists(self,"out")){
+	out=false}
+	if(variable_instance_exists(self,"outside")){
+	outside=false}
 	}}}
 	if(keyboard_check_pressed(vk_f12)){
 	if(global.mode=GAME_MODE.NORMAL){
