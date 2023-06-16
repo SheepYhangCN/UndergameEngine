@@ -1,0 +1,10 @@
+x=battle_board.x
+y=battle_board.y
+wall=DIR.UP//360=round
+bonebox=noone
+dir_add=0
+gap=0
+length=0
+DURATION=-1
+duration=-1
+alarm[0]=1
