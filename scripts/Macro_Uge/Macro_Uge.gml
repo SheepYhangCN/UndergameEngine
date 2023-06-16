@@ -36,6 +36,9 @@ function Macro_Uge(){
 	}
 	enum BATTLE{
 		TEST,
+		ULBxNMD_P1,
+		HAIKE,
+		POYOROID,
 		
 		NUM
 	}

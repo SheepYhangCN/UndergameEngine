@@ -1,6 +1,6 @@
 if(bar_visible&&damage>0){
-	draw_sprite_ext(spr_pixel,0,xstart-bar_width/2,ystart+15,bar_width,13,0,c_dkgray,1);
-	draw_sprite_ext(spr_pixel,0,xstart-bar_width/2,ystart+15,bar_width/bar_hp_max*_bar_hp,13,0,c_lime,1);
+	draw_sprite_ext(spr_pixel,0,xstart-bar_width/2,ystart+20,bar_width,13,0,c_dkgray,1);
+	draw_sprite_ext(spr_pixel,0,xstart-bar_width/2,ystart+20,bar_width/bar_hp_max*_bar_hp,13,0,c_lime,1);
 }
 
 if(damage<-5 || damage=BATTLE_DAMAGE.MISS){

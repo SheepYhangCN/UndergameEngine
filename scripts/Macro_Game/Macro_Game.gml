@@ -1,6 +1,6 @@
 function Macro_Game() {
 	//Anything you want, must be a string.
-#macro GAME_NAME "UndergameEngine_Template"
+#macro GAME_NAME "UndergameEngine"
 
 	//Anything you want, must be a string.
 #macro GAME_AUTHOR "SheepYhangCN"

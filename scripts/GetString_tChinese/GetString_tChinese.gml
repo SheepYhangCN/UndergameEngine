@@ -47,7 +47,7 @@ function GetString_tChinese(){
 			result="Vape v114.514 已注入"
 			break
 		case "str_vape_uninstalled":
-			result="Vape v114.514 已卸載"
+			result="Vape v114.514 已解除"
 			break
 		case "str_mobile_control_hint":
 			result="按下返回鍵(移動端)或退格鍵&(桌面端)來切換移動端控制。"
@@ -67,6 +67,12 @@ function GetString_tChinese(){
 		case "str_logo":
 			result="[scale,2][font_dialog][[[font_chs]按下 [font_dialog]Z[font_chs] 或 [font_dialog]Enter]"
 			break
+		case "str_old_save_file_detected":
+			result="檢測到舊的存檔檔案。&按下Z或Enter將會刪除它。"
+			break
+		case "str_old_save_file_deleted":
+			result="檔案 {insert FILE} 已被刪除。"
+			break
 		case "str_controller_prefix":
 			result="{instant true}{scale 2}{font 0}"
 			break
@@ -77,7 +83,7 @@ function GetString_tChinese(){
 			result="鍵盤"
 			break
 		case "str_controller_n":
-			result="手柄 (Nintendo標準)"
+			result="手柄 (任天堂標準)"
 			break
 		case "str_controller_x":
 			result="手柄 (Xbox標準)"
@@ -101,7 +107,7 @@ function GetString_tChinese(){
 			result="{font 0}開始遊戲"
 			break
 		case "str_menu_settings":
-			result="{font 0}設置"
+			result="{font 0}設定"
 			break
 		case "str_menu_credits":
 			result="{font 0}鳴謝"
@@ -365,7 +371,7 @@ function GetString_tChinese(){
 			result="{scale 2}{instant true}{color `gray`}<{color `white`}第"+string(id.page+1)+"/4頁>"
 			break
 		case "str_credits0":
-			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By 憨憨羊の宇航鴿鴿&UNDERTALE Engine By 糖萌蘆&GameMaker By YoyoGames&&藍魂和板子和骨頭By 1個渣渣&星空背景着色器By Kali&商店By不會起名的一杯猹 \\& 1個渣渣&開發者控制臺By DaveTech&移動端控制By Darknslim \\& 南省Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
+			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By 憨憨羊の宇航鴿鴿&UNDERTALE Engine By 糖萌蘆&GameMaker By YoyoGames&&藍魂和板子By 1個渣渣&星空背景着色器By Kali&商店By不會起名的一杯猹 \\& 1個渣渣&開發者控制臺By DaveTech&移動端控制By Darknslim \\& 南省Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
 			break
 		case "str_credits1":
 			result="{font 1}{scale 2}{speed 1}{instant true}字體使用&Determination Sans/Mono,&Mars Needs Cunnilingus,Papyrus&By Toby Fox&宋體By 北京中易中標電子信息技術有限公司&方正少兒GBK、方正卡通 By 方正字庫&Comic Sans, Dotumche By Microsoft&GNU Unifont By Roman Czyborra"
@@ -389,25 +395,25 @@ function GetString_tChinese(){
 			result="[scale,2][font_chs]退出\n[font_dialog][scale,1](X/Shift)"
 			break
 		case "str_game_selection_intro":
-			result="開頭"
+			result="[font_chs]開頭"
 			break
 		case "str_game_selection_corridor":
-			result="長廊"
+			result="[font_chs]長廊"
 			break
 		case "str_game_selection_phase1":
-			result="第1階段"
+			result="[font_chs]第[font_menu]1[font_chs]階段"
 			break
 		case "str_game_selection_phase2":
-			result="第2階段"
+			result="[font_chs]第[font_menu]2[font_chs]階段"
 			break
 		case "str_game_selection_phase3":
-			result="第3階段"
+			result="[font_chs]第[font_menu]3[font_chs]階段"
 			break
 		case "str_game_selection_phase4":
-			result="第4階段"
+			result="[font_chs]第[font_menu]4[font_chs]階段"
 			break
 		case "str_game_selection_phase5":
-			result="第5階段"
+			result="[font_chs]第[font_menu]5[font_chs]階段"
 			break
 		case "str_game_selection_start":
 			result="\n[[Z/Enter][font_chs]或者使用光標點擊來開始"
@@ -417,6 +423,12 @@ function GetString_tChinese(){
 			break
 		case "str_game_selection_shop":
 			result="[font_chs]商店"
+			break
+		case "str_game_selection_subtitle_on":
+			result="[font_chs]開啟字幕"
+			break
+		case "str_game_selection_subtitle_off":
+			result="[font_chs]關閉字幕"
 			break
 #endregion
 #region 房間名
@@ -498,13 +510,13 @@ function GetString_tChinese(){
 		result="護甲"
 		break
 	case "str_item_shield_shop_desc":
-		result="盾&可以在戰鬥&中按住[空格]&來使用"
+		result="盾&可以在戰鬥&中按住[空白鍵]&來使用"
 		break
 	case "str_item_shield_use":
 		result="* 裝備了盾。"
 		break
 	case "str_item_shield_info":
-		result="* 盾{sleep 15}&* 在戰鬥中按住空格可以使用"
+		result="* 盾{sleep 15}&* 在戰鬥中按住空白鍵可以使用"
 		break
 	case "str_item_shield_drop":
 		result="* 你扔掉了盾。"
@@ -556,6 +568,132 @@ function GetString_tChinese(){
 #endregion
 		case "str_room_lobby_save":
 			result="{audio_play `snd_item_heal`}* 看見這個空蕩蕩的大廳...{pause}{clear}* 你充滿了決心!{pause}{clear}{heal_hp 9999999999}* (HP完全恢復了。){pause}{ui_save}{end}"
+			break
+		case "str_hint_spaceheal_cskip":
+			result="按下空白鍵吃藥\n按下C或Ctrl來跳過開頭"
+			break
+		case "str_hint_spaceheal":
+			result="按下空白鍵吃藥"
+			break
+		case "str_hint_cskip":
+			result="按下C或Ctrl來跳過開頭"
+			break
+		case "str_hint_itemused":
+			result="已吃藥數:"
+			break
+		case "str_ulb_nmd_caption":
+			result=" - 終焉之息 Sans x 再無交易 Chara 戰"
+			break
+		case "str_games_ulb_nmd":
+			result="[font_chs]終焉之息[font_menu] Sans x [font_chs]再無交易[font_menu] Chara [font_chs]戰"
+			break
+		case "str_poyoroid_caption":
+			result="Pepontale - Poyoroid 戰"
+			break
+		case "str_game_poyoroid":
+			result="Pepontale - Poyoroid [font_chs]戰"
+			break
+		case "str_poyoroid_check":
+			result="* Poyoroid - 攻擊 10 防禦 20&* 你或許可以稱呼她為“躁”。"
+			break
+		case "str_poyoroid_menu_dialog_0":
+			result="* Poyoroid 擋住了去路!"
+			break
+		case "str_poyoroid_dialog_0":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}那麼, &先來暖個場吧~{pause}{variable `battle_enemy_poyoroid` `_face` 2}{end}"
+			break
+		case "str_poyoroid_menu_dialog_1":
+			result="* Poyoroid 正在思考著什麼。"
+			break
+		case "str_poyoroid_dialog_1":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}看來你並不想戰鬥?{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}那麼就看看你是否能&應對我的{color `fuchsia`}粉色攻擊{color `black`}吧!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_dialog_1_1":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}你現在是粉色的了!{sleep 15}&這就是我的{color `fuchsia`}粉色攻擊{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 4}{clear}那麼疑惑幹嘛, {sleep 15}&我說錯什麼了嗎?{pause}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_2":
+			result="* 可愛捏。"
+			break
+		case "str_poyoroid_dialog_2":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}暖場結束, {sleep 15}&真正的戰鬥開始!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_menu_dialog_3":
+			result="* 捏嘿嘿...誒...?"
+			break
+		case "str_poyoroid_dialog_3":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}等我打敗你,&{sleep 15}馬上就把你&抓起來!"
+			break
+		case "str_poyoroid_menu_dialog_4":
+			result="* Poyoroid 擺了個看起來很酷的姿勢。"
+			break
+		case "str_poyoroid_dialog_4":
+			result="{variable `battle_enemy_poyoroid` `_face` 3}然後研究地球人的&身體結構!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_menu_dialog_5":
+			result="* 有點哈人。"
+			break
+		case "str_poyoroid_dialog_5":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}這樣, 我就能...{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 4}嗯...能幹啥來着?{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}}"
+			break
+		case "str_poyoroid_menu_dialog_6":
+			result="* Poyoroid 正在修復她的語言系統。"
+			break
+		case "str_poyoroid_dialog_6":
+			result="{variable `battle_enemy_poyoroid` `_face` 3}對了! 就能有更多的&歌詞靈感!"
+			break
+		case "str_poyoroid_menu_dialog_7":
+			result="* 哪來的注射器?"
+			break
+		case "str_poyoroid_dialog_7":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}放棄吧, &不要再做無謂&的抵抗了!"
+			break
+		case "str_poyoroid_menu_dialog_8":
+			result="* 你有種不祥的預感。"
+			break
+		case "str_poyoroid_dialog_8":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}呼...呼...{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 0}再不放棄,&就準備嘗嘗我的&{color `red`}殺手鐗{color `black`}吧!"
+			break
+		case "str_poyoroid_menu_dialog_9":
+			result="* 她虛了。"
+			break
+		case "str_poyoroid_dialog_9":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}這是最後的警告!{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 3}下一回合就準備吃苦頭吧!{variable `battle_enemy_poyoroid` `_face` 0}"
+			break
+		case "str_poyoroid_menu_dialog_10":
+			result="* 怎麼突然出現這麼多怪東西?"
+			break
+		case "str_poyoroid_dialog_10":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}你居然撐到這裏了?{pause}{variable `battle_enemy_poyoroid` `_face` 1}{clear}那麼, 這就是我的&{color `red`}殺手鐗{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_dialog_10_0":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}哪來的蛞蝓?{pause}{alarm `battle_poyoroid_turn10` 1 30}{end}"
+			break
+		case "str_poyoroid_dialog_10_1":
+			result="{skippable false}{variable `battle_enemy_poyoroid` `_face` 7}滚!{sleep 120}{alarm `battle_poyoroid_turn10` 3 60}{end}"
+			break
+		case "str_poyoroid_dialog_10_2":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}那麼, 我真正的&殺手鐗是!{pause}{alarm `battle_poyoroid_turn10` 4 10}{end}"
+			break
+		case "str_poyoroid_dialog_10_3":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}怎麼樣, 有沒有被&嚇破膽?{pause}{variable `battle_enemy_poyoroid` `_face` 4}{clear}額...{sleep 15}&看起來這招對你&沒用...{pause}{variable `battle_enemy_poyoroid` `_face` 0}{clear}那我還是來一套&{color `red`}組合攻擊{color `black`}吧。{pause}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_11":
+			result="* 路易十六快樂小玩具。"
+			break
+		case "str_poyoroid_dialog_11":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}接招吧人類, 直徑&整個戰鬥框的&組合攻擊!"
+			break
+		case "str_poyoroid_dialog_11_end":
+			result="呼...呼...{sleep 15}&累死我了...{pause}{variable `battle_enemy_poyoroid` `_face` 2}{clear}沒想到你的走位&這麼厲害。{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}不過你還是別想逃!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_12":
+			result="* Poyoroid 疲憊了。"
+			break
+		case "str_poyoroid_dialog_12":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}什麼?&你要饒恕我?{pause}{clear}你還想着交朋友?{pause}{variable `battle_enemy_poyoroid` `_face` 2}{clear}肯定是你打不過了&在求饒!{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}我能看到你的腿&都在抖!{pause}{variable `battle_enemy_poyoroid` `_face` 1}{clear}不過你那強大的&毅力使我對地球人&有了新的認識。{pause}{variable `battle_enemy_poyoroid` `_face` 6}{clear}所以, 我同意&和你交朋友!{pause}{variable `battle_enemy_poyoroid` `_face` 5}{alarm `battle_poyoroid_turn12` 0 30}{end}"
+			break
+		case "str_poyoroid_end":
+			result="遊戲 By 憨憨羊の宇航鴿鴿&原動畫 By 沃淦Worgan&Logo \\& Poyoroid貼圖 By 沃淦Worgan&曲子 By sprins&Poyoroid By ぺぽよPEPOYO"
 			break
 	}
 	return result

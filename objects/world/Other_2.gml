@@ -5,11 +5,6 @@ global.language=LANGUAGE.ENGLISH
 global.battle=BATTLE.TEST
 global.shop=SHOP.TEST
 global.tas=false
-global.kr=false
-global.shield=false
-global.shield_useable=false
-global.shielding=false
-global.shieldval=120
 global.vape=false
 global.controller=0
 var a=0
@@ -31,6 +26,9 @@ if(!file_exists(working_directory+"Music/bgm_shop.ogg")){show_error("'working_di
 if(!file_exists(working_directory+"Music/bgm_snowdin.ogg")){show_error("'working_directory+\"Music/bgm_snowdin.ogg\"' doesn't exists.",true)};global._bgm_snowdin=audio_create_stream(working_directory+"Music/bgm_snowdin.ogg");#macro bgm_snowdin global._bgm_snowdin
 if(!file_exists(working_directory+"Music/bgm_thinking.ogg")){show_error("'working_directory+\"Music/bgm_thinking.ogg\"' doesn't exists.",true)};global._bgm_thinking=audio_create_stream(working_directory+"Music/bgm_thinking.ogg");#macro bgm_thinking global._bgm_thinking
 if(!file_exists(working_directory+"Music/loop_rain.ogg")){show_error("'working_directory+\"Music/loop_rain.ogg\"' doesn't exists.",true)};global._loop_rain=audio_create_stream(working_directory+"Music/loop_rain.ogg");#macro loop_rain global._loop_rain
+if(!file_exists(working_directory+"Music/bgm_ulb_nmd.ogg")){show_error("'working_directory+\"Music/bgm_ulb_nmd.ogg\"' doesn't exists.",true)};global._bgm_ulb_nmd=audio_create_stream(working_directory+"Music/bgm_ulb_nmd.ogg");#macro bgm_ulb_nmd global._bgm_ulb_nmd
+if(!file_exists(working_directory+"Music/bgm_haike.ogg")){show_error("'working_directory+\"Music/bgm_haike.ogg\"' doesn't exists.",true)};global._bgm_haike=audio_create_stream(working_directory+"Music/bgm_haike.ogg");#macro bgm_haike global._bgm_haike
+if(!file_exists(working_directory+"Music/bgm_poyoroid.ogg")){show_error("'working_directory+\"Music/bgm_poyoroid.ogg\"' doesn't exists.",true)};global._bgm_poyoroid=audio_create_stream(working_directory+"Music/bgm_poyoroid.ogg");#macro bgm_poyoroid global._bgm_poyoroid
 #endregion
 
 Anim_Init();

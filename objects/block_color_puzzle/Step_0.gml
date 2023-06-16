@@ -22,6 +22,7 @@ if(position_meeting(x+10,y+9,char_player)){
 			char_player.flavor="Orange"
 		break
 		case c_yellow://黄色
+		case c_red:
 			alarm[0]=6
 			audio_play_sound(snd_shock,0,0)
 		break
@@ -40,7 +41,7 @@ if(position_meeting(x+10,y+9,char_player)){
 		}
 		temp=true
 	}
-	if(moveable=true){
+	if(moveable&&char_player._moveable_dialog&&char_player._moveable_menu&&char_player._moveable_encounter&&char_player._moveable_warp){
 	if(Input_IsHeld(INPUT.UP)&&!Input_IsHeld(INPUT.DOWN)){
 		char_player.dir=DIR.UP
 		event_user(1)

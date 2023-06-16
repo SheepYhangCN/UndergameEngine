@@ -7,3 +7,5 @@ color = 255
 audio=true
 alarm[0] = 5
 depth = DEPTH_BATTLE.BULLET
+dir=-1
+length=0

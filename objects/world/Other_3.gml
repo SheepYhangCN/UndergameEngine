@@ -37,4 +37,7 @@ audio_destroy_stream(bgm_shop)
 audio_destroy_stream(bgm_snowdin)
 audio_destroy_stream(bgm_thinking)
 audio_destroy_stream(loop_rain)
+audio_destroy_stream(bgm_ulb_nmd)
+audio_destroy_stream(bgm_haike)
+audio_destroy_stream(bgm_poyoroid)
 #endregion

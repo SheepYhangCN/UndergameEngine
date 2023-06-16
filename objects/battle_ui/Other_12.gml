@@ -1,28 +1,28 @@
 ///@descr shield timer control
-if((!keyboard_check(ord("C"))) || global.shield_useable == false)
+if((!keyboard_check(ord("C"))) || battle.shield_useable == false)
         {
-            if(global.shieldval < 120){
+            if(battle.shieldval < 120){
 			if(global.mode=GAME_MODE.NORMAL){
-                global.shieldval += 1.5}
+                battle.shieldval += 1.5}
 			if(global.mode=GAME_MODE.EASY){
-                global.shieldval += 2}
+                battle.shieldval += 2}
 			if(global.mode=GAME_MODE.HARD){
-                global.shieldval += 1}
+                battle.shieldval += 1}
 			}
-			global.shielding=false
+			battle.shielding=false
         }
-if(keyboard_check(ord("C")) && global.shield_useable == true && global.shieldval > 0)
+if(keyboard_check(ord("C")) && battle.shield_useable == true && battle.shieldval > 0)
         {
 			if(global.mode=GAME_MODE.NORMAL){
-            global.shieldval -= 2}
+            battle.shieldval -= 2}
 			if(global.mode=GAME_MODE.EASY){
-            global.shieldval -= 1}
+            battle.shieldval -= 1}
 			if(global.mode=GAME_MODE.HARD){
-            global.shieldval -= 3}
-            global.shielding = true
+            battle.shieldval -= 3}
+            battle.shielding = true
         }
-if(global.shieldval<=0){global.shielding=false}
-        if(global.shieldval > 120){
-            global.shieldval = 120}
-        if(global.shieldval < 0){
-            global.shieldval = 0}
+if(battle.shieldval<=0){battle.shielding=false}
+        if(battle.shieldval > 120){
+            battle.shieldval = 120}
+        if(battle.shieldval < 0){
+            battle.shieldval = 0}

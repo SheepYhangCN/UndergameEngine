@@ -46,6 +46,10 @@ function GetColorFromString() {
 		case "green":
 			color=c_green;
 			break;
+		case "fuchsia":
+		case "pink":
+			color=c_fuchsia;
+			break;
 	}
 	return color;
 

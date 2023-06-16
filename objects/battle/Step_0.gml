@@ -1,6 +1,12 @@
 tempx=battle_soul.x
 tempy=battle_soul.y
 
+if(instance_exists(battle_soul_graze)){
+	if(tp=false){instance_destroy(battle_soul_graze)}
+}else{
+	if(tp){instance_create_depth(battle_soul.x,battle_soul.y,DEPTH_BATTLE.SOUL+1,battle_soul_graze)}
+}
+
 //菜单
 if(_state==BATTLE_STATE.MENU){
 	//按钮
@@ -72,10 +78,12 @@ if(_state==BATTLE_STATE.MENU){
 			audio_play_sound(snd_menu_confirm,0,false)
 			switch(_menu_choice_button){
 				case 0:
+					if(global.battle!=BATTLE.POYOROID){
 					Battle_SetMenu(BATTLE_MENU.FIGHT_TARGET);
 					Anim_Create(battle_soul,"image_angle",0,0,0,90,3)
 					Anim_Create(battle_soul,"x",0,0,tempx,battle_board.x-battle_board.left-5+40-tempx,3)
 					Anim_Create(battle_soul,"y",0,0,tempy,battle_board.y-battle_board.up-5+36+32*_menu_choice_enemy-tempy,3)
+					}
 					break;
 				case 1:
 					Battle_SetMenu(BATTLE_MENU.ACT_TARGET);

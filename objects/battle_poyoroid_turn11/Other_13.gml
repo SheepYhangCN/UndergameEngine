@@ -1,0 +1,15 @@
+if(instance_exists(battle_enemy_poyoroid.bg))
+{
+	with(battle_enemy_poyoroid.bg)
+	{
+		alarm[2]=-1
+		image_yscale=1.5
+		tempscale=1.5
+		Anim_Create(id,"image_yscale",0,0,1.5,-1.5,30)
+		Anim_Create(id,"tempscale",0,0,1.5,-1.5,30)
+	}
+}
+audio_sound_gain(battle_enemy_poyoroid.bgm,0,1000);
+Battle_SetEnemySpareable(battle_enemy_poyoroid._enemy_slot,true);
+Battle_SetMenuDialog(GetString("str_poyoroid_menu_dialog_12"));
+event_inherited();

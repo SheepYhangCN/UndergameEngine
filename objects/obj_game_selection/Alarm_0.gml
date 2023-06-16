@@ -9,7 +9,15 @@ if(quit){
 	case -1:
 		break
 	case 0:
-		Encounter_Start(BATTLE.TEST)
+		Encounter_Start(BATTLE.ULBxNMD_P1)
+		break
+	case 1:
+		if(phase=0){global.subtitle=true}
+		if(phase=1){global.subtitle=false}
+		Encounter_Start(BATTLE.HAIKE)
+		break
+	case 2:
+		room_goto(room_logo_ppt)
 		break
 	}
 }

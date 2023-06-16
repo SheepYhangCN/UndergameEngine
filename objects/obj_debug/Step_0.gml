@@ -1,9 +1,9 @@
 if(keyboard_check_pressed(vk_insert)){
 	global.debug=!global.debug
+	show_debug_overlay(global.debug);
 }
 
 if(global.debug){
-	show_debug_overlay(true);
 	if(!instance_exists(obj_console)){
 	instance_create_depth(0,0,depth-1,obj_console)}
 	if(keyboard_check_pressed(vk_end)){
@@ -23,7 +23,16 @@ if(global.debug){
 	out=true}
 	if(variable_instance_exists(self,"outside")){
 	outside=true}
-	}}}
+	}}}else{
+	if(instance_exists(char_player)){
+	with(block){
+	if(object_index=block||object_index=block_corner){
+	visible=false}}
+	with(trigger){
+	visible=false}
+	with(hint_landmark){
+	visible=false}}
+	}
 	if(keyboard_check_pressed(vk_f12)){
 	if(global.mode=GAME_MODE.NORMAL){
 		global.mode=GAME_MODE.EASY;
@@ -54,8 +63,6 @@ if(keyboard_check_pressed(vk_tab)){
 	Window_Size_Set(1)
 	}
 }
-	if(global.shieldval<=0){
-	global.shieldval=120}
 	if(mouse_check_button_pressed(mb_middle)){
 	camera.angle=0
 	}
@@ -107,6 +114,8 @@ if(keyboard_check_pressed(vk_tab)){
 if(keyboard_check_pressed(vk_space)){
 		show_message("Game Paused")}
 if(Player_IsInBattle()){
+	if(battle.shieldval<=0){
+	battle.shieldval=120}
 	if(instance_exists(battle_soul_blue)||instance_exists(battle_soul_blue_aqua)){
 	if(keyboard_check_pressed(ord("W"))){
 			BlueSoulControl(DIR.UP)
@@ -189,8 +198,7 @@ if(Player_IsInBattle()){
 	if(keyboard_check_pressed(vk_f9)){
 		audio_stop_all()
 	}
-}else if(global.debug = 0){
-		show_debug_overlay(false);
+}else{
 		global.undead = 0
 		if(instance_exists(obj_console)){
 		instance_destroy(obj_console)}

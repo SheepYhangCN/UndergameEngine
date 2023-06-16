@@ -1,0 +1,15 @@
+Battle_SetMenuDialog(GetString("str_poyoroid_menu_dialog_2"))
+with(battle_enemy_poyoroid){
+	_face=0
+	bg=instance_create_depth(640,480+24,DEPTH_BATTLE.BG,battle_bg)
+	bg.image_angle=180
+	bg.image_blend=c_white
+	bg.alarm[2]=31
+	bg.image_yscale=0
+	bg.tempscale=1.5
+	Anim_Create(bg,"image_yscale",0,0,0,1.5,30)
+	Anim_Create(bg,"tempscale",0,0,0,1.5,30)
+}
+audio_sound_gain(battle_enemy_poyoroid.bgm,1,0)
+audio_sound_set_track_position(battle_enemy_poyoroid.bgm,33.2)
+event_inherited();

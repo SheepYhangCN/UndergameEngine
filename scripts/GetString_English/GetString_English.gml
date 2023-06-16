@@ -67,6 +67,12 @@ function GetString_English(){
 		case "str_logo":
 			result="[scale,1][font_mars_needs_cunnilingus][[Press Z or Enter]"
 			break
+		case "str_old_save_file_detected":
+			result="{font 1}Old save file was detected.&Pressing Z or Enter will delete it"
+			break
+		case "str_old_save_file_deleted":
+			result="File {insert FILE} was deleted."
+			break
 		case "str_controller_prefix":
 			result="{instant true}{scale 2}{font 1}"
 			break
@@ -365,7 +371,7 @@ function GetString_English(){
 			result="{scale 2}{instant true}{color `gray`}<{color `white`}Page "+string(id.page+1)+"/4>"
 			break
 		case "str_credits0":
-			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By SheepYhangCN&UNDERTALE Engine By TML&GameMaker By YoyoGames&&Blue Soul \\& Platform \\& Bone By OneZhaZha&Space background Shader By Kali&Shop By 不会起名的一杯猹 \\& OneZhaZha&Developer Console By DaveTech&Mobile Control By Darknslim \\& Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
+			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By SheepYhangCN&UNDERTALE Engine By TML&GameMaker By YoyoGames&&Blue Soul \\& Platform By OneZhaZha&Space background Shader By Kali&Shop By 不会起名的一杯猹 \\& OneZhaZha&Developer Console By DaveTech&Mobile Control By Darknslim \\& Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
 			break
 		case "str_credits1":
 			result="{font 1}{scale 2}{speed 1}{instant true}Fonts used&Determination Sans/Mono,&Mars Needs Cunnilingus,Papyrus&By Toby Fox&SimSun By Beijing ZHONG YI ZHONG Biao&Electronic INFORMATION Technology Co.&方正少儿GBK, 方正卡通 By 方正字库&Comic Sans, Dotumche By Microsoft&GNU Unifont By Roman Czyborra"
@@ -417,6 +423,12 @@ function GetString_English(){
 			break
 		case "str_game_selection_shop":
 			result="Shop"
+			break
+		case "str_game_selection_subtitle_on":
+			result="Enable Subtitle"
+			break
+		case "str_game_selection_subtitle_off":
+			result="Disable Subtitle"
 			break
 #endregion
 #region Room Name
@@ -556,6 +568,132 @@ function GetString_English(){
 #endregion
 		case "str_room_lobby_save":
 			result="{audio_play `snd_item_heal`}* Seeing this empty lobby...{pause}{clear}* You filled with DETERMINATION!{pause}{clear}{heal_hp 9999999999}* (HP fully restored.){pause}{ui_save}{end}"
+			break
+		case "str_hint_spaceheal_cskip":
+			result="Press Space to heal\nPress C or Ctrl to skip intro"
+			break
+		case "str_hint_spaceheal":
+			result="Press Space to heal"
+			break
+		case "str_hint_cskip":
+			result="Press C or Ctrl to skip intro"
+			break
+		case "str_hint_itemused":
+			result="Item used:"
+			break
+		case "str_ulb_nmd_caption":
+			result=" - ULB Sans x NMD Chara Fight"
+			break
+		case "str_games_ulb_nmd":
+			result="ULB Sans x NMD Chara Fight"
+			break
+		case "str_poyoroid_caption":
+			result="Pepontale - Poyoroid Fight"
+			break
+		case "str_game_poyoroid":
+			result="Pepontale - Poyoroid Fight"
+			break
+		case "str_poyoroid_check":
+			result="* Poyoroid - ATK 10 DEF 20&* You may can call her \"躁\"."
+			break
+		case "str_poyoroid_menu_dialog_0":
+			result="* Poyoroid blocked your way!"
+			break
+		case "str_poyoroid_dialog_0":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}Then, &warm up time~{pause}{variable `battle_enemy_poyoroid` `_face` 2}{end}"
+			break
+		case "str_poyoroid_menu_dialog_1":
+			result="* Poyoroid is thinking something."
+			break
+		case "str_poyoroid_dialog_1":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}Looks like you&don't want to fight?{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}Then let's see can you&face my {color `fuchsia`}Pink Attack{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_dialog_1_1":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}You are pink now!{sleep 15}&This is my {color `fuchsia`}Pink Attack{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 4}{clear}Why you looks confused, {sleep 15}&Anything wrong I said?{pause}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_2":
+			result="* Kawaiidesu."
+			break
+		case "str_poyoroid_dialog_2":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}Warm up end, {sleep 15}&Time for real battle!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_menu_dialog_3":
+			result="* Nyeh Heh Heh...Huh...?"
+			break
+		case "str_poyoroid_dialog_3":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}I will capture you&once i beat you!!"
+			break
+		case "str_poyoroid_menu_dialog_4":
+			result="* Poyoroid posed cool."
+			break
+		case "str_poyoroid_dialog_4":
+			result="{variable `battle_enemy_poyoroid` `_face` 3}Then research the&body structure of&humans on Earth!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_menu_dialog_5":
+			result="* Scary."
+			break
+		case "str_poyoroid_dialog_5":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}And then, I can...{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 4}Umm...can what?{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}}"
+			break
+		case "str_poyoroid_menu_dialog_6":
+			result="* Poyoroid is fixing her language system."
+			break
+		case "str_poyoroid_dialog_6":
+			result="{variable `battle_enemy_poyoroid` `_face` 3}Yeah!&More lyrics inspiration!"
+			break
+		case "str_poyoroid_menu_dialog_7":
+			result="* Where did the syringe from?"
+			break
+		case "str_poyoroid_dialog_7":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}Give up, &Stop making meaningless&resistance!"
+			break
+		case "str_poyoroid_menu_dialog_8":
+			result="* You have an ominous feeling."
+			break
+		case "str_poyoroid_dialog_8":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}*breathe*{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 0}If you don't&give up, then&ready to got my&{color `red`}trump card{color `black`}!"
+			break
+		case "str_poyoroid_menu_dialog_9":
+			result="* She's tired."
+			break
+		case "str_poyoroid_dialog_9":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}This is the&final warning!{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 3}Ready to suffer&in next turn!{variable `battle_enemy_poyoroid` `_face` 0}"
+			break
+		case "str_poyoroid_menu_dialog_10":
+			result="* Why did so many weird things appeared?"
+			break
+		case "str_poyoroid_dialog_10":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}You actually made it&this far??{pause}{variable `battle_enemy_poyoroid` `_face` 1}{clear}Then, this is my&{color `red`}trump card{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"
+			break
+		case "str_poyoroid_dialog_10_0":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}Where did that slug from?{pause}{alarm `battle_poyoroid_turn10` 1 30}{end}"
+			break
+		case "str_poyoroid_dialog_10_1":
+			result="{skippable false}{variable `battle_enemy_poyoroid` `_face` 7}Get off!{sleep 120}{alarm `battle_poyoroid_turn10` 3 60}{end}"
+			break
+		case "str_poyoroid_dialog_10_2":
+			result="{variable `battle_enemy_poyoroid` `_face` 5}Then, my real trump card!{pause}{alarm `battle_poyoroid_turn10` 4 10}{end}"
+			break
+		case "str_poyoroid_dialog_10_3":
+			result="{variable `battle_enemy_poyoroid` `_face` 2}How? Have you&been scared out of&your wits?{pause}{variable `battle_enemy_poyoroid` `_face` 4}{clear}hmm...{sleep 15}&It seems that this&won't work for you...{pause}{variable `battle_enemy_poyoroid` `_face` 0}{clear}So I'll do a {color `red`}combination&attack{color `black`} instead.{pause}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_11":
+			result="* Louis XVI Happy Little Toy."
+			break
+		case "str_poyoroid_dialog_11":
+			result="{variable `battle_enemy_poyoroid` `_face` 1}Take that, human, &combination attack with&a diameter of the&whole battle board!"
+			break
+		case "str_poyoroid_dialog_11_end":
+			result="*breath*...*breath*...{sleep 15}&I'm exhausted...{pause}{variable `battle_enemy_poyoroid` `_face` 2}{clear}I didn't expect&your movements to be&so impressive.{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}But you still don't&want to escape!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end_turn}{end}"
+			break
+		case "str_poyoroid_menu_dialog_12":
+			result="* Poyoroid tired."
+			break
+		case "str_poyoroid_dialog_12":
+			result="{variable `battle_enemy_poyoroid` `_face` 4}Huh?&You are sparing me?{pause}{clear}You still thinking about&making friends?{pause}{variable `battle_enemy_poyoroid` `_face` 2}{clear}You must have been&unable to fight and&begging for mercy!{pause}{variable `battle_enemy_poyoroid` `_face` 5}{clear}I can see&your leg shaking!{pause}{variable `battle_enemy_poyoroid` `_face` 1}{clear}But your strong&perseverance has given&me a new understanding&of the human on Earth.{pause}{variable `battle_enemy_poyoroid` `_face` 6}{clear}So, I agreed&to make friend with you!{pause}{variable `battle_enemy_poyoroid` `_face` 5}{alarm `battle_poyoroid_turn12` 0 30}{end}"
+			break
+		case "str_poyoroid_end":
+			result="Game By SheepYhangCN&Original Animation By Worgan&Logo \\& Poyoroid sprite By Worgan&Song By sprins&Poyoroid By ぺぽよPEPOYO"
 			break
 	}
 	return result

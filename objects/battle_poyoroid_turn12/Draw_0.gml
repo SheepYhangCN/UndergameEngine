@@ -1,0 +1,1 @@
+draw_sprite_ext(GetSprite("spr_button_mercy"),mercy,battle_enemy_poyoroid.x,battle_enemy_poyoroid.y+10,-1,1,0,c_white,alpha)

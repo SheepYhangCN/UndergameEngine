@@ -1,5 +1,6 @@
 function ini_Save(){
 	ini_open(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")
+	ini_write_real("2check","2check",true)
 	ini_write_string("static","room",Flag_Get(FLAG_TYPE.STATIC,FLAG_STATIC.ROOM,room_get_name(0)));
 	ini_write_string("static","name",Flag_Get(FLAG_TYPE.STATIC,FLAG_STATIC.NAME,"Player"));
 	ini_write_real("static","exp",Flag_Get(FLAG_TYPE.STATIC,FLAG_STATIC.LV,1));

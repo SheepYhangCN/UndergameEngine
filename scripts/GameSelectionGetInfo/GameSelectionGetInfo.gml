@@ -24,9 +24,40 @@ function GameSelectionGetInfo(){
 		enabled=false
 		break
 	case 0:
-		text+="Test"
-		spr=-1
+		if(global.passed[BATTLE.ULBxNMD_P1]/*TODO*/){text+="[spr_medal]"}
+		text+=GetString("str_games_ulb_nmd")
+		if(global.passed[BATTLE.ULBxNMD_P1]/*TODO*/){text+="[spr_medal]"}
 		enabled=true
+		phases=0
+		if(global.passed[BATTLE.ULBxNMD_P1]){phasetext0+="[spr_medal]"}
+		phasetext0="[scale,2][font_menu]"+GetString("str_game_selection_phase1")
+		phasetext1="[scale,2][font_menu]"+GetString("str_game_selection_phase2")
+		phasetext2="[scale,2][font_menu]"+GetString("str_game_selection_phase3")
+		phaseenabled0=true
+		phaseenabled1=false
+		phaseenabled2=false
+		spr=spr_ulb_nmd
+		scale=0.95
+		break
+	case 1:
+		if(global.passed[BATTLE.HAIKE]){text+="[spr_medal]"}
+		text+="[font_chs]拝啓 - ぺぽよ[font_menu]PEPOYO"
+		if(global.passed[BATTLE.HAIKE]){text+="[spr_medal]"}
+		enabled=true
+		phases=1
+		phasetext0="[scale,2][font_menu]"+GetString("str_game_selection_subtitle_on")
+		phasetext1="[scale,2][font_menu]"+GetString("str_game_selection_subtitle_off")
+		phaseenabled0=true
+		phaseenabled1=true
+		break
+	case 2:
+		if(global.passed[BATTLE.POYOROID]){text+="[spr_medal]"}
+		text+=GetString("str_game_poyoroid")
+		if(global.passed[BATTLE.POYOROID]){text+="[spr_medal]"}
+		enabled=true
+		phases=0
+		spr=spr_poyoroid_game
+		scale=4
 		break
 	}
 	text+="[font_menu]"

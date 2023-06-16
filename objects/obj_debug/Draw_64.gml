@@ -22,9 +22,8 @@ if(global.debug=true){
 	draw_windowsize="Current Window Size:"+string(world._window_size)+"x("+string(window_get_width())+"x"+string(window_get_height())+")"
 	draw_instance_count="Instance Count:"+string(instance_count)
 	draw_mousexy="Mouse XY:["+string(mouse_x)+","+string(mouse_y)+"]"
-	if(global.kr=false){
-	draw_hp_kr="HP:["+string(Player_GetHp())+"/"+string(Player_GetHpMax())+"]"}
-	if(global.kr=true){
+	draw_hp_kr="HP:["+string(Player_GetHp())+"/"+string(Player_GetHpMax())+"]"
+	if(Player_IsInBattle()&&battle.kr=true){
 	draw_hp_kr="HP(+KR):["+string(Player_GetHp())+"(+"+string(Player_GetKR())+")/"+string(Player_GetHpMax())+"]"}
 if(room=room_games&&instance_exists(obj_game_selection)){
 	draw_choice="Choice:["+string(obj_game_selection.choice_min)+"/"+string(obj_game_selection.choice)+"/"+string(obj_game_selection.choice_max)+"]"
@@ -48,7 +47,7 @@ if(Player_IsInBattle()){
 	}else{
 	draw_turn_timer="Turn Timer:"+string(turn_timer)}
 	draw_enemy="Battle:"+string(global.battle)+"["+object_get_name(Encounter_GetEnemy(global.battle,0))+","+object_get_name(Encounter_GetEnemy(global.battle,1))+","+object_get_name(Encounter_GetEnemy(global.battle,2))+"]"
-	draw_board="Board XY & Size:["+string(battle_board.x)+","+string(battle_board.y)+"],["+string(battle_board.up)+","+string(battle_board.down)+","+string(battle_board.left)+","+string(battle_board.right)+"]"
+	draw_board="Board State:["+string(battle_board.x)+","+string(battle_board.y)+","+string(battle_board.angle)+"],["+string(battle_board.up)+","+string(battle_board.down)+","+string(battle_board.left)+","+string(battle_board.right)+"]"
 	draw_state="Battle State & Menu:["+string(Battle_GetState())+","+string(Battle_GetMenu())+"]"
     draw_text(0, 175, draw_soulxy)
     draw_text(0, 195, draw_battle_button)

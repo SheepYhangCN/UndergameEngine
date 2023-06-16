@@ -1,4 +1,4 @@
-///@arg x,y,angle_x,angle_y,angle_z,rotate_x,rotate_y,rotate_z,scale_x,scale_y,scale_z,*obj,*spr_body,*spr_end
+///@arg x,y,angle_x,angle_y,angle_z,rotate_x,rotate_y,rotate_z,scale_x,scale_y,scale_z,*obj,*spr
 function Battle_MakeBoneCube(){
 var _x=argument[0]
 var _y=argument[1]
@@ -22,7 +22,6 @@ inst.scalex=scale_x
 inst.scaley=scale_y
 inst.scalez=scale_z
 if(argument_count>11){inst.obj=argument[11]}
-if(argument_count>12){inst.spr_body=argument[12]}
-if(argument_count>13){inst.spr_end=argument[13]}
+if(argument_count>12){inst.sprite_index=argument[12]}
 return inst
 }

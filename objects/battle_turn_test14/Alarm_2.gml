@@ -1,0 +1,1 @@
+Battle_SetBoardSize(48,48,48,48,60)
