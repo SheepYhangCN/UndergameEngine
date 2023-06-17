@@ -33,10 +33,12 @@ function Battle_MakeBoneWallTop_FollowBoard(){
 		b[ii].DURATION=DURATION
         with (b[ii])
         {
+			anim_x=x
+			anim_y=y
 			angle+=180
-            Anim_Create(id, "y", 0, 0, y, length, 8, PAUSE)
+            Anim_Create(id, "anim_y", 0, 0, y, length, 8, PAUSE)
 			if(DURATION!=-1){
-            Anim_Create(id, "y", 0, 0, (y + length), ((-length) * 2), 16, ((16 + PAUSE) + DURATION))}
+            Anim_Create(id, "anim_y", 0, 0, (y + length), ((-length) * 2), 16, ((16 + PAUSE) + DURATION))}
             a = instance_create_depth(0, 0, 0, shaker)
             a.target = id
             a.var_name = "x"
@@ -93,9 +95,11 @@ function Battle_MakeBoneWallBottom_FollowBoard(){
 		b[ii].DURATION=DURATION
         with (b[ii])
         {
-            Anim_Create(id, "y", 0, 0, y, (-length), 8, PAUSE)
+			anim_x=x
+			anim_y=y
+            Anim_Create(id, "anim_y", 0, 0, y, (-length), 8, PAUSE)
 			if(DURATION!=-1){
-            Anim_Create(id, "y", 0, 0, (y - length), (length * 2), 16, ((16 + PAUSE) + DURATION))}
+            Anim_Create(id, "anim_y", 0, 0, (y - length), (length * 2), 16, ((16 + PAUSE) + DURATION))}
             a = instance_create_depth(0, 0, 0, shaker)
             a.target = id
             a.var_name = "x"
@@ -152,9 +156,11 @@ function Battle_MakeBoneWallLeft_FollowBoard(){
 		b[ii].DURATION=DURATION
 		with (b[ii])
         {
-            Anim_Create(id, "x", 0, 0, x, length, 8, PAUSE)
+			anim_x=x
+			anim_y=y
+            Anim_Create(id, "anim_x", 0, 0, x, length, 8, PAUSE)
 			if(DURATION!=-1){
-            Anim_Create(id, "x", 0, 0, (x + length), ((-length) * 2), 16, ((16 + PAUSE) + DURATION))}
+            Anim_Create(id, "anim_x", 0, 0, (x + length), ((-length) * 2), 16, ((16 + PAUSE) + DURATION))}
             a = instance_create_depth(0, 0, 0, shaker)
             a.target = id
             a.var_name = "y"
@@ -211,10 +217,12 @@ function Battle_MakeBoneWallRight_FollowBoard(){
 		b[ii].DURATION=DURATION
         with (b[ii])
         {
+			anim_x=x
+			anim_y=y
 			angle+=180
-            Anim_Create(id, "x", 0, 0, x, (-length), 8, PAUSE)
+            Anim_Create(id, "anim_x", 0, 0, x, (-length), 8, PAUSE)
 			if(DURATION!=-1){
-            Anim_Create(id, "x", 0, 0, (x - length), (length * 2), 16, ((16 + PAUSE) + DURATION))}
+            Anim_Create(id, "anim_x", 0, 0, (x - length), (length * 2), 16, ((16 + PAUSE) + DURATION))}
             a = instance_create_depth(0, 0, 0, shaker)
             a.target = id
             a.var_name = "y"
@@ -279,14 +287,16 @@ b[ii]._x=_x
 b[ii]._y=_y
 with (b[ii])
         {
+		anim_x=x
+		anim_y=y
 		angle+=180
 		x=(battle_board.x + lengthdir_x(gap+length, dir))
 		y=(battle_board.y + lengthdir_y(gap+length, dir))
-        Anim_Create(id, "x", 0, 0, x, _x-x, 16, pause)
-        Anim_Create(id, "y", 0, 0, y, _y-y, 16, pause)
+        Anim_Create(id, "anim_x", 0, 0, x, _x-x, 16, pause)
+        Anim_Create(id, "anim_y", 0, 0, y, _y-y, 16, pause)
 		if(duration!=-1){
-        Anim_Create(id, "x", 0, 0, _x, (battle_board.x + lengthdir_x(gap+length, dir))-_x, 16, (16 + pause + duration))
-        Anim_Create(id, "y", 0, 0, _y, (battle_board.y + lengthdir_y(gap+length, dir))-_y, 16, (16 + pause + duration))
+        Anim_Create(id, "anim_x", 0, 0, _x, (battle_board.x + lengthdir_x(gap+length, dir))-_x, 16, (16 + pause + duration))
+        Anim_Create(id, "anim_y", 0, 0, _y, (battle_board.y + lengthdir_y(gap+length, dir))-_y, 16, (16 + pause + duration))
 		}
         a = instance_create_depth(0, 0, 0, shaker)
         a.target = id

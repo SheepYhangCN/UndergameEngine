@@ -8,3 +8,5 @@ length=0
 DURATION=-1
 duration=-1
 alarm[0]=1
+board_x=battle_board.x
+board_y=battle_board.y
