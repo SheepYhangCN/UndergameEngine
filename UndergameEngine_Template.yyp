@@ -323,6 +323,7 @@
     {"id":{"name":"spr_char_frisk_mask","path":"sprites/spr_char_frisk_mask/spr_char_frisk_mask.yy",},},
     {"id":{"name":"obj_touch_buttons","path":"objects/obj_touch_buttons/obj_touch_buttons.yy",},},
     {"id":{"name":"spr_char_sign","path":"sprites/spr_char_sign/spr_char_sign.yy",},},
+    {"id":{"name":"battle_turn_test14","path":"objects/battle_turn_test14/battle_turn_test14.yy",},},
     {"id":{"name":"input_mouse_check","path":"scripts/input_mouse_check/input_mouse_check.yy",},},
     {"id":{"name":"input_vibrate_stop","path":"scripts/input_vibrate_stop/input_vibrate_stop.yy",},},
     {"id":{"name":"__input_class_trigger_effect_feedback","path":"scripts/__input_class_trigger_effect_feedback/__input_class_trigger_effect_feedback.yy",},},

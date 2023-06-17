@@ -265,6 +265,7 @@
     {"name":"spr_char_frisk_mask","order":3,"path":"sprites/spr_char_frisk_mask/spr_char_frisk_mask.yy",},
     {"name":"obj_touch_buttons","order":1,"path":"objects/obj_touch_buttons/obj_touch_buttons.yy",},
     {"name":"spr_char_sign","order":1,"path":"sprites/spr_char_sign/spr_char_sign.yy",},
+    {"name":"battle_turn_test14","order":14,"path":"objects/battle_turn_test14/battle_turn_test14.yy",},
     {"name":"input_vibrate_stop","order":8,"path":"scripts/input_vibrate_stop/input_vibrate_stop.yy",},
     {"name":"__input_class_trigger_effect_feedback","order":10,"path":"scripts/__input_class_trigger_effect_feedback/__input_class_trigger_effect_feedback.yy",},
     {"name":"spr_char_save","order":2,"path":"sprites/spr_char_save/spr_char_save.yy",},
