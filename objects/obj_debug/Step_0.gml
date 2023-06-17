@@ -32,13 +32,7 @@ if(global.debug){
 	visible=false}
 	with(hint_landmark){
 	visible=false}}
-	if(Player_IsInBattle()){
-	with(battle_bullet){
-	if(variable_instance_exists(self,"out")){
-	out=false}
-	if(variable_instance_exists(self,"outside")){
-	outside=false}
-	}}}
+	}
 	if(keyboard_check_pressed(vk_f12)){
 	if(global.mode=GAME_MODE.NORMAL){
 		global.mode=GAME_MODE.EASY;
