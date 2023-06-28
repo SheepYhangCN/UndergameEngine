@@ -22,6 +22,7 @@ if(position_meeting(x+10,y+9,char_player)){
 			char_player.flavor="Orange"
 		break
 		case c_yellow://黄色
+		case c_red:
 			alarm[0]=6
 			audio_play_sound(snd_shock,0,0)
 		break
