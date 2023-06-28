@@ -40,7 +40,7 @@ if(position_meeting(x+10,y+9,char_player)){
 		}
 		temp=true
 	}
-	if(moveable=true){
+	if(moveable&&char_player._moveable_dialog&&char_player._moveable_menu&&char_player._moveable_encounter&&char_player._moveable_warp){
 	if(Input_IsHeld(INPUT.UP)&&!Input_IsHeld(INPUT.DOWN)){
 		char_player.dir=DIR.UP
 		event_user(1)
