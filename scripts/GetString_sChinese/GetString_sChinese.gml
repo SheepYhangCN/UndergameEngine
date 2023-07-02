@@ -389,25 +389,25 @@ function GetString_sChinese(){
 			result="[scale,2][font_chs]退出\n[font_dialog][scale,1](X/Shift)"
 			break
 		case "str_game_selection_intro":
-			result="开头"
+			result="[font_chs]开头"
 			break
 		case "str_game_selection_corridor":
-			result="长廊"
+			result="[font_chs]长廊"
 			break
 		case "str_game_selection_phase1":
-			result="第1阶段"
+			result="[font_chs]第[font_menu]1[font_chs]阶段"
 			break
 		case "str_game_selection_phase2":
-			result="第2阶段"
+			result="[font_chs]第[font_menu]2[font_chs]阶段"
 			break
 		case "str_game_selection_phase3":
-			result="第3阶段"
+			result="[font_chs]第[font_menu]3[font_chs]阶段"
 			break
 		case "str_game_selection_phase4":
-			result="第4阶段"
+			result="[font_chs]第[font_menu]4[font_chs]阶段"
 			break
 		case "str_game_selection_phase5":
-			result="第5阶段"
+			result="[font_chs]第[font_menu]5[font_chs]阶段"
 			break
 		case "str_game_selection_start":
 			result="\n[[Z/Enter][font_chs]或者使用光标点击来开始"
@@ -417,6 +417,12 @@ function GetString_sChinese(){
 			break
 		case "str_game_selection_shop":
 			result="[font_chs]商店"
+			break
+		case "str_game_selection_subtitle_on":
+			result="[font_chs]开启字幕"
+			break
+		case "str_game_selection_subtitle_off":
+			result="[font_chs]关闭字幕"
 			break
 #endregion
 #region 房间名

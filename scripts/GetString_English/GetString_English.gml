@@ -418,6 +418,12 @@ function GetString_English(){
 		case "str_game_selection_shop":
 			result="Shop"
 			break
+		case "str_game_selection_subtitle_on":
+			result="Enable Subtitle"
+			break
+		case "str_game_selection_subtitle_off":
+			result="Disable Subtitle"
+			break
 #endregion
 #region Room Name
 	case "str_room_lobby":

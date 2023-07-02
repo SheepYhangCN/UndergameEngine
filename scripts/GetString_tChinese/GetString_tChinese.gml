@@ -389,25 +389,25 @@ function GetString_tChinese(){
 			result="[scale,2][font_chs]退出\n[font_dialog][scale,1](X/Shift)"
 			break
 		case "str_game_selection_intro":
-			result="開頭"
+			result="[font_chs]開頭"
 			break
 		case "str_game_selection_corridor":
-			result="長廊"
+			result="[font_chs]長廊"
 			break
 		case "str_game_selection_phase1":
-			result="第1階段"
+			result="[font_chs]第[font_menu]1[font_chs]階段"
 			break
 		case "str_game_selection_phase2":
-			result="第2階段"
+			result="[font_chs]第[font_menu]2[font_chs]階段"
 			break
 		case "str_game_selection_phase3":
-			result="第3階段"
+			result="[font_chs]第[font_menu]3[font_chs]階段"
 			break
 		case "str_game_selection_phase4":
-			result="第4階段"
+			result="[font_chs]第[font_menu]4[font_chs]階段"
 			break
 		case "str_game_selection_phase5":
-			result="第5階段"
+			result="[font_chs]第[font_menu]5[font_chs]階段"
 			break
 		case "str_game_selection_start":
 			result="\n[[Z/Enter][font_chs]或者使用光標點擊來開始"
@@ -417,6 +417,12 @@ function GetString_tChinese(){
 			break
 		case "str_game_selection_shop":
 			result="[font_chs]商店"
+			break
+		case "str_game_selection_subtitle_on":
+			result="[font_chs]開啟字幕"
+			break
+		case "str_game_selection_subtitle_off":
+			result="[font_chs]關閉字幕"
 			break
 #endregion
 #region 房間名
