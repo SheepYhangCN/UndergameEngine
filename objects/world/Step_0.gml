@@ -72,8 +72,6 @@ if(keyboard_check_pressed(ord("E"))){
 	CC_Add(GetString("str_vape_uninstalled"))}
 }}}}
 if(global.vape){
-	global.debug=false
-	global.undead=false
 	Player_SetKR(0)
 	Player_SetHp(Player_GetHpMax())
 	//Player_SetName("Vape")
