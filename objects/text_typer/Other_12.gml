@@ -653,11 +653,19 @@ switch(cmd[|0]){
 		audio_stop_sound(asset_get_index(cmd[|1]))}
 		break;
 	case "alarm":
-		if(is_string(cmd[|1])&&is_real(cmd[|2])&&is_real(cmd[|3])){
+		if(is_string(cmd[|1])&&object_exists(asset_get_index(cmd[|1]))&&is_real(cmd[|2])&&is_real(cmd[|3])){
 		var _alarm=cmd[|2]
 		with(asset_get_index(cmd[|1])){
 		alarm[_alarm]=cmd[|3]}}
 		break;
+	case "variable":
+		var target=cmd[|1]
+		var variable=cmd[|2]
+		var value=cmd[|3]
+		if(is_string(target)&&object_exists(asset_get_index(target))&&is_string(variable)){
+			variable_instance_set(asset_get_index(target),variable,value)
+		}
+		break
 //ui_dialog名字=================================================================================================
 	case "show_name":
 		if(is_bool(cmd[|1])&&instance_exists(ui_dialog)){
