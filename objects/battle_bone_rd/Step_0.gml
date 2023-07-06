@@ -19,3 +19,5 @@ if (time != -1)
     else
         time -= 1
 }
+
+if(place_meeting(x,y,battle_soul_graze)){with(battle_soul_graze){event_user(0)}}
