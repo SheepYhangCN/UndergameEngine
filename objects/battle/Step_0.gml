@@ -1,6 +1,12 @@
 tempx=battle_soul.x
 tempy=battle_soul.y
 
+if(instance_exists(battle_soul_graze)){
+	if(tp=false){instance_destroy(battle_soul_graze)}
+}else{
+	if(tp){instance_create_depth(battle_soul.x,battle_soul.y,DEPTH_BATTLE.SOUL+1,battle_soul_graze)}
+}
+
 //菜单
 if(_state==BATTLE_STATE.MENU){
 	//按钮

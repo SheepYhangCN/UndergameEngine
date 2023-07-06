@@ -1,12 +1,14 @@
 Battle_SetTurnTime(0)
-global.kr=0
-global.shield=false
-global.shield_useable=false
-global.shielding=false
-global.shieldval=120
+kr=0
+shield=false
+shield_useable=false
+shielding=false
+shieldval=120
 if(Item_GetArmor()=item_shield){
-global.shield=1
-global.shield_useable=1}
+shield=1
+shield_useable=1}
+tp=false
+tp_value=0
 
 var ENCOUNTER=Flag_Get(FLAG_TYPE.TEMP,FLAG_TEMP.ENCOUNTER);
 _enemy_object[0]=Encounter_GetEnemy(ENCOUNTER,0);

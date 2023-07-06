@@ -578,7 +578,7 @@ switch(cmd[|0]){
 		break;
 	case "kr":
 		if(is_bool(cmd[|1])){
-			global.kr=cmd[|1]
+			battle.kr=cmd[|1]
 		}
 		break;
 	case "board_size":

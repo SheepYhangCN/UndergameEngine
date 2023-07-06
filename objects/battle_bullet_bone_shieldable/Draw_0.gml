@@ -82,6 +82,72 @@ var collision7=collision_line(
         (y-0.8 + lengthdir_y((length / 2), angle))
 		, battle_soul, false, false)
 if(collision1||collision2||collision3||collision4||collision5||collision6||collision7){event_user(0)}
+#region graze
+collision1=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_spr_bone_body)/2,angle+90) + lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_spr_bone_body)/2,angle+90) + lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_spr_bone_body)/2,angle+90) - lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_spr_bone_body)/2,angle+90) - lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+		, battle_soul_graze, false, false)
+collision2=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_spr_bone_body)/2,angle-90) + lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_spr_bone_body)/2,angle-90) + lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_spr_bone_body)/2,angle-90) - lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_spr_bone_body)/2,angle-90) - lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+		, battle_soul_graze, false, false)
+collision3=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle+90) + lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle+90) + lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle-90) + lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle-90) + lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+		, battle_soul_graze, false, false)
+collision4=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle-90) - lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle-90) - lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle+90) - lengthdir_x((length / 2)+sprite_get_width(_bone_end)/3, angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle+90) - lengthdir_y((length / 2)+sprite_get_width(_bone_end)/3, angle))
+		, battle_soul_graze, false, false)
+collision5=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle+90) + lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle+90) + lengthdir_y((length / 2), angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle-90) + lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle-90) + lengthdir_y((length / 2), angle))
+		, battle_soul_graze, false, false)
+collision6=collision_line(
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle-90) - lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle-90) - lengthdir_y((length / 2), angle))
+        , 
+        (x-0.8 + lengthdir_x(sprite_get_height(_bone_end)/2,angle+90) - lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 + lengthdir_y(sprite_get_height(_bone_end)/2,angle+90) - lengthdir_y((length / 2), angle))
+		, battle_soul_graze, false, false)
+collision7=collision_line(
+        (x-0.8 - lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 - lengthdir_y((length / 2), angle))
+        , 
+        (x-0.8 + lengthdir_x((length / 2), angle))
+        , 
+        (y-0.8 + lengthdir_y((length / 2), angle))
+		, battle_soul_graze, false, false)
+if(collision1||collision2||collision3||collision4||collision5||collision6||collision7){with(battle_soul_graze){event_user(0)}}
+#endregion
 if(global.debug){
     depth = DEPTH_BATTLE.BULLET_OUTSIDE_HIGH
     surface_set_target(Battle_GetBoardSurface())

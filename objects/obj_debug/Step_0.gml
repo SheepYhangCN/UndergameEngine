@@ -63,8 +63,6 @@ if(keyboard_check_pressed(vk_tab)){
 	Window_Size_Set(1)
 	}
 }
-	if(global.shieldval<=0){
-	global.shieldval=120}
 	if(mouse_check_button_pressed(mb_middle)){
 	camera.angle=0
 	}
@@ -116,6 +114,8 @@ if(keyboard_check_pressed(vk_tab)){
 if(keyboard_check_pressed(vk_space)){
 		show_message("Game Paused")}
 if(Player_IsInBattle()){
+	if(battle.shieldval<=0){
+	battle.shieldval=120}
 	if(instance_exists(battle_soul_blue)||instance_exists(battle_soul_blue_aqua)){
 	if(keyboard_check_pressed(ord("W"))){
 			BlueSoulControl(DIR.UP)

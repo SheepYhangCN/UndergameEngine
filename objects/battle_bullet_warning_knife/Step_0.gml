@@ -34,6 +34,9 @@ knife_time-=1}
 if(knife_time=1){
 Anim_Create(id,"image_alpha",0,0,1,-1,10)
 Anim_Create(id,"image_xscale",0,0,image_xscale,3,10)}
+if(place_meeting(x,y,battle_soul_graze)){
+	with(battle_soul_graze){event_user(0)}
+}
 }
 
 if(image_alpha<=0){

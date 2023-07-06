@@ -1,6 +1,6 @@
 ///@desc Init
 audio_stop_all()
-global.kr=0
+battle.kr=0
 Player_SetKR(0)
 _hp=1
 _hpmax=1

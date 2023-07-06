@@ -10154,6 +10154,7 @@
   "italic": false,
   "kerningPairs": [],
   "last": 0,
+  "lineHeight": 0,
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
@@ -15030,6 +15031,7 @@
   ],
   "regenerateBitmap": false,
   "sampleText": "abcdef ABCDEF\r\n0123456789 .,<>\"'&!?\r\nthe quick brown fox jumps over the lazy dog\r\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\r\nDefault character: ▯ (9647)\r\n中文字体测试\r\n战斗\r\n行动\r\n物品\r\n仁慈\r\n饶恕\r\n检查\r\n噢\r\nChinese Font Test\r\nSans\r\n…\r\n啊。啊",
+  "sdfSpread": 8,
   "size": 10.0,
   "styleName": "Regular",
   "textureGroupId": {
@@ -15037,4 +15039,5 @@
     "path": "texturegroups/Default",
   },
   "TTFName": "",
+  "usesSDF": false,
 }
