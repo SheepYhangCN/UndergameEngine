@@ -631,7 +631,7 @@ switch(cmd[|0]){
 		break;
 	case "audio_play":
 		if(is_string(cmd[|1])){
-		if(is_bool(cmd[|2])){
+		if(is_real(cmd[|2])){
 		if(is_bool(cmd[|3])){
 		audio_play_sound(asset_get_index(cmd[|1]),cmd[|2],cmd[|3])
 		}else{
