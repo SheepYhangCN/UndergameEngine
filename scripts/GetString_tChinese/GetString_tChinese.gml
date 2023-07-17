@@ -77,7 +77,7 @@ function GetString_tChinese(){
 			result="鍵盤"
 			break
 		case "str_controller_n":
-			result="手柄 (Nintendo標準)"
+			result="手柄 (任天堂標準)"
 			break
 		case "str_controller_x":
 			result="手柄 (Xbox標準)"
