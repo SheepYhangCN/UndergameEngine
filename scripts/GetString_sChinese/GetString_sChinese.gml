@@ -77,7 +77,7 @@ function GetString_sChinese(){
 			result="键盘"
 			break
 		case "str_controller_n":
-			result="手柄 (Nintendo标准)"
+			result="手柄 (任天堂标准)"
 			break
 		case "str_controller_x":
 			result="手柄 (Xbox标准)"
