@@ -1,2 +1,1 @@
-if (auto_destroy == 1){
-    instance_destroy()}
+if(auto_destroy){instance_destroy()}

@@ -4,6 +4,30 @@ surface_set_target(Battle_GetBoardSurface())
 //draw_rectangle(x1, y1, x2, y2, false)
 draw_set_alpha(1)
 //draw_rectangle(x1, y1, x2, y2, true)
+if(dir=DIR.UP){
+	x1 = ((battle_board.x - battle_board.left) + 1)
+	y1 = (((battle_board.y - battle_board.up) + length) - 1)
+	x2 = ((battle_board.x + battle_board.right) - 2)
+	y2 = (battle_board.y - battle_board.up)
+}
+if(dir=DIR.DOWN){
+	x1 = ((battle_board.x - battle_board.left) + 1)
+	y1 = (((battle_board.y + battle_board.down) - length) + 1)
+	x2 = ((battle_board.x + battle_board.right) - 2)
+	y2 = ((battle_board.y + battle_board.down) - 2)
+}
+if(dir=DIR.LEFT){
+	x1 = ((battle_board.x - battle_board.left) + 1)
+	y1 = ((battle_board.y - battle_board.up) + 1)
+	x2 = (((battle_board.x - battle_board.left) + length) - 2)
+	y2 = ((battle_board.y + battle_board.down) - 2)
+}
+if(dir=DIR.RIGHT){
+	x1 = ((battle_board.x + battle_board.right) - 1)
+	y1 = ((battle_board.y - battle_board.up) + 1)
+	x2 = ((battle_board.x + battle_board.right) - length)
+	y2 = ((battle_board.y + battle_board.down) - 2)
+}
 angle1=battle_board.angle+point_direction(battle_board.x,battle_board.y,x1,y1)
 angle2=battle_board.angle+point_direction(battle_board.x,battle_board.y,x1,y2)
 angle3=battle_board.angle+point_direction(battle_board.x,battle_board.y,x2,y1)

@@ -1,4 +1,4 @@
-///@arg point0_x,point0_y,point1_x,point1_y,type,out,autoo_destroy,*duration,*obj,*spr_body,*spr_end
+///@arg point0_x,point0_y,point1_x,point1_y,type,out,autoo_destroy,*duration,*obj,*spr
 function Battle_MakeBoneTwoPoints(){
     var POINT_X0 = argument[0]
     var POINT_Y0 = argument[1]
@@ -24,9 +24,7 @@ function Battle_MakeBoneTwoPoints(){
     bone.duration = DURATION
     bone.mode = (2 << 0)
     if (argument_count >= 10)
-        bone._spr_bone_body = argument[9]
-    if (argument_count >= 11)
-        bone._bone_end = argument[10]
+        bone.sprite_index = argument[9]
     return bone;
 
 }

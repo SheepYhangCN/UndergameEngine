@@ -365,7 +365,7 @@ function GetString_English(){
 			result="{scale 2}{instant true}{color `gray`}<{color `white`}Page "+string(id.page+1)+"/4>"
 			break
 		case "str_credits0":
-			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By SheepYhangCN&UNDERTALE Engine By TML&GameMaker By YoyoGames&&Blue Soul \\& Platform \\& Bone By OneZhaZha&Space background Shader By Kali&Shop By 不会起名的一杯猹 \\& OneZhaZha&Developer Console By DaveTech&Mobile Control By Darknslim \\& Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
+			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By SheepYhangCN&UNDERTALE Engine By TML&GameMaker By YoyoGames&&Blue Soul \\& Platform By OneZhaZha&Space background Shader By Kali&Shop By 不会起名的一杯猹 \\& OneZhaZha&Developer Console By DaveTech&Mobile Control By Darknslim \\& Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
 			break
 		case "str_credits1":
 			result="{font 1}{scale 2}{speed 1}{instant true}Fonts used&Determination Sans/Mono,&Mars Needs Cunnilingus,Papyrus&By Toby Fox&SimSun By Beijing ZHONG YI ZHONG Biao&Electronic INFORMATION Technology Co.&方正少儿GBK, 方正卡通 By 方正字库&Comic Sans, Dotumche By Microsoft&GNU Unifont By Roman Czyborra"

@@ -1,5 +1,5 @@
 if(wall=DIR.UP){
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = -3; i < ((battle_board.left + battle_board.right) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
@@ -28,7 +28,7 @@ if(wall=DIR.UP){
     }
 }
 if(wall=DIR.DOWN){
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = -3; i < ((battle_board.left + battle_board.right) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
@@ -57,7 +57,7 @@ if(wall=DIR.DOWN){
     }
 }
 if(wall=DIR.LEFT){
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = 0; i < ((battle_board.up + battle_board.down) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
@@ -86,7 +86,7 @@ if(wall=DIR.LEFT){
     }
 }
 if(wall=DIR.RIGHT){
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = 0; i < ((battle_board.up + battle_board.down) + SPR_HEIGHT); i += SPR_HEIGHT)
     {

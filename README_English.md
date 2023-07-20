@@ -86,7 +86,7 @@ Tab switch window size (1x/1.5x/2x)
 <br>
 F3 goto room
 <br>
-F5 switch English and sChinese
+F5 switch language
 <br>
 F6 End turn
 <br>
@@ -100,9 +100,7 @@ F12 switch mode
 <br>
 WASD dir setting of blue soul and blue+aqua soul
 # Bullet Credits
-Bone (battle_bullet_bone) By OneZhazha
-<br>
-Rewriting of collision By SheepYhangCN
+Bone (battle_bullet_bone) By SheepYhangCN
 <br><br>
 Battle_MakeMenuBone By SheepYhangCN Edited based on Battle_MakeBone
 <br><br>
@@ -110,7 +108,7 @@ Battle_MakeBone series By OneZhazha
 <br>
 Battle_MakeBoneWall series By OneZhazha
 <br>
-bone_box By OneZhazha
+bone_box By SheepYhangCN
 <br>
 Battle_MakeBoneWallRound By SheepYhangCN
 <br>
@@ -142,26 +140,26 @@ Wave & LineBomb & FriendlyPellet & DusttrustKnife & Gun By SheepYhangCN
 ## Platform
 Battle_MakePlatform(x,y,\*obj,\*sticky,\*width,\*angle,\*hspeed,\*vspeed,\*bounce,\*auto destroy after out of the room)
 ## Single bone
-Battle_MakeBone/MenuBone(x,y,length,hspeed,vspeed,color type,will it shown outside of board,angle,rotate speed,auto destroy after out of the room,\*duration,\*obj,\*spr of body,\*spr of end)
+Battle_MakeBone/MenuBone(x,y,length,hspeed,vspeed,color type,will it shown outside of board,angle,rotate speed,auto destroy after out of the room,\*duration,\*obj,\*spr)
 <br>
 Battle_MakeBoneH and Battle_MakeBoneV are same but without "angle"
 ## Single bone but close to the board
-Battle_MakeBoneLeft/Right(y,length,vspeed,color type,will it shown outside of board,rotate speed,auto destroy after out of the room,\*duration,\*obj,\*spr of body,\*spr of end)
+Battle_MakeBoneLeft/Right(y,length,vspeed,color type,will it shown outside of board,rotate speed,auto destroy after out of the room,\*duration,\*obj,\*spr)
 <br>
 Battle_MakeBoneTop/Bottom are same but replace "y" with "x", replace "vspeed" with "hspeed"
 ## Double bone
-Battle_MakeBoneTwoPoints(x of first point,y of first point,x of second point,y of second point,color type,will it shown outside of board,auto destroy after out of the room,\*duration,\*obj,\*spr of body,\*spr of end)
+Battle_MakeBoneTwoPoints(x of first point,y of first point,x of second point,y of second point,color type,will it shown outside of board,auto destroy after out of the room,\*duration,\*obj,\*spr)
 <br>
-Battle_MakeBoneTwoH(x,y,hspeed,gap scale,auto destroy after out of the room,\*duration,\*obj,\*spr of body,\*spr of end)
+Battle_MakeBoneTwoH(x,y,hspeed,gap scale,auto destroy after out of the room,\*duration,\*obj,\*spr)
 Battle_MakeBoneTwoV is same but replace "hspeed" with "vspeed"
 ## 3D Bone Cube
-Battle_MakeBoneCube(x,y,xangle,yangle,zangle,xrotate speed,yrotate speed,zrotate speed,xscale,yscale,zscale,\*bone obj,\*bone, spr of body,\*bone, spr of end)
+Battle_MakeBoneCube(x,y,xangle,yangle,zangle,xrotate speed,yrotate speed,zrotate speed,xscale,yscale,zscale,\*bone obj,\*bone spr)
 ## BoneWall
-Battle_MakeBoneWallBottom/Top/Left/Right(wait time,length,duration,\*color type,\*obj,\*bone, spr of body,\*bonespr of end)
+Battle_MakeBoneWallBottom/Top/Left/Right(wait time,length,duration,\*color type,\*obj,\*bone spr)
 <br>
-Battle_MakeBoneWallRound(the gap between bones,the range between the end of the bone and the center of board,length,color type,wait time,\*duration,\*bone, spr of body,\*bone, spr of end)
+Battle_MakeBoneWallRound(the gap between bones,the range between the end of the bone and the center of board,length,color type,wait time,\*duration,\*bone obj,\*bone spr)
 <br>
-Battle_MakeBoneWallRound_Rotate(rotate speed,length,color type,wait time,\*duration,\*are there any warning  box or sound(bone_box_round),\*make bone go out instead of spawn instantly,\*obj,\*bone, spr of body,\*bone, spr of end)
+Battle_MakeBoneWallRound_Rotate(rotate speed,length,color type,wait time,\*duration,\*are there any warning  box or sound(bone_box_round),\*make bone go out instead of spawn instantly,\*obj,\*bone spr)
 ## Gaster Blaster
 Battle_MakeBlaster(x,y,target x,target y,angle,target angle,wait time before shoot,xscale,yscale,beam duration,intro time,color type,\*will it shake screen,\*spr,\*obj,\*intro audio,\*shoot audio,\*beam spr)
 ## Friendly Pellet

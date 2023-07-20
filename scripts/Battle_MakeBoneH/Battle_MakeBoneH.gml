@@ -1,4 +1,4 @@
-///@arg x,y,length,hspeed,vspeed,type,out,rotate,auto_destroy,*duration,*obj,*spr_body,*spr_end
+///@arg x,y,length,hspeed,vspeed,type,out,rotate,auto_destroy,*duration,*obj,*spr
 function Battle_MakeBoneH(){
 	var OBJ = battle_bullet_bone
     var X = argument[0]
@@ -26,8 +26,6 @@ function Battle_MakeBoneH(){
     bone.angle = (0 << 0)
     bone.duration = DURATION
     if (argument_count >= 12)
-        bone._spr_bone_body = argument[11]
-    if (argument_count >= 13)
-        bone._bone_end = argument[12]
+        bone.sprite_index = argument[11]
     return bone;
 }

@@ -1,4 +1,4 @@
-///@arg pause,length,duration,*type,*obj,*spr_body,*spr_end
+///@arg pause,length,duration,*type,*obj,*spr
 function Battle_MakeBoneWallTop_FollowBoard(){
 	o=instance_create_depth(0,0,0,battle_bullet_bone_wall_follow_board)
 	with(o){
@@ -8,25 +8,22 @@ function Battle_MakeBoneWallTop_FollowBoard(){
     DURATION = argument[2]
     COLOR = (0 << 0)
 	OBJ=battle_bullet_bone
-	SPR_BODY=spr_bone_body
-	SPR_END=spr_bone_end
+	SPR=spr_bone
     if (argument_count >= 4)
         COLOR = argument[3]
     if (argument_count >= 5)
         OBJ = argument[4]
     if (argument_count >= 6)
-        SPR_BODY = argument[5]
-    if (argument_count >= 7)
-        SPR_END = argument[6]
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+        SPR = argument[5]
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = -3; i < ((battle_board.left + battle_board.right) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
         ii += 1
 		if(DURATION!=-1){
-        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y - battle_board.up) - (length / 2)) - 5), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR_BODY,SPR_END)
+        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y - battle_board.up) - (length / 2)) - 5), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR)
 		}else{
-		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y - battle_board.up) - (length / 2)) - 5), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR_BODY,SPR_END)
+		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y - battle_board.up) - (length / 2)) - 5), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR)
 		}
 		b[ii].length=length
 		b[ii].PAUSE=PAUSE
@@ -50,6 +47,8 @@ function Battle_MakeBoneWallTop_FollowBoard(){
         }
     }
     bonebox = instance_create_depth(0, 0, 0, bone_box)
+	bonebox.length=length
+	bonebox.dir=DIR.UP
     bonebox.duration = PAUSE
     bonebox.x1 = ((battle_board.x - battle_board.left) + 1)
     bonebox.y1 = (((battle_board.y - battle_board.up) + length) - 1)
@@ -60,7 +59,7 @@ function Battle_MakeBoneWallTop_FollowBoard(){
     return;
 }}
 
-///@arg pause,length,duration,*type,*obj,*spr_body,*spr_end
+///@arg pause,length,duration,*type,*obj,*spr
 function Battle_MakeBoneWallBottom_FollowBoard(){
 	o=instance_create_depth(0,0,0,battle_bullet_bone_wall_follow_board)
 	with(o){
@@ -70,25 +69,22 @@ function Battle_MakeBoneWallBottom_FollowBoard(){
     DURATION = argument[2]
     COLOR = (0 << 0)
 	OBJ=battle_bullet_bone
-	SPR_BODY=spr_bone_body
-	SPR_END=spr_bone_end
+	SPR=spr_bone
     if (argument_count >= 4)
         COLOR = argument[3]
     if (argument_count >= 5)
         OBJ = argument[4]
     if (argument_count >= 6)
-        SPR_BODY = argument[5]
-    if (argument_count >= 7)
-        SPR_END = argument[6]
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+        SPR = argument[5]
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = -3; i < ((battle_board.left + battle_board.right) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
         ii += 1
 		if(DURATION!=-1){
-        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (length / 2)) + 5), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR_BODY,SPR_END)
+        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (length / 2)) + 5), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR)
 		}else{
-		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (length / 2)) + 5), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR_BODY,SPR_END)
+		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (length / 2)) + 5), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR)
 		}
 		b[ii].length=length
 		b[ii].PAUSE=PAUSE
@@ -111,6 +107,8 @@ function Battle_MakeBoneWallBottom_FollowBoard(){
         }
     }
     bonebox = instance_create_depth(0, 0, 0, bone_box)
+	bonebox.length=length
+	bonebox.dir=DIR.DOWN
     bonebox.duration = PAUSE
     bonebox.x1 = ((battle_board.x - battle_board.left) + 1)
 	bonebox.y1 = (((battle_board.y + battle_board.down) - length) + 1)
@@ -121,7 +119,7 @@ function Battle_MakeBoneWallBottom_FollowBoard(){
     return;
 }}
 
-///@arg pause,length,duration,*type,*obj,*spr_body,*spr_end
+///@arg pause,length,duration,*type,*obj,*spr
 function Battle_MakeBoneWallLeft_FollowBoard(){
 	o=instance_create_depth(0,0,0,battle_bullet_bone_wall_follow_board)
 	with(o){
@@ -131,25 +129,22 @@ function Battle_MakeBoneWallLeft_FollowBoard(){
     DURATION = argument[2]
     COLOR = (0 << 0)
 	OBJ=battle_bullet_bone
-	SPR_BODY=spr_bone_body
-	SPR_END=spr_bone_end
+	SPR=spr_bone
     if (argument_count >= 4)
         COLOR = argument[3]
     if (argument_count >= 5)
         OBJ = argument[4]
     if (argument_count >= 6)
-        SPR_BODY = argument[5]
-    if (argument_count >= 7)
-        SPR_END = argument[6]
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+        SPR = argument[5]
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = 0; i < ((battle_board.up + battle_board.down) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
         ii += 1
 		if(DURATION!=-1){
-        b[ii] = Battle_MakeBoneH((((battle_board.x - battle_board.left) - (length / 2)) - 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR_BODY,SPR_END)
+        b[ii] = Battle_MakeBoneH((((battle_board.x - battle_board.left) - (length / 2)) - 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR)
 		}else{
-		b[ii] = Battle_MakeBoneH((((battle_board.x - battle_board.left) - (length / 2)) - 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR_BODY,SPR_END)
+		b[ii] = Battle_MakeBoneH((((battle_board.x - battle_board.left) - (length / 2)) - 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR)
 		}
 		b[ii].length=length
 		b[ii].PAUSE=PAUSE
@@ -172,6 +167,8 @@ function Battle_MakeBoneWallLeft_FollowBoard(){
         }
     }
     bonebox = instance_create_depth(0, 0, 0, bone_box)
+	bonebox.length=length
+	bonebox.dir=DIR.LEFT
     bonebox.duration = PAUSE
     bonebox.x1 = ((battle_board.x - battle_board.left) + 1)
     bonebox.y1 = ((battle_board.y - battle_board.up) + 1)
@@ -182,7 +179,7 @@ function Battle_MakeBoneWallLeft_FollowBoard(){
     return;
 }}
 
-///@arg pause,length,duration,*type,*obj,*spr_body,*spr_end
+///@arg pause,length,duration,*type,*obj,*spr
 function Battle_MakeBoneWallRight_FollowBoard(){
 	o=instance_create_depth(0,0,0,battle_bullet_bone_wall_follow_board)
 	with(o){
@@ -192,25 +189,22 @@ function Battle_MakeBoneWallRight_FollowBoard(){
     DURATION = argument[2]
     COLOR = (0 << 0)
 	OBJ=battle_bullet_bone
-	SPR_BODY=spr_bone_body
-	SPR_END=spr_bone_end
+	SPR=spr_bone
     if (argument_count >= 4)
         COLOR = argument[3]
     if (argument_count >= 5)
         OBJ = argument[4]
     if (argument_count >= 6)
-        SPR_BODY = argument[5]
-    if (argument_count >= 7)
-        SPR_END = argument[6]
-	SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+        SPR = argument[5]
+	SPR_HEIGHT=sprite_get_width(SPR)+1
     ii = 0
     for (i = 0; i < ((battle_board.up + battle_board.down) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
         ii += 1
 		if(DURATION!=-1){
-        b[ii] = Battle_MakeBoneH((((battle_board.x + battle_board.right) + (length / 2)) + 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR_BODY,SPR_END)
+        b[ii] = Battle_MakeBoneH((((battle_board.x + battle_board.right) + (length / 2)) + 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR)
 		}else{
-		b[ii] = Battle_MakeBoneH((((battle_board.x + battle_board.right) + (length / 2)) + 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR_BODY,SPR_END)
+		b[ii] = Battle_MakeBoneH((((battle_board.x + battle_board.right) + (length / 2)) + 5), ((battle_board.y - battle_board.up) + i), length, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR)
 		}
 		b[ii].length=length
 		b[ii].PAUSE=PAUSE
@@ -234,6 +228,8 @@ function Battle_MakeBoneWallRight_FollowBoard(){
         }
     }
     bonebox = instance_create_depth(0, 0, 0, bone_box)
+	bonebox.length=length
+	bonebox.dir=DIR.RIGHT
 	bonebox.duration = PAUSE
     bonebox.x1 = ((battle_board.x + battle_board.right) - 1)
     bonebox.y1 = ((battle_board.y - battle_board.up) + 1)
@@ -244,14 +240,13 @@ function Battle_MakeBoneWallRight_FollowBoard(){
     return;
 }}
 
-///@arg bone_gap,gap_board,length,type,pause,*duration,*obj,*spr_body,*spr_end
+///@arg bone_gap,gap_board,length,type,pause,*duration,*obj,*spr
 function Battle_MakeBoneWallRound_FollowBoard(){
 o=instance_create_depth(0,0,0,battle_bullet_bone_wall_follow_board)
 with(o){
 wall=360
 obj = battle_bullet_bone
-spr_body=spr_bone_body
-spr_end=spr_bone_end
+spr=spr_bone
 duration = -1
 dir=0
 dir_add=argument[0]
@@ -264,9 +259,7 @@ duration=argument[5]}
 if(argument_count>6){
 obj=argument[6]}
 if(argument_count>7){
-spr_body=argument[7]}
-if(argument_count>8){
-spr_end=argument[8]}
+spr=argument[7]}
 
 ii=0
 repeat(360/dir_add){
@@ -275,9 +268,9 @@ _x = (battle_board.x + lengthdir_x(gap, dir))
 _y = (battle_board.y + lengthdir_y(gap, dir))
 
 if(duration!=-1){
-b[ii]=Battle_MakeBone(_x,_y,length,0,0,type,0,dir,0,0,((duration + (pause * 2)) + 24),obj,spr_body,spr_end)
+b[ii]=Battle_MakeBone(_x,_y,length,0,0,type,0,dir,0,0,((duration + (pause * 2)) + 24),obj,spr)
 }else{
-b[ii]=Battle_MakeBone(_x,_y,length,0,0,type,0,dir,0,0,duration,obj,spr_body,spr_end)}
+b[ii]=Battle_MakeBone(_x,_y,length,0,0,type,0,dir,0,0,duration,obj,spr)}
 b[ii].gap=gap
 b[ii].dir=dir
 b[ii].length=length

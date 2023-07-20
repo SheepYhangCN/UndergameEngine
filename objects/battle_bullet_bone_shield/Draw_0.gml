@@ -1,7 +1,5 @@
-if(type=BULLET_TYPE.WHITE){image_blend = c_white}
-if(type=BULLET_TYPE.BLUE){image_blend = c_aqua}
-if(type=BULLET_TYPE.ORANGE){image_blend = c_orange}
-if(type=3){image_blend = c_lime}
+if(type=1){image_blend=#4040FF}
+if(type=2){image_blend=#ED008C}
 
 if(out){
 	depth=DEPTH_BATTLE.BULLET_OUTSIDE_HIGH

@@ -365,7 +365,7 @@ function GetString_tChinese(){
 			result="{scale 2}{instant true}{color `gray`}<{color `white`}第"+string(id.page+1)+"/4頁>"
 			break
 		case "str_credits0":
-			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By 憨憨羊の宇航鴿鴿&UNDERTALE Engine By 糖萌蘆&GameMaker By YoyoGames&&藍魂和板子和骨頭By 1個渣渣&星空背景着色器By Kali&商店By不會起名的一杯猹 \\& 1個渣渣&開發者控制臺By DaveTech&移動端控制By Darknslim \\& 南省Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
+			result="{font 1}{scale 2}{speed 1}{instant true}UndergameEngine By 憨憨羊の宇航鴿鴿&UNDERTALE Engine By 糖萌蘆&GameMaker By YoyoGames&&藍魂和板子By 1個渣渣&星空背景着色器By Kali&商店By不會起名的一杯猹 \\& 1個渣渣&開發者控制臺By DaveTech&移動端控制By Darknslim \\& 南省Crosu&Scribble \\& Input \\& Bulb \\& Coroutines&By Juju Adams"
 			break
 		case "str_credits1":
 			result="{font 1}{scale 2}{speed 1}{instant true}字體使用&Determination Sans/Mono,&Mars Needs Cunnilingus,Papyrus&By Toby Fox&宋體By 北京中易中標電子信息技術有限公司&方正少兒GBK、方正卡通 By 方正字庫&Comic Sans, Dotumche By Microsoft&GNU Unifont By Roman Czyborra"

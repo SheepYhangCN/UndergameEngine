@@ -86,7 +86,7 @@ Tab 切换窗口大小（1x/1.5x/2x）
 <br>
 F3 跳转房间
 <br>
-F5 切换中英文
+F5 切换语言
 <br>
 F6 结束回合
 <br>
@@ -100,9 +100,7 @@ F12 切换模式
 <br>
 WASD 蓝魂和蓝+青魂的方向设置
 # Bullet制作名单
-骨头(battle_bullet_bone)By 1个渣渣
-<br>
-重写判定By 憨憨羊の宇航鸽鸽
+骨头(battle_bullet_bone)By 憨憨羊の宇航鸽鸽
 <br><br>
 菜单骨创建脚本(Battle_MakeMenuBone)By 憨憨羊の宇航鸽鸽 修改基于Battle_MakeBone
 <br><br>
@@ -110,7 +108,7 @@ WASD 蓝魂和蓝+青魂的方向设置
 <br>
 骨墙创建脚本(Battle_MakeBoneWall系列)By 1个渣渣
 <br>
-骨墙的bone_box By 1个渣渣
+骨墙的bone_box By 憨憨羊の宇航鸽鸽
 <br>
 圆形骨墙创建脚本(Battle_MakeBoneWallRound)By 憨憨羊の宇航鸽鸽
 <br>
@@ -142,26 +140,26 @@ GB炮生成脚本(Battle_MakeBlaster)By 憨憨羊の宇航鸽鸽 修改基于复
 ## 板子
 Battle_MakePlatform(x,y,\*obj,\*粘性,\*宽度,\*角度,\*水平速度,\*纵向速度,\*遇到框边缘回弹,\*离开房间是否自动摧毁)
 ## 单骨头
-Battle_MakeBone/MenuBone(x,y,长度,水平速度,纵向速度,弹幕颜色类型,是否在战斗框外显示,角度,旋转速度,离开房间是否自动摧毁,\*持续时间,\*obj,\*中间部分的spr,\*尾部的spr)
+Battle_MakeBone/MenuBone(x,y,长度,水平速度,纵向速度,弹幕颜色类型,是否在战斗框外显示,角度,旋转速度,离开房间是否自动摧毁,\*持续时间,\*obj,\*spr)
 <br>
 Battle_MakeBoneH和Battle_MakeBoneV同上 但是不包括角度
 ## 靠边单骨头
-Battle_MakeBoneLeft/Right(y,长度,纵向速度,弹幕颜色类型,是否在战斗框外显示,旋转速度,离开房间是否自动摧毁,\*持续时间,\*obj,\*中间部分的spr,\*尾部的spr)
+Battle_MakeBoneLeft/Right(y,长度,纵向速度,弹幕颜色类型,是否在战斗框外显示,旋转速度,离开房间是否自动摧毁,\*持续时间,\*obj,\*spr)
 <br>
 Battle_MakeBoneTop/Bottom同上 但是y换为x 纵向速度换为横向速度
 ## 双骨头
-Battle_MakeBoneTwoPoints(第1个点的x,第1个点的y,第2个点的x,第2个点的y,弹幕颜色类型,是否在战斗框外显示,离开房间是否自动摧毁,\*持续时间,\*obj,\*中间部分的spr,\*尾部的spr)
+Battle_MakeBoneTwoPoints(第1个点的x,第1个点的y,第2个点的x,第2个点的y,弹幕颜色类型,是否在战斗框外显示,离开房间是否自动摧毁,\*持续时间,\*obj,\*spr)
 <br>
-Battle_MakeBoneTwoH(x,y,水平速度,空隙大小,离开房间是否自动摧毁,\*持续时间,\*obj,\*中间部分的spr,\*尾部的spr)
+Battle_MakeBoneTwoH(x,y,水平速度,空隙大小,离开房间是否自动摧毁,\*持续时间,\*obj,\*spr)
 Battle_MakeBoneTwoV同上 但是水平速度换为纵向速度
 ## 3D立方骨
-Battle_MakeBoneCube(x,y,x角度,y角度,z角度,x旋转速度,y旋转速度,z旋转速度,x尺寸,y尺寸,z尺寸,\*骨头obj,\*骨头中间部分的spr,\*骨头尾部的spr)
+Battle_MakeBoneCube(x,y,x角度,y角度,z角度,x旋转速度,y旋转速度,z旋转速度,x尺寸,y尺寸,z尺寸,\*骨头obj,\*骨头spr)
 ## 骨墙
-Battle_MakeBoneWallBottom/Top/Left/Right(等待时间,长度,持续时间,\*弹幕颜色类型,\*obj,\*骨头中间部分的spr,\*骨头尾部的spr)
+Battle_MakeBoneWallBottom/Top/Left/Right(等待时间,长度,持续时间,\*弹幕颜色类型,\*obj,\*骨头spr)
 <br>
-Battle_MakeBoneWallRound(骨头之间的空隙,骨头尾端到框中心的距离,长度,弹幕颜色类型,等待时间,\*持续时间,\*骨头中间部分的spr,\*骨头尾部的spr)
+Battle_MakeBoneWallRound(骨头之间的空隙,骨头尾端到框中心的距离,长度,弹幕颜色类型,等待时间,\*持续时间,\*骨头obj,\*骨头spr)
 <br>
-Battle_MakeBoneWallRound_Rotate(旋转速度,长度,弹幕颜色类型,等待时间,\*持续时间,\*是否要出现警示框和音效(bone_box_round),\*是否要让骨头伸出而不是直接出现,\*obj,\*骨头中间部分的spr,\*骨头尾部的spr)
+Battle_MakeBoneWallRound_Rotate(旋转速度,长度,弹幕颜色类型,等待时间,\*持续时间,\*是否要出现警示框和音效(bone_box_round),\*是否要让骨头伸出而不是直接出现,\*obj,\*骨头spr)
 <br>
 Battle_MakeBoneWall...Anim系列就不写了 注释都是中文的 而且我也不会用（
 ## GB炮

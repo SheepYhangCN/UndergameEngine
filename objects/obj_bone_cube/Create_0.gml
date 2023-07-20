@@ -13,8 +13,7 @@ scalex=0
 scaley=0
 scalez=0
 obj=battle_bullet_bone
-spr_body=spr_bone_body
-spr_end=bone_end
+spr=spr_bone
 add_vert = function(argument0, argument1, argument2, argument3) //gml_Script_add_vert_gml_Object_obj_cube_Create_0
 {
     if (argument3 == undefined)
@@ -61,7 +60,7 @@ add_edge = function(argument0, argument1) //gml_Script_add_edge_gml_Object_obj_c
     _prop = ds_list_create()
     ds_list_set(_prop, 0, argument0)
     ds_list_set(_prop, 1, argument1)
-    ds_list_set(_prop, 2, Battle_MakeBone(900, 900, 0, 0, 0, 0, 1, 0, 0, 0,-1,obj,spr_body,spr_end))
+    ds_list_set(_prop, 2, Battle_MakeBone(900, 900, 0, 0, 0, 0, 1, 0, 0, 0,-1,obj,spr))
     ds_list_add(edge_list, _prop)
     return;
 }

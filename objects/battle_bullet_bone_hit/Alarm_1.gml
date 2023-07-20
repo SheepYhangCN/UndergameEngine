@@ -1,1 +1,1 @@
-alarm[2] = duration
+alarm[2]=duration

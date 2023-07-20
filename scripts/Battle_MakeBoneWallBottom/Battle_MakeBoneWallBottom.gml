@@ -1,29 +1,26 @@
-///@arg pause,length,duration,*type,*obj,*spr_body,*spr_end
+///@arg pause,length,duration,*type,*obj,*spr
 function Battle_MakeBoneWallBottom(){
 	var PAUSE = argument[0]
     var LENGTH = argument[1]
     var DURATION = argument[2]
     var COLOR = (0 << 0)
 	var OBJ=battle_bullet_bone
-	var SPR_BODY=spr_bone_body
-	var SPR_END=spr_bone_end
+	var SPR=spr_bone
     if (argument_count >= 4)
         COLOR = argument[3]
     if (argument_count >= 5)
         OBJ = argument[4]
     if (argument_count >= 6)
-        SPR_BODY = argument[5]
-    if (argument_count >= 7)
-        SPR_END = argument[6]
-	var SPR_HEIGHT=max(sprite_get_height(SPR_END),sprite_get_height(SPR_BODY))
+        SPR = argument[5]
+	var SPR_HEIGHT=sprite_get_width(SPR)+1
     var ii = 0
     for (i = -3; i < ((battle_board.left + battle_board.right) + SPR_HEIGHT); i += SPR_HEIGHT)
     {
         ii += 1
 		if(DURATION!=-1){
-        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (LENGTH / 2)) + 5), LENGTH, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR_BODY,SPR_END)
+        b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (LENGTH / 2)) + 5), LENGTH, 0, 0, COLOR, 0, 0, 0, ((DURATION + (PAUSE * 2)) + 24),OBJ,SPR)
 		}else{
-		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (LENGTH / 2)) + 5), LENGTH, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR_BODY,SPR_END)
+		b[ii] = Battle_MakeBoneV(((battle_board.x - battle_board.left) + i), (((battle_board.y + battle_board.down) + (LENGTH / 2)) + 5), LENGTH, 0, 0, COLOR, 0, 0, 0, DURATION,OBJ,SPR)
 		}
         with (b[ii])
         {
