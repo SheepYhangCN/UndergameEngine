@@ -47,7 +47,7 @@ function GetString_tChinese(){
 			result="Vape v114.514 已注入"
 			break
 		case "str_vape_uninstalled":
-			result="Vape v114.514 已卸載"
+			result="Vape v114.514 已解除"
 			break
 		case "str_mobile_control_hint":
 			result="按下返回鍵(移動端)或退格鍵&(桌面端)來切換移動端控制。"
@@ -101,7 +101,7 @@ function GetString_tChinese(){
 			result="{font 0}開始遊戲"
 			break
 		case "str_menu_settings":
-			result="{font 0}設置"
+			result="{font 0}設定"
 			break
 		case "str_menu_credits":
 			result="{font 0}鳴謝"
