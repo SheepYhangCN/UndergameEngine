@@ -13,6 +13,20 @@ gpu_set_blendenable(true)
 gpu_set_colorwriteenable(1, 1, 1, 1)
 surface_reset_target()
 
+surface_set_target(_surface4)
+draw_surface(_surface,0,0);
+surface_reset_target();
+
+surface_set_target(_surface)
+	draw_clear_alpha(color_bg,0);
+surface_reset_target();
+
+surface_set_target(_surface)
+draw_surface_ext(application_surface,0,0,1,1,0,c_white,1-alpha_bg);
+draw_surface(_surface4,0,0);
+surface_reset_target();
+
+
 for(var i = 0; i < global.borderCount; i++){
 	bb = ds_list_find_value(global.borders_list,i);
 	if(instance_exists(bb)){
@@ -20,7 +34,7 @@ for(var i = 0; i < global.borderCount; i++){
 	}
 }
 
-for(var i = 0; i < global.borderCount; i++){	//遍历所有框, 应用遮罩效果
+for(var i = 0; i < global.borderCount; i++){	//遍历所有框，应用遮罩效果
 	bb = ds_list_find_value(global.borders_list,i);
 	if(instance_exists(bb)){
 		bb.replaceSurfaceAlpha(_surface, 0, 0, i == 0);
