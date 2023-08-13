@@ -1,9 +1,9 @@
 if(keyboard_check_pressed(vk_insert)){
 	global.debug=!global.debug
+	show_debug_overlay(global.debug);
 }
 
 if(global.debug){
-	show_debug_overlay(true);
 	if(!instance_exists(obj_console)){
 	instance_create_depth(0,0,depth-1,obj_console)}
 	if(keyboard_check_pressed(vk_end)){
@@ -198,8 +198,7 @@ if(Player_IsInBattle()){
 	if(keyboard_check_pressed(vk_f9)){
 		audio_stop_all()
 	}
-}else if(global.debug = 0){
-		show_debug_overlay(false);
+}else{
 		global.undead = 0
 		if(instance_exists(obj_console)){
 		instance_destroy(obj_console)}
