@@ -585,7 +585,7 @@ function GetString_English(){
 			result=" - ULB Sans x NMD Chara Fight"
 			break
 		case "str_games_ulb_nmd":
-			result="ULB Sans x NMD Chara Fight"
+			result="[[Unfinished]ULB Sans x NMD Chara Fight"
 			break
 		case "str_poyoroid_caption":
 			result="Pepontale - Poyoroid Fight"

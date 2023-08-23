@@ -585,7 +585,7 @@ function GetString_sChinese(){
 			result=" - 终焉之息 Sans x 再无交易 Chara 战"
 			break
 		case "str_games_ulb_nmd":
-			result="[font_chs]终焉之息[font_menu] Sans x [font_chs]再无交易[font_menu] Chara [font_chs]战"
+			result="[[[font_chs]未完成[font_menu]][font_chs]终焉之息[font_menu] Sans x [font_chs]再无交易[font_menu] Chara [font_chs]战"
 			break
 		case "str_poyoroid_caption":
 			result="Pepontale - Poyoroid 战"

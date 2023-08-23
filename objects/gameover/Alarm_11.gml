@@ -2,6 +2,8 @@ audio_stop_all()
 fader.alpha=0
 Player_Load(Flag_GetSaveSlot())
 Flag_Load(FLAG_TYPE.SETTINGS)
+instance_destroy(closed_captions);
+instance_create_depth(0,0,0,closed_captions);
 if(file_exists(working_directory+"/file"+string(Flag_GetSaveSlot())+".ini")&&directory_exists(working_directory+"/flag/"+string(Flag_GetSaveSlot()))){
 room_goto(asset_get_index(Flag_Get(FLAG_TYPE.STATIC,FLAG_STATIC.ROOM,"room_lobby")))
 }else{

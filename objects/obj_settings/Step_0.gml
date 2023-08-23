@@ -71,8 +71,8 @@ fullscreen_text="< "+GetString("str_settings_on")+" {color `gray`}>"}
 //边框
 if(border_var=0){
 if(choice=6){
-border_text="{color `gray`}<{color `yellow`} "+GetString("str_settings_none")+" >"}else{
-border_text="{color `gray`}<{color `white`} "+GetString("str_settings_none")+" >"}}
+border_text="{color `gray`}<{color `yellow`} "+GetString("str_settings_none")+" {color `gray`}>"}else{
+border_text="{color `gray`}<{color `white`} "+GetString("str_settings_none")+" {color `gray`}>"}}
 if(border_var=1){
 border_text="< "+GetString("str_border_simple")+" >"}
 if(border_var=2){
@@ -126,11 +126,11 @@ mode_val=0
 audio_play_sound(snd_menu_confirm,0,0)}
 Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.MODE,mode_val)}
 
-if(choice=6){
+if(choice=6){/*
 if(border_var>0){
 audio_play_sound(snd_menu_confirm,0,0)
 border_var-=1}
-Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)
+Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)*/
 }
 //Flag_Save(FLAG_TYPE.SETTINGS)
 }
@@ -163,10 +163,10 @@ audio_play_sound(snd_menu_confirm,0,0)}
 Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.MODE,mode_val)}
 
 if(choice=6){
-if(border_var<4){
+/*if(border_var<4){
 audio_play_sound(snd_menu_confirm,0,0)
 border_var+=1}
-Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)
+Flag_Set(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,border_var)*/
 }
 //Flag_Save(FLAG_TYPE.SETTINGS)
 }

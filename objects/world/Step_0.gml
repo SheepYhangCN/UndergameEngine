@@ -108,6 +108,7 @@ cursor_sprite=spr_cursor
 cursor_sprite=noone}
 
 //边框
+/*
 if(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)>0){
 if(Border_GetSprite()!=Border_Get_Sprite(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0))){
 Border_SetSprite(Border_Get_Sprite(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)))}
@@ -115,3 +116,4 @@ Border_SetSprite(Border_Get_Sprite(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BOR
 	//Border_SetSprite(Border_Get_DynamicSprite())
 }//}
 else if(Border_IsEnabled()){Border_SetEnabled(false)}
+*/if(Border_IsEnabled()){Border_SetEnabled(false);}

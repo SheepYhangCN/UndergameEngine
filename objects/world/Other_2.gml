@@ -75,11 +75,12 @@ var default_lang=0
 if(os_get_language()="zh"){default_lang=1}
 Language_Set(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.LANGUAGE,default_lang))
 //边框
-border_=Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)
+/*border_=Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)
 if(border_=0){
 Border_SetEnabled(false)}else{
 Border_SetEnabled(true)
-Border_SetSprite(Border_Get_Sprite(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)))}
+Border_SetSprite(Border_Get_Sprite(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)))}*/
+Border_SetEnabled(false);
 //全屏
 if(!(os_type=os_android||os_type=os_ios||os_type=os_winphone)){
 if(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.FULLSCREEN,1)=2){
