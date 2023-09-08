@@ -238,7 +238,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"CoroutineBroadcast","path":"scripts/CoroutineBroadcast/CoroutineBroadcast.yy",},},
@@ -1662,6 +1662,7 @@
     {"roomId":{"name":"room_logo_ppt","path":"rooms/room_logo_ppt/room_logo_ppt.yy",},},
     {"roomId":{"name":"room_ppt_poyoroid_end","path":"rooms/room_ppt_poyoroid_end/room_ppt_poyoroid_end.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],
