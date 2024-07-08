@@ -660,7 +660,7 @@ function GetString_English(){
 			result="{variable `battle_enemy_poyoroid` `_face` 1}This is the&final warning!{pause}{clear}{variable `battle_enemy_poyoroid` `_face` 3}Ready to suffer&in next turn!{variable `battle_enemy_poyoroid` `_face` 0}"
 			break
 		case "str_poyoroid_menu_dialog_10":
-			result="* Why did so many weird things appeared?"
+			result="* Why did so many weird&  things appeared?"
 			break
 		case "str_poyoroid_dialog_10":
 			result="{variable `battle_enemy_poyoroid` `_face` 4}You actually made it&this far??{pause}{variable `battle_enemy_poyoroid` `_face` 1}{clear}Then, this is my&{color `red`}trump card{color `black`}!{pause}{variable `battle_enemy_poyoroid` `_face` 0}{end}"

@@ -45,6 +45,9 @@ case 500:
 	bg.alarm[2]=63
 	Anim_Create(bg,"image_yscale",0,0,0,-1.5,60,2)
 	Anim_Create(bg,"tempscale",0,0,-1.5,0,1,60)
+	Player_SetLv(20);
+	Player_SetHpMax(Player_GetLvHpMax(Player_GetLv()));
+	Player_SetHp(Player_GetHpMax());
 	break
 case 530:
 	instance_destroy(a)
@@ -59,6 +62,32 @@ case 770:
 	battle_enemy_ulb_nmd_p1._face=3
 	battle_enemy_ulb_nmd_p1.chara_face=6
 	break
+case 920:
+	fader.color=c_white;
+	Anim_Create(camera,"scale_x",0,0,1,1,30,10);
+	Anim_Create(camera,"scale_y",0,0,1,1,30,10);
+	Anim_Create(camera,"scale_x",0,0,2,-1,30,40)
+	Anim_Create(camera,"scale_y",0,0,2,-1,30,40);
+	Anim_Create(fader,"alpha",0,0,0,1,30);
+	Anim_Create(fader,"alpha",0,0,1,-1,20,50);
+	break;
+case 930:
+	camera.target=battle_board;
+	break;
+case 950:
+	audio_play_sound(snd_dtknife_spawn,0,0);
+	instance_destroy(battle_button_mercy);
+	break;
+case 985:
+	Anim_Destroy(camera);
+	camera.scale_x=1;
+	camera.scale_y=1;
+	break;
+case 990:
+	camera.target=noone;
+	Anim_Create(camera,"y",0,0,camera.y,-camera.y,10);
+	Anim_Create(camera,"x",0,0,camera.x,-camera.x,10);
+	break;
 case 1000:
 	battle_enemy_ulb_nmd_p1._face=0
 	battle_enemy_ulb_nmd_p1.chara_face=0

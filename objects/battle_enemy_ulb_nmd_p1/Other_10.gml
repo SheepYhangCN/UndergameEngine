@@ -20,7 +20,7 @@ _legs= 0
 sweat=0
 alarm[2]=1
 Battle_SetEnemyDEF(_enemy_slot,1);
-Player_SetLv(20)
+Player_SetLv(19)
 Player_SetHpMax(Player_GetLvHpMax(Player_GetLv()))
 Player_SetHp(Player_GetHpMax())
 Battle_SetFleeable(false)
