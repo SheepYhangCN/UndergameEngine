@@ -447,7 +447,7 @@ function GetString_tChinese(){
 		result="* 你吃了{color `yellow`}糖萌蘆{color `white`}。&{sleep 15}* UNDERTALE Engine永遠滴神!&{sleep 15}* 你的HP已滿!"
 		break
 	case "str_item_tml_info":
-		result="* {color `yellow`}糖萌蘆{color `white`}&{sleep 20}* UNDERTALE Engine的作者。&{sleep 20}* 可以讓你的HP回滿。{pause}{clear}* 記住 是糖萌(meng)蘆{sleep 20}&* 不是糖葫(hu)蘆"
+		result="* {color `yellow`}糖萌蘆{color `white`}&{sleep 20}* UNDERTALE Engine的作者。&{sleep 20}* 可以讓你的HP回滿。{pause}{clear}* 記住 是糖萌(ㄇㄥˊ)蘆{sleep 20}&* 不是糖葫(ㄏㄨˊ)蘆"
 		break
 	case "str_item_tml_drop":
 		result="* 你扔掉了{color `yellow`}糖萌蘆{color `white`}。"
